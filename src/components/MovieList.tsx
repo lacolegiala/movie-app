@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import instance from '../apiAgent'
 import { Movie } from '../types'
 
 const MovieList: React.FC = () => {
   const [topRatedmovies, setTopRatedMovies] = useState<Movie[]>([])
 
   useEffect(() => {
-    const baseUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`
     const getTopRatedMovies = async () => {
       try {
-        const topRatedMoviesResponse = await axios.get(baseUrl)
+        const topRatedMoviesResponse = await instance.get(`top_rated?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`)
         setTopRatedMovies(topRatedMoviesResponse.data.results)
       } catch (error) {
         console.error(error)
