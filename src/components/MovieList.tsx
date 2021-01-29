@@ -7,6 +7,8 @@ const MovieList: React.FC = () => {
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
 
+  const posterBaseUrl = 'http://image.tmdb.org/t/p/w185'
+
   useEffect(() => {
     const getTopRatedMovies = async () => {
       try {
@@ -27,15 +29,33 @@ const MovieList: React.FC = () => {
     <div className="Frontpage">
       <h2>New</h2>
       {newMovies !== [] && newMovies.map(movie =>
-        <li>{movie.title}</li>  
+        <div> 
+          <h3>{movie.title}</h3> 
+          <img
+            src={posterBaseUrl + movie.poster_path}
+            alt='Poster of movie'
+          /> 
+        </div>
       )}
       <h2>Most popular</h2>
       {popularMovies !== [] && popularMovies.map(movie =>
-        <li>{movie.title}</li>  
-        )}
+        <div>
+          <h3>{movie.title}</h3>  
+          <img
+            src={posterBaseUrl + movie.poster_path}
+            alt='Poster of movie'
+          />
+        </div>
+      )}
       <h2>Top rated movies</h2>
       {topRatedmovies !== [] && topRatedmovies.map(movie =>
-        <li>{movie.title}</li>  
+      <div>
+        <h3>{movie.title}</h3>
+        <img
+          src={posterBaseUrl + movie.poster_path}
+          alt='Poster of movie'
+        />
+      </div>
       )}
     </div>
   )
