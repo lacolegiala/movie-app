@@ -2,9 +2,11 @@
 
 ## Working hours
 
-| Main task     | Date  | Hours |
-| ------------- |:------| -----:|
-|               |29.11  |       |
+| Main task                       | Date  | Hours |
+| --------------------------------|:------| -----:|
+|Planning                         |26.1   |   4   |
+|Planning                         |27.1   |   6   |
+|Making the base of the frontpage |29.1   |       |
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
