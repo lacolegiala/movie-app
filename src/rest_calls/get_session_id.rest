@@ -1,0 +1,6 @@
+POST https://api.themoviedb.org/3/authentication/session/new?api_key=d5e44dd33260c00852e5fd0e20c58722
+Content-Type: application/json
+
+{
+  "request_token": "f25cf23725507f479b60663db1ef7c80fc9c79cf"
+}
