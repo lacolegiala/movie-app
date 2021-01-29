@@ -27,30 +27,30 @@ const MovieList: React.FC = () => {
 
   return (
     <div className="Frontpage">
-      <h2>New</h2>
+      <h1>New</h1>
       {newMovies !== [] && newMovies.map(movie =>
         <div> 
-          <h3>{movie.title}</h3> 
+          <h2>{movie.title}</h2> 
           <img
             src={posterBaseUrl + movie.poster_path}
             alt='Poster of movie'
           /> 
         </div>
       )}
-      <h2>Most popular</h2>
+      <h1>Most popular</h1>
       {popularMovies !== [] && popularMovies.map(movie =>
         <div>
-          <h3>{movie.title}</h3>  
+          <h2>{movie.title}</h2>  
           <img
             src={posterBaseUrl + movie.poster_path}
             alt='Poster of movie'
           />
         </div>
       )}
-      <h2>Top rated movies</h2>
+      <h1>Top rated movies</h1>
       {topRatedmovies !== [] && topRatedmovies.map(movie =>
       <div>
-        <h3>{movie.title}</h3>
+        <h2>{movie.title}</h2>
         <img
           src={posterBaseUrl + movie.poster_path}
           alt='Poster of movie'
