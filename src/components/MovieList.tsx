@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import instance from '../apiAgent'
 import { Movie } from '../types'
+import MovieInfo from './Movie'
 
 const MovieList: React.FC = () => {
   const [topRatedmovies, setTopRatedMovies] = useState<Movie[]>([])
@@ -27,36 +28,9 @@ const MovieList: React.FC = () => {
 
   return (
     <div className="Frontpage">
-      <h1>New</h1>
-      {newMovies !== [] && newMovies.map(movie =>
-        <div> 
-          <h2>{movie.title}</h2> 
-          <img
-            src={posterBaseUrl + movie.poster_path}
-            alt='Poster of movie'
-          /> 
-        </div>
-      )}
-      <h1>Most popular</h1>
-      {popularMovies !== [] && popularMovies.map(movie =>
-        <div>
-          <h2>{movie.title}</h2>  
-          <img
-            src={posterBaseUrl + movie.poster_path}
-            alt='Poster of movie'
-          />
-        </div>
-      )}
-      <h1>Top rated movies</h1>
-      {topRatedmovies !== [] && topRatedmovies.map(movie =>
-      <div>
-        <h2>{movie.title}</h2>
-        <img
-          src={posterBaseUrl + movie.poster_path}
-          alt='Poster of movie'
-        />
-      </div>
-      )}
+      <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
+      <MovieInfo title='Most popular' movies={popularMovies} posterBaseUrl={posterBaseUrl} />
+      <MovieInfo title='Top rated' movies={topRatedmovies} posterBaseUrl={posterBaseUrl} />
     </div>
   )
 }
