@@ -11,7 +11,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
   return (
     <div>
       <h1>New</h1>
-        {props.movies !== [] && props.movies.map(movie =>
+        {props.movies.map(movie =>
           <div> 
             <h2>{movie.title}</h2> 
             <img
