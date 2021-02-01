@@ -16,11 +16,11 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
           <div key={movie.id}> 
             <Link to={`/movies/${movie.id}`}>
               <h2>{movie.title}</h2>
+              <img
+                src={props.posterBaseUrl + movie.poster_path}
+                alt='Poster of movie'
+              /> 
             </Link> 
-            <img
-              src={props.posterBaseUrl + movie.poster_path}
-              alt='Poster of movie'
-            /> 
           </div>
         )}
     </div>
