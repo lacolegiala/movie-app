@@ -27,6 +27,11 @@ const MovieFullInfo: React.FC = () => {
       {movie !== undefined ?
         <div>
           <h1>{movie.title}</h1>
+          {movie.genres.map(genre =>
+            <li key={genre.id}>
+              {genre.name}
+            </li>  
+          )}
           <img
             src={posterBaseUrl + movie.poster_path}
             alt='Poster of movie'
