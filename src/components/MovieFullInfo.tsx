@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import instance from '../apiAgent'
-import { Movie } from '../types'
+import { MovieDetails } from '../types'
 
-type MovieInfoProps = {
-  movies: Movie[]
-}
-
-const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
-  const [movie, setMovie] = useState<Movie | undefined>()
+const MovieFullInfo: React.FC = () => {
+  const [movie, setMovie] = useState<MovieDetails | undefined>()
 
   const {id} = useParams<{id: string}>()
 

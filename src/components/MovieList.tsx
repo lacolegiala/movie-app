@@ -39,7 +39,7 @@ const MovieList: React.FC = () => {
       <Router history={history}>
         <Switch>
           <Route path='/movies/:id'>
-            <MovieFullInfo movies={allMovies}></MovieFullInfo>
+            <MovieFullInfo />
           </Route>
           <Route exact path='/'>
             <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
