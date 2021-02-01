@@ -10,7 +10,7 @@ type MovieProps = {
 const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
   return (
     <div>
-      <h1>New</h1>
+      <h1>{props.title}</h1>
         {props.movies.map(movie =>
           <div> 
             <h2>{movie.title}</h2> 
