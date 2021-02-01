@@ -8,6 +8,8 @@ const MovieFullInfo: React.FC = () => {
 
   const {id} = useParams<{id: string}>()
 
+  const posterBaseUrl = 'http://image.tmdb.org/t/p/w300'
+
   useEffect(() => {
     const getMovieInfo = async () => {
       try {
@@ -23,7 +25,13 @@ const MovieFullInfo: React.FC = () => {
   return (
     <div>
       {movie !== undefined ?
-        <h1>{movie.title}</h1>
+        <div>
+          <h1>{movie.title}</h1>
+          <img
+            src={posterBaseUrl + movie.poster_path}
+            alt='Poster of movie'
+          /> 
+        </div>
         : <h1>Loading</h1>
       }
     </div>
