@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
-import tmdbApiClient from '../tmdbApiClient'
+import {tmdbApiClient, apiKey} from '../tmdbApiClient'
 import { Movie } from '../types'
 import MovieInfo from './Movie'
 import MovieFullInfo from './MovieFullInfo'
@@ -19,9 +19,9 @@ const MovieList: React.FC = () => {
     const getMovies = async () => {
       try {
         const [topRatedMoviesResponse, popularMoviesResponse, newMoviesResponse] = await Promise.all([
-          tmdbApiClient.get(`top_rated?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`),
-          tmdbApiClient.get(`popular?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`),
-          tmdbApiClient.get(`now_playing?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`)
+          tmdbApiClient.get(`top_rated?api_key=${apiKey}&language=en-US&page=1`),
+          tmdbApiClient.get(`popular?api_key=${apiKey}&language=en-US&page=1`),
+          tmdbApiClient.get(`now_playing?api_key=${apiKey}&language=en-US&page=1`)
         ])
         setTopRatedMovies(topRatedMoviesResponse.data.results)
         setPopularMovies(popularMoviesResponse.data.results)
