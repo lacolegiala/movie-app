@@ -6,7 +6,9 @@
 | --------------------------------|:------| -----:|
 |Planning                         |26.1   |   4   |
 |Planning                         |27.1   |   6   |
-|Making the base of the frontpage |29.1   |       |
+|Making the base of the frontpage |29.1   |   8   |
+
+[Link to production](https://amazing-northcutt-a6f3bd.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
