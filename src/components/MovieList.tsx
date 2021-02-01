@@ -9,10 +9,10 @@ import MovieFullInfo from './MovieFullInfo'
 const history = createBrowserHistory();
 
 const MovieList: React.FC = () => {
-  const [topRatedmovies, setTopRatedMovies] = useState<Movie[]>([])
+  const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([])
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
-
+  const allMovies = [...topRatedMovies, ...popularMovies, ...newMovies]
 
   const posterBaseUrl = 'http://image.tmdb.org/t/p/w185'
 
@@ -39,12 +39,12 @@ const MovieList: React.FC = () => {
       <Router history={history}>
         <Switch>
           <Route path='/movies/:id'>
-            <MovieFullInfo movies={topRatedmovies}></MovieFullInfo>
+            <MovieFullInfo movies={allMovies}></MovieFullInfo>
           </Route>
           <Route exact path='/'>
             <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
             <MovieInfo title='Most popular' movies={popularMovies} posterBaseUrl={posterBaseUrl} />
-            <MovieInfo title='Top rated' movies={topRatedmovies} posterBaseUrl={posterBaseUrl} />
+            <MovieInfo title='Top rated' movies={topRatedMovies} posterBaseUrl={posterBaseUrl} />
           </Route>
         </Switch>
       </Router>
