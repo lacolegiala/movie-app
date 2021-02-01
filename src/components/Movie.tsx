@@ -14,7 +14,9 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
       <h1>{props.title}</h1>
         {props.movies.map(movie =>
           <div key={movie.id}> 
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link> 
+            <Link to={`/movies/${movie.id}`}>
+              <h2>{movie.title}</h2>
+            </Link> 
             <img
               src={props.posterBaseUrl + movie.poster_path}
               alt='Poster of movie'
