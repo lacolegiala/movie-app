@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { createImageUrl } from '../imageUrl'
 import {tmdbApiClient, apiKey} from '../tmdbApiClient'
 import { MovieDetails } from '../types'
 
@@ -7,8 +8,6 @@ const MovieFullInfo: React.FC = () => {
   const [movie, setMovie] = useState<MovieDetails | undefined>()
 
   const {id} = useParams<{id: string}>()
-
-  const posterBaseUrl = 'http://image.tmdb.org/t/p/w300'
 
   useEffect(() => {
     const getMovieInfo = async () => {
@@ -33,7 +32,7 @@ const MovieFullInfo: React.FC = () => {
             </li>  
           )}
           <img
-            src={posterBaseUrl + movie.poster_path}
+            src={createImageUrl(movie.poster_path, {width: 500})}
             alt='Poster of movie'
           />
           <h2>Synopsis</h2> 
