@@ -6,7 +6,6 @@ import { Movie } from '../types'
 type MovieProps = {
   title: string
   movies: Movie[]
-  posterBaseUrl: string
 }
 
 

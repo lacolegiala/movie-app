@@ -13,8 +13,6 @@ const MovieList: React.FC = () => {
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
 
-  const posterBaseUrl = 'http://image.tmdb.org/t/p/w185'
-
   useEffect(() => {
     const getMovies = async () => {
       try {
@@ -41,9 +39,9 @@ const MovieList: React.FC = () => {
             <MovieFullInfo />
           </Route>
           <Route exact path='/'>
-            <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
-            <MovieInfo title='Most popular' movies={popularMovies} posterBaseUrl={posterBaseUrl} />
-            <MovieInfo title='Top rated' movies={topRatedMovies} posterBaseUrl={posterBaseUrl} />
+            <MovieInfo title='New' movies={newMovies} />
+            <MovieInfo title='Most popular' movies={popularMovies} />
+            <MovieInfo title='Top rated' movies={topRatedMovies} />
           </Route>
         </Switch>
       </Router>
