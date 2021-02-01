@@ -13,11 +13,13 @@ const MovieList: React.FC = () => {
   useEffect(() => {
     const getTopRatedMovies = async () => {
       try {
-        const topRatedMoviesResponse = await instance.get(`top_rated?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`)
+        const [topRatedMoviesResponse, popularMoviesResponse, newMoviesResponse] = await Promise.all([
+          instance.get(`top_rated?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`),
+          instance.get(`popular?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`),
+          instance.get(`now_playing?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`)
+        ])
         setTopRatedMovies(topRatedMoviesResponse.data.results)
-        const popularMoviesResponse = await instance.get(`popular?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`)
         setPopularMovies(popularMoviesResponse.data.results)
-        const newMoviesResponse = await instance.get(`now_playing?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`)
         setNewMovies(newMoviesResponse.data.results)
       } catch (error) {
         console.error(error)
