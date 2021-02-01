@@ -17,7 +17,7 @@ const MovieList: React.FC = () => {
   const posterBaseUrl = 'http://image.tmdb.org/t/p/w185'
 
   useEffect(() => {
-    const getTopRatedMovies = async () => {
+    const getMovies = async () => {
       try {
         const [topRatedMoviesResponse, popularMoviesResponse, newMoviesResponse] = await Promise.all([
           instance.get(`top_rated?api_key=d5e44dd33260c00852e5fd0e20c58722&language=en-US&page=1`),
@@ -31,7 +31,7 @@ const MovieList: React.FC = () => {
         console.error(error)
       }
     }
-    getTopRatedMovies()
+    getMovies()
   }, [])
 
   return (
