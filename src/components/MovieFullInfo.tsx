@@ -35,7 +35,9 @@ const MovieFullInfo: React.FC = () => {
           <img
             src={posterBaseUrl + movie.poster_path}
             alt='Poster of movie'
-          /> 
+          />
+          <h2>Synopsis</h2> 
+          <div>{movie.overview}</div>
         </div>
         : <h1>Loading</h1>
       }
