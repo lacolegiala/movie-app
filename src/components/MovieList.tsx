@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { Route, Router, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history';
 import instance from '../apiAgent'
 import { Movie } from '../types'
 import MovieInfo from './Movie'
+import MovieFullInfo from './MovieFullInfo'
+const history = createBrowserHistory();
 
 const MovieList: React.FC = () => {
   const [topRatedmovies, setTopRatedMovies] = useState<Movie[]>([])
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
+
 
   const posterBaseUrl = 'http://image.tmdb.org/t/p/w185'
 
@@ -30,9 +35,18 @@ const MovieList: React.FC = () => {
 
   return (
     <div className="Frontpage">
-      <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
-      <MovieInfo title='Most popular' movies={popularMovies} posterBaseUrl={posterBaseUrl} />
-      <MovieInfo title='Top rated' movies={topRatedmovies} posterBaseUrl={posterBaseUrl} />
+      <Router history={history}>
+        <Switch>
+          <Route path='/movies/:id'>
+            <MovieFullInfo></MovieFullInfo>
+          </Route>
+          <Route exact path='/'>
+            <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
+            <MovieInfo title='Most popular' movies={popularMovies} posterBaseUrl={posterBaseUrl} />
+            <MovieInfo title='Top rated' movies={topRatedmovies} posterBaseUrl={posterBaseUrl} />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }
