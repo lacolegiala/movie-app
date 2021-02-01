@@ -12,7 +12,6 @@ const MovieList: React.FC = () => {
   const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([])
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
-  const allMovies = [...topRatedMovies, ...popularMovies, ...newMovies]
 
   const posterBaseUrl = 'http://image.tmdb.org/t/p/w185'
 
