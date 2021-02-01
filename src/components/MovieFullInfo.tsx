@@ -3,12 +3,15 @@ import { useParams } from 'react-router-dom'
 import { Movie } from '../types'
 
 type MovieInfoProps = {
-  movie: Movie
+  movies: Movie[]
 }
 
-const MovieFullInfo: React.FC = () => {
+const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
+  const {id} = useParams<{id: string | undefined}>()
+  console.log('raaaaaa', id)
+  // const movie = props.movies.find(movie => movie.id === id)
   return (
-    <h1>nakke</h1>
+    <h1>{id}</h1>
   )
 }
 

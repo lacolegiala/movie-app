@@ -5,6 +5,7 @@ import instance from '../apiAgent'
 import { Movie } from '../types'
 import MovieInfo from './Movie'
 import MovieFullInfo from './MovieFullInfo'
+
 const history = createBrowserHistory();
 
 const MovieList: React.FC = () => {
@@ -38,7 +39,7 @@ const MovieList: React.FC = () => {
       <Router history={history}>
         <Switch>
           <Route path='/movies/:id'>
-            <MovieFullInfo></MovieFullInfo>
+            <MovieFullInfo movies={topRatedmovies}></MovieFullInfo>
           </Route>
           <Route exact path='/'>
             <MovieInfo title='New' movies={newMovies} posterBaseUrl={posterBaseUrl} />
