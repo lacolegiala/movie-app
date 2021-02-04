@@ -8,7 +8,6 @@ type MovieProps = {
   movies: Movie[]
 }
 
-
 const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
   
   return (
