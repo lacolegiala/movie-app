@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { useQuery } from '../hooks/useQuery';
+import { createImageUrl } from '../imageUrl';
 import { apiKey, tmdbApiClient } from '../tmdbApiClient';
 import { Movie } from '../types';
 
@@ -25,7 +27,13 @@ const SearchResults: React.FC = () => {
       <h1>Search results for '{queryParameter}'</h1>
       {results.map(result => 
         <div key={result.id}>
-          {result.title}
+          <Link to={`/movies/${result.id}`}>
+            <h2>{result.title}</h2>
+            <img
+              src={createImageUrl(result.poster_path, {width: 300})}
+              alt='Poster of movie'
+            /> 
+          </Link> 
         </div>  
       )}
     </div>
