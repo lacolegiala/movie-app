@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 
 const SearchBar: React.FC = () => {
   const [value, setValue] = useState('')
+  const history = useHistory();
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
@@ -9,9 +11,9 @@ const SearchBar: React.FC = () => {
   
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     console.log(value)
+    history.push(`/search?query=${value}`)
     event.preventDefault()
   }
-
   return (
     <form onSubmit={handleSubmit}>
       <label>
