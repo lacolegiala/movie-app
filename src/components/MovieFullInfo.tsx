@@ -12,7 +12,7 @@ const MovieFullInfo: React.FC = () => {
   useEffect(() => {
     const getMovieInfo = async () => {
       try {
-        const movieInfo = await tmdbApiClient.get(`${id}?api_key=${apiKey}&language=en-US`)
+        const movieInfo = await tmdbApiClient.get(`movie/${id}?api_key=${apiKey}&language=en-US`)
         setMovie(movieInfo.data)
       } catch (error) {
         console.error(error)

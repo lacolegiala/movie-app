@@ -13,9 +13,9 @@ const Home: React.FC = () => {
     const getMovies = async () => {
       try {
         const [topRatedMoviesResponse, popularMoviesResponse, newMoviesResponse] = await Promise.all([
-          tmdbApiClient.get(`top_rated?api_key=${apiKey}&language=en-US&page=1`),
-          tmdbApiClient.get(`popular?api_key=${apiKey}&language=en-US&page=1`),
-          tmdbApiClient.get(`now_playing?api_key=${apiKey}&language=en-US&page=1`)
+          tmdbApiClient.get(`movie/top_rated?api_key=${apiKey}&language=en-US&page=1`),
+          tmdbApiClient.get(`movie/popular?api_key=${apiKey}&language=en-US&page=1`),
+          tmdbApiClient.get(`movie/now_playing?api_key=${apiKey}&language=en-US&page=1`)
         ])
         setTopRatedMovies(topRatedMoviesResponse.data.results)
         setPopularMovies(popularMoviesResponse.data.results)
