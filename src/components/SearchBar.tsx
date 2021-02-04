@@ -10,7 +10,6 @@ const SearchBar: React.FC = () => {
   }
   
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    console.log(value)
     history.push(`/search?query=${value}`)
     event.preventDefault()
   }
