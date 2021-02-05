@@ -5,7 +5,7 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const getToken = async () => {
+  const login = async () => {
     try {
       const tokenResponse = await tmdbApiClient.get('authentication/token/new')
 
@@ -32,7 +32,7 @@ const Login: React.FC = () => {
   function onSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     console.log('Logged in', username, password)
     event.preventDefault()
-    getToken()
+    login()
   }
 
   return (
