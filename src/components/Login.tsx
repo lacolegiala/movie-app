@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import { tmdbApiClient } from '../tmdbApiClient'
 
@@ -9,7 +8,6 @@ const Login: React.FC = () => {
   const getToken = async () => {
     try {
       const tokenResponse = await tmdbApiClient.get('authentication/token/new')
-      console.log('token', tokenResponse.data)
 
       const credentials = {
         username: username,
