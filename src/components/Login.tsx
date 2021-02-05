@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { tmdbApiClient } from '../tmdbApiClient'
+
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  const history = useHistory()
 
   const login = async () => {
     try {
@@ -17,6 +21,8 @@ const Login: React.FC = () => {
       const loginResponse = await tmdbApiClient.post('authentication/token/validate_with_login', credentials)
       const sessionIdResponse  = await tmdbApiClient.post('authentication/session/new', {request_token: loginResponse.data.request_token})
       console.log('session id', sessionIdResponse)
+      history.push('/')
+      
     } catch {
       console.log('error')
     }
