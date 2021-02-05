@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { createImageUrl } from '../imageUrl'
+import { createPosterUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { MovieDetails } from '../types'
 
@@ -33,7 +33,7 @@ const MovieFullInfo: React.FC = () => {
             </li>  
           )}
           <img
-            src={createImageUrl(movie.poster_path, {width: 500})}
+            src={createPosterUrl(movie.poster_path, {width: 500})}
             alt='Poster of movie'
           />
           <h2>Synopsis</h2> 

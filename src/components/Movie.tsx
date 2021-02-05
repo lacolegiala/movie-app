@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { createImageUrl } from '../imageUrl'
+import { createPosterUrl } from '../imageUrl'
 import { Movie } from '../types'
 
 type MovieProps = {
@@ -18,7 +18,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
           <Link to={`/movies/${movie.id}`}>
             <h2>{movie.title}</h2>
             <img
-              src={createImageUrl(movie.poster_path, {width: 300})}
+              src={createPosterUrl(movie.poster_path, {width: 300})}
               alt='Poster of movie'
             /> 
           </Link> 
