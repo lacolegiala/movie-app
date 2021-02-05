@@ -37,7 +37,6 @@ const Login: React.FC = () => {
   }
   
   function onSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    console.log('Logged in', username, password)
     event.preventDefault()
     login()
   }
