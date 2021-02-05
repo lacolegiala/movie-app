@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useQuery } from '../hooks/useQuery';
 import { createImageUrl } from '../imageUrl';
-import { apiKey, tmdbApiClient } from '../tmdbApiClient';
+import { tmdbApiClient } from '../tmdbApiClient';
 import { Movie } from '../types';
 
 const SearchResults: React.FC = () => {
@@ -13,7 +13,7 @@ const SearchResults: React.FC = () => {
   useEffect(() => {
     const getResults = async () => {
       try {
-        const resultInfo = await tmdbApiClient.get(`search/movie?api_key=${apiKey}&language=en-US&query=${queryParameter}&page=1&include_adult=false`)
+        const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=1&include_adult=false`)
         setResults(resultInfo.data.results)
       } catch {
         console.log('error')

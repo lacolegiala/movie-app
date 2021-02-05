@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { createImageUrl } from '../imageUrl'
-import {tmdbApiClient, apiKey} from '../tmdbApiClient'
+import { tmdbApiClient } from '../tmdbApiClient'
 import { MovieDetails } from '../types'
 
 const MovieFullInfo: React.FC = () => {
@@ -12,7 +12,7 @@ const MovieFullInfo: React.FC = () => {
   useEffect(() => {
     const getMovieInfo = async () => {
       try {
-        const movieInfo = await tmdbApiClient.get(`movie/${id}?api_key=${apiKey}&language=en-US`)
+        const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US`)
         setMovie(movieInfo.data)
       } catch (error) {
         console.error(error)
