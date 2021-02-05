@@ -24,6 +24,7 @@ const SearchResults: React.FC = () => {
 
   return (
     <div>
+      <Link to='/'>Home</Link>
       <h1>Search results for '{queryParameter}'</h1>
       {results.map(result => 
         <div key={result.id}>

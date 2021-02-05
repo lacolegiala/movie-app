@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { createImageUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { MovieDetails } from '../types'
@@ -25,6 +25,7 @@ const MovieFullInfo: React.FC = () => {
     <div>
       {movie !== undefined ?
         <div>
+          <Link to='/'>Home</Link>
           <h1>{movie.title}</h1>
           {movie.genres.map(genre =>
             <li key={genre.id}>
