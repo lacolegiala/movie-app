@@ -15,7 +15,8 @@ const Login: React.FC = () => {
         request_token: tokenResponse.data.request_token
       }
       const loginResponse = await tmdbApiClient.post('authentication/token/validate_with_login', credentials)
-      console.log('login response', loginResponse)
+      const sessionIdResponse  = await tmdbApiClient.post('authentication/session/new', {request_token: loginResponse.data.request_token})
+      console.log('session id', sessionIdResponse)
     } catch {
       console.log('error')
     }
