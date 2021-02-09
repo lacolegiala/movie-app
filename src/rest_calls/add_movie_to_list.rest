@@ -1,6 +1,0 @@
-POST https://api.themoviedb.org/3/list/7073765/add_item?api_key=d5e44dd33260c00852e5fd0e20c58722&session_id=aa705ed7c9f86dd8bd7ae29d949b3ec53dee320c
-Content-Type: application/json
-
-{
-  "media_id": 240
-}
