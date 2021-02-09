@@ -19,7 +19,7 @@
 .env.production.local
 
 .eslintcache
-/rest_calls
+rest_calls/
 
 npm-debug.log*
 yarn-debug.log*
