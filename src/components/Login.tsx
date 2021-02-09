@@ -18,10 +18,10 @@ const Login: React.FC = () => {
         password: password,
         request_token: tokenResponse.data.request_token
       }
-      const loginResponse = await tmdbApiClient.post('authentication/token/validate_with_login', credentials)
-      const sessionIdResponse  = await tmdbApiClient.post('authentication/session/new', {request_token: loginResponse.data.request_token})
-      console.log('session id', sessionIdResponse)
-      history.push('/')
+      // const loginResponse = await tmdbApiClient.post('authentication/token/validate_with_login', credentials)
+      // const sessionIdResponse  = await tmdbApiClient.post('authentication/session/new', {request_token: loginResponse.data.request_token})
+      // console.log('session id', sessionIdResponse)
+      history.push(`https://www.themoviedb.org/authenticate/${credentials.request_token}?redirect_to=${tmdbApiClient}`)
       
     } catch {
       console.log('error')
