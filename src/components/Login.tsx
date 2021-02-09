@@ -1,60 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useQuery } from '../hooks/useQuery'
 import { tmdbApiClient } from '../tmdbApiClient'
 
-
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
   const history = useHistory()
 
-  const login = async () => {
-    try {
-      const tokenResponse = await tmdbApiClient.get('authentication/token/new')
+  const requestToken = useQuery().get('request_token')
 
-      const credentials = {
-        username: username,
-        password: password,
-        request_token: tokenResponse.data.request_token
+  useEffect(() => {
+    const createSession = async () => {
+      try {
+        const sessionIdResponse = await tmdbApiClient.post('/authentication/session/new', {request_token: requestToken})
+        console.log(sessionIdResponse.data)
+        history.push('/')
+      } catch (error) {
+        console.log(error)
+        history.push('/')
       }
-      // const loginResponse = await tmdbApiClient.post('authentication/token/validate_with_login', credentials)
-      // const sessionIdResponse  = await tmdbApiClient.post('authentication/session/new', {request_token: loginResponse.data.request_token})
-      // console.log('session id', sessionIdResponse)
-      history.push(`https://www.themoviedb.org/authenticate/${credentials.request_token}?redirect_to=${tmdbApiClient}`)
-      
-    } catch {
-      console.log('error')
     }
-  }
+    if (requestToken) {
+      createSession()
+    }
+    else {
+      history.push('/')
+    }
+  }, [history, requestToken])
   
-  function handleUsernameChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setUsername(event.target.value)
-  }
-  
-  function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setPassword(event.target.value)
-  }
-  
-  function onSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    event.preventDefault()
-    login()
-  }
-
   return (
     <div>
-      <h1>Login</h1>
-      <form onSubmit={onSubmit}>
-        <label>
-          Username:
-          <input type='text' value={username} onChange={handleUsernameChange} />
-        </label>
-        <label>
-          Password:
-          <input type='password' value={password} onChange={handlePasswordChange} />
-        </label>
-        <button type='submit'>Login</button>
-      </form>
+      <h1>Logging in</h1>
     </div>
   )
 }
