@@ -11,6 +11,8 @@
 |Making the base of the frontpage |29.1   |   8   |
 |Base of the movie info page      |1.2    |   6.5 |
 |Search                           |4.2    |   6.5 |
+|Login                            |5.2    |   6.5 |
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
