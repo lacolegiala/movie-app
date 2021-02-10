@@ -25,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
+        <Link to='/'>Home</Link>
         <button onClick={login}>Login / sign up</button>
         <Link to='/lists'>My lists</Link>
         <Switch>
