@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <Router history={history}>
         <button onClick={login}>Login / sign up</button>
-        <Link to='/user/:id/lists'>My lists</Link>
+        <Link to='/lists'>My lists</Link>
         <Switch>
           <Route path='/login'>
             <Login />
@@ -37,7 +37,7 @@ function App() {
           <Route path='/search'>
             <SearchResults />
           </Route>
-          <Route path='/user/:id/lists'>
+          <Route path='/lists'>
             <MyLists />
           </Route>
           <Route exact path='/'>
