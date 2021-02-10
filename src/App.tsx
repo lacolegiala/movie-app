@@ -14,7 +14,7 @@ const login = async () => {
   try {
     const tokenResponse = await tmdbApiClient.get('authentication/token/new')
 
-    window.open(`https://www.themoviedb.org/authenticate/${tokenResponse.data.request_token}?redirect_to=http://localhost:3000/login`)
+    window.open(`https://www.themoviedb.org/authenticate/${tokenResponse.data.request_token}?redirect_to=root`)
   } catch {
     console.log('error')
   }
