@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Router, Switch } from 'react-router-dom'
+import { Link, Route, Router, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
 import MovieFullInfo from './components/MovieFullInfo'
 import Home from './components/Home';
@@ -26,6 +26,7 @@ function App() {
     <div className="App">
       <Router history={history}>
         <button onClick={login}>Login / sign up</button>
+        <Link to='/user/:id/lists'>My lists</Link>
         <Switch>
           <Route path='/login'>
             <Login />
