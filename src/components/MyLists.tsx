@@ -8,16 +8,19 @@ const MyLists: React.FC = () => {
 
   useEffect(() => {
     const getLists = async () => {
-      const accountResponse = await tmdbApiClient.get('account')
-      const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
-      setLists(listResponse.data.results)
+      try {
+        const accountResponse = await tmdbApiClient.get('account')
+        const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
+        setLists(listResponse.data.results)
+      } catch (error) {
+        console.log(error)
+      }
     }
     getLists()
   }, [])
 
   return (
     <div>
-      <Link to='/'>Home</Link>
       <h1>My lists</h1>
       {lists.map(list => 
         <li key={list.id}>{list.name}</li>  
