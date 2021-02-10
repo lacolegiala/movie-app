@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
-        <button onClick={login}>Login</button>
+        <button onClick={login}>Login / sign up</button>
         <Switch>
           <Route path='/login'>
             <Login />
