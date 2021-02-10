@@ -7,6 +7,7 @@ import SearchResults from './components/SearchResults';
 import Login from './components/Login';
 import React from 'react';
 import { tmdbApiClient } from './tmdbApiClient';
+import MyLists from './components/MyLists';
 
 const history = createBrowserHistory();
 
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path='/search'>
             <SearchResults />
+          </Route>
+          <Route path='/user/:id/lists'>
+            <MyLists />
           </Route>
           <Route exact path='/'>
             <Home></Home>
