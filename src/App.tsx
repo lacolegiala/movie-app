@@ -13,8 +13,8 @@ const history = createBrowserHistory();
 const login = async () => {
   try {
     const tokenResponse = await tmdbApiClient.get('authentication/token/new')
-    const loginUrl = window.location.href
-    window.open(`https://www.themoviedb.org/authenticate/${tokenResponse.data.request_token}?redirect_to=${loginUrl}`)
+    const baseUrl = window.location.origin
+    window.open(`https://www.themoviedb.org/authenticate/${tokenResponse.data.request_token}?redirect_to=${baseUrl}/login`)
   } catch {
     console.log('error')
   }
