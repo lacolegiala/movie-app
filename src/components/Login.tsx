@@ -12,7 +12,7 @@ const Login: React.FC = () => {
     const createSession = async () => {
       try {
         const sessionIdResponse = await tmdbApiClient.post('/authentication/session/new', {request_token: requestToken})
-        console.log(sessionIdResponse.data)
+        window.localStorage.setItem('sessionId', sessionIdResponse.data.session_id)
         history.push('/')
       } catch (error) {
         console.log(error)
