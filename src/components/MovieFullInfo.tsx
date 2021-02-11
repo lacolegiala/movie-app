@@ -25,6 +25,15 @@ const MovieFullInfo: React.FC = () => {
     getMovieInfo()
   }, [id])
 
+  const addToList = async (id: number) => {
+    try {
+      const movieId = movie !== undefined ? movie.id : undefined
+      await tmdbApiClient.post(`list/${id}/add_item`, {media_id: movieId})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div>
       {movie !== undefined ?
@@ -41,7 +50,7 @@ const MovieFullInfo: React.FC = () => {
           />
           <h2>Add to list</h2>
           {lists.map(list => 
-            list.name  
+            <button onClick={() => addToList(list.id)}>{list.name}</button>  
           )}
           <h2>Synopsis</h2> 
           <div>{movie.overview}</div>
