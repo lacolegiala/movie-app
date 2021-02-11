@@ -54,7 +54,8 @@ const List: React.FC = () => {
             )
             : <div>No items yet</div>
           }
-          <button onClick={deleteList}>Delete</button>
+          <hr />
+          <button onClick={deleteList}>Delete list</button>
         </div>
         : <h1>Loading</h1>
       }
