@@ -22,10 +22,19 @@ const List: React.FC = () => {
 
   return (
     <div>
-      <h1>{list?.name}</h1>
-      {list?.items.map(item =>
-        <li key={item.id}>{item.title}</li>  
-      )}
+      {list !== undefined ?
+        <div>
+          <h1>{list.name}</h1>
+          {list.item_count > 0 ?
+            list.items.map(item =>
+              <li key={item.id}>{item.title}</li>  
+            )
+            : <div>No items yet</div>
+          }
+          <button>Delete</button>
+        </div>
+        : <h1>Loading</h1>
+      }
     </div>
   )
 }
