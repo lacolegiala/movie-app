@@ -9,6 +9,7 @@ import React from 'react';
 import { tmdbApiClient } from './tmdbApiClient';
 import MyLists from './components/MyLists';
 import AddList from './components/AddList';
+import List from './components/List';
 
 const history = createBrowserHistory();
 
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path='/lists/new'>
             <AddList />
+          </Route>
+          <Route path='/lists/:id'>
+            <List />
           </Route>
           <Route exact path='/'>
             <Home />

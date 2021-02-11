@@ -22,10 +22,13 @@ const MyLists: React.FC = () => {
   return (
     <div>
       <h1>My lists</h1>
-      {lists.map(list => 
-        <li key={list.id}>{list.name}</li>  
-      )}
       <Link to='/lists/new'>Add a new list</Link>
+      <hr />
+      {lists.map(list =>
+        <li key={list.id}>
+          <Link to={`/lists/${list.id}`}>{list.name}</Link>  
+        </li> 
+      )}
     </div>
   )
 }
