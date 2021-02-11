@@ -8,6 +8,7 @@ import Login from './components/Login';
 import React from 'react';
 import { tmdbApiClient } from './tmdbApiClient';
 import MyLists from './components/MyLists';
+import AddList from './components/AddList';
 
 const history = createBrowserHistory();
 
@@ -38,11 +39,14 @@ function App() {
           <Route path='/search'>
             <SearchResults />
           </Route>
-          <Route path='/lists'>
+          <Route exact path='/lists'>
             <MyLists />
           </Route>
+          <Route path='/lists/new'>
+            <AddList />
+          </Route>
           <Route exact path='/'>
-            <Home></Home>
+            <Home />
           </Route>
         </Switch>
       </Router>

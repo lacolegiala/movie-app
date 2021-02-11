@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { List } from '../types'
 
@@ -24,6 +25,7 @@ const MyLists: React.FC = () => {
       {lists.map(list => 
         <li key={list.id}>{list.name}</li>  
       )}
+      <Link to='/lists/new'>Add a new list</Link>
     </div>
   )
 }
