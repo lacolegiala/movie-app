@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
+import { createPosterUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { ListDetails } from '../types'
 
@@ -41,7 +42,15 @@ const List: React.FC = () => {
           <h1>{list.name}</h1>
           {list.item_count > 0 ?
             list.items.map(item =>
-              <li key={item.id}>{item.title}</li>  
+              <ul key={item.id}>
+                <Link to={`/movies/${item.id}`}>
+                  <h2>{item.title}</h2>
+                  <img
+                    src={createPosterUrl(item.poster_path, {width: 300})}
+                    alt='Poster of movie'
+                 />
+                </Link>
+              </ul>  
             )
             : <div>No items yet</div>
           }
