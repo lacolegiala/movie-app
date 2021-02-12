@@ -24,7 +24,7 @@ const login = async () => {
 }
 
 function App() {
-  const [sessionId, setSessionId] = useState<string>()
+  const [sessionId, setSessionId] = useState<string | null>(window.localStorage.getItem('movie_app/sessionId'))
   
   const onLogin = (sessionIdProp: string) => {
     setSessionId(sessionIdProp)
@@ -33,7 +33,7 @@ function App() {
   const logout = async () => {
     try {
       await tmdbApiClient.delete('authentication/session', {data: {session_id: sessionId}})
-      setSessionId(undefined)
+      setSessionId(null)
       window.localStorage.removeItem('movie_app/sessionId')
     } catch (error) {
       console.log(error)
