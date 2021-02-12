@@ -30,6 +30,8 @@ const Login: React.FC<Props> = (props) => {
     else {
       history.push('/')
     }
+  // I disabled eslint for this line because props in the dependency array caused an error.  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, requestToken])
   
   return (
