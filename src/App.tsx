@@ -28,7 +28,9 @@ function App() {
     <div className="App">
       <Router history={history}>
         <Link to='/'>Home</Link>
-        <button onClick={login}>Login / sign up</button>
+        {!window.localStorage.getItem('movie_app/sessionId') &&
+          <button onClick={login}>Login / sign up</button>
+        }
         <Link to='/lists'>My lists</Link>
         <Switch>
           <Route path='/login'>
