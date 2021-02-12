@@ -5,7 +5,7 @@ import MovieFullInfo from './components/MovieFullInfo'
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
 import Login from './components/Login';
-import React from 'react';
+import React, { useState } from 'react';
 import { tmdbApiClient } from './tmdbApiClient';
 import MyLists from './components/MyLists';
 import AddList from './components/AddList';
@@ -23,18 +23,27 @@ const login = async () => {
   }
 }
 
+
 function App() {
+  const [sessionId, setSessionId] = useState<string>()
+  
+  const onLogin = (sessionIdProp: string) => {
+    setSessionId(sessionIdProp)
+  }
+
   return (
     <div className="App">
       <Router history={history}>
         <Link to='/'>Home</Link>
-        {!window.localStorage.getItem('movie_app/sessionId') &&
+        {!sessionId &&
           <button onClick={login}>Login / sign up</button>
         }
-        <Link to='/lists'>My lists</Link>
+        {sessionId &&
+          <Link to='/lists'>My lists</Link>
+        }
         <Switch>
           <Route path='/login'>
-            <Login />
+            <Login onLogin={onLogin}  />
           </Route>
           <Route path='/movies/:id'>
             <MovieFullInfo />
