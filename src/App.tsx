@@ -23,12 +23,16 @@ const login = async () => {
   }
 }
 
-
 function App() {
   const [sessionId, setSessionId] = useState<string>()
   
   const onLogin = (sessionIdProp: string) => {
     setSessionId(sessionIdProp)
+  }
+
+  const logout = () => {
+    setSessionId(undefined)
+    window.localStorage.removeItem('movie_app/sessionId')
   }
 
   return (
@@ -39,7 +43,10 @@ function App() {
           <button onClick={login}>Login / sign up</button>
         }
         {sessionId &&
-          <Link to='/lists'>My lists</Link>
+          <div>
+            <button onClick={logout}>Log out</button>
+            <Link to='/lists'>My lists</Link>
+          </div>
         }
         <Switch>
           <Route path='/login'>
