@@ -18,8 +18,8 @@ const login = async () => {
     const tokenResponse = await tmdbApiClient.get('authentication/token/new')
     const baseUrl = window.location.origin
     window.open(`https://www.themoviedb.org/authenticate/${tokenResponse.data.request_token}?redirect_to=${baseUrl}/login`)
-  } catch {
-    console.log('error')
+  } catch (error) {
+    console.log(error)
   }
 }
 
