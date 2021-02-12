@@ -30,7 +30,7 @@ const Login: React.FC<Props> = (props) => {
     else {
       history.push('/')
     }
-  }, [history, props, requestToken])
+  }, [history, requestToken])
   
   return (
     <div>
