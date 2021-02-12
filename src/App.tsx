@@ -30,9 +30,14 @@ function App() {
     setSessionId(sessionIdProp)
   }
 
-  const logout = () => {
-    setSessionId(undefined)
-    window.localStorage.removeItem('movie_app/sessionId')
+  const logout = async () => {
+    try {
+      await tmdbApiClient.delete('authentication/session', {data: {session_id: sessionId}})
+      setSessionId(undefined)
+      window.localStorage.removeItem('movie_app/sessionId')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
