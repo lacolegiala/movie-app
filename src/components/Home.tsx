@@ -29,7 +29,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <SearchBar></SearchBar>
+      <SearchBar />
       <MovieInfo title='New' movies={newMovies} />
       <MovieInfo title='Most popular' movies={popularMovies} />
       <MovieInfo title='Top rated' movies={topRatedMovies} />
