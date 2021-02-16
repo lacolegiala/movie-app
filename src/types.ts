@@ -15,7 +15,7 @@ export type Movie = {
   vote_count: number
 }
 
-type Genre = {
+export type Genre = {
   id: number
   name: string
 }
