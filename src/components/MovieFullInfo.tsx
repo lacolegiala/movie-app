@@ -48,10 +48,14 @@ const MovieFullInfo: React.FC = () => {
             src={createPosterUrl(movie.poster_path, {width: 500})}
             alt='Poster of movie'
           />
-          <h2>Add to list</h2>
-          {lists.map(list => 
-            <button onClick={() => addToList(list.id)}>{list.name}</button>  
-          )}
+          {window.localStorage.getItem('movie_app/sessionId') &&
+            <div>
+              <h2>Add to list</h2>
+              {lists.map(list => 
+                <button onClick={() => addToList(list.id)}>{list.name}</button>  
+              )}
+            </div>
+          }
           <h2>Synopsis</h2> 
           <div>{movie.overview}</div>
         </div>
