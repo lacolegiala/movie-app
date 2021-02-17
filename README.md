@@ -17,6 +17,7 @@
 |Add lists and movies to them     |11.2   |   6.5 |
 |Add logout and fix stuff         |12.2   |   4.5 |
 |List genres in frontpage         |16.2   |   0.5 |
+|List movies by genre             |17.2   |   3   |
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
