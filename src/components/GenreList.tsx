@@ -22,7 +22,7 @@ const GenreList: React.FC = () => {
     <div>
       <h2>Genres</h2>
       {genres.map(genre =>
-        <Link to={`/movies/genre/${genre.id}`} key={genre.id}>
+        <Link to={`/genre/${genre.id}`} key={genre.id}>
           {genre.name}
         </Link>
       )}
