@@ -15,9 +15,11 @@ const MovieFullInfo: React.FC = () => {
       try {
         const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US`)
         setMovie(movieInfo.data)
-        const accountResponse = await tmdbApiClient.get('account')
-        const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
-        setLists(listResponse.data.results)
+        if (window.localStorage.getItem('movie_app/sessionId')) {
+          const accountResponse = await tmdbApiClient.get('account')
+          const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
+          setLists(listResponse.data.results)
+        }
       } catch (error) {
         console.error(error)
       }
