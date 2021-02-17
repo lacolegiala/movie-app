@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { Genre } from '../types'
 
@@ -21,9 +22,9 @@ const GenreList: React.FC = () => {
     <div>
       <h2>Genres</h2>
       {genres.map(genre =>
-        <li key={genre.id}>
+        <Link to={`/movies/genre/${genre.id}`} key={genre.id}>
           {genre.name}
-        </li>
+        </Link>
       )}
     </div>
   )

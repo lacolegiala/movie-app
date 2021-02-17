@@ -10,6 +10,7 @@ import { tmdbApiClient } from './tmdbApiClient';
 import MyLists from './components/MyLists';
 import AddList from './components/AddList';
 import List from './components/List';
+import MovieListByGenre from './components/MovieListByGenre';
 
 const history = createBrowserHistory();
 
@@ -59,6 +60,9 @@ function App() {
           </Route>
           <Route path='/movies/:id'>
             <MovieFullInfo />
+          </Route>
+          <Route path='/genre/:id'>
+            <MovieListByGenre />
           </Route>
           <Route path='/search'>
             <SearchResults />
