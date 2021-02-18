@@ -13,15 +13,15 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
   return (
     <div>
       <h1>{props.title}</h1>
-      <div className='MovieCard'>
+      <div className='MovieList'>
         {props.movies.map(movie =>
-          <div key={movie.id}> 
+          <div className='MovieCard' key={movie.id}> 
             <Link to={`/movies/${movie.id}`}>
-              <h2>{movie.title}</h2>
               <img
                 src={createPosterUrl(movie.poster_path, {width: 300})}
                 alt='Poster of movie'
               /> 
+              <h2>{movie.title}</h2>
             </Link> 
           </div>
         )}
