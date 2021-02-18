@@ -2,15 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { createPosterUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
-import { Movie } from '../types'
+import { Genre, Movie } from '../types'
 
 const MovieListByGenre: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([])
+  const [genre, setGenre] = useState<string>()
   const { id } = useParams<{id: string}>()
 
   useEffect(() => {
     const discoverMovies = async () => {
       try {
+        const genreResponse = await tmdbApiClient.get('genre/movie/list')
+        const genreList: Genre[] = genreResponse.data.genres
+        const selectedGenre = genreList.find(genre => genre.id === parseInt(id))
+        setGenre(selectedGenre?.name)
         const moviesWithGenreResponse = await tmdbApiClient.get(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`)
         setMovies(moviesWithGenreResponse.data.results)
       } catch (error) {
@@ -22,7 +27,7 @@ const MovieListByGenre: React.FC = () => {
 
   return (
     <div>
-      <h1>Movies of the selected genre</h1>
+      <h1>{genre}</h1>
       {movies.map(movie => 
         <div key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
