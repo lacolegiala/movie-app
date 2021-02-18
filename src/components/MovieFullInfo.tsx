@@ -4,7 +4,11 @@ import { createPosterUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { List, MovieDetails } from '../types'
 
-const MovieFullInfo: React.FC = () => {
+type MovieInfoProps = {
+  sessionId: string | null
+}
+
+const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   const [movie, setMovie] = useState<MovieDetails | undefined>()
   const [lists, setLists] = useState<List[]>([])
 
@@ -50,7 +54,7 @@ const MovieFullInfo: React.FC = () => {
             src={createPosterUrl(movie.poster_path, {width: 500})}
             alt='Poster of movie'
           />
-          {window.localStorage.getItem('movie_app/sessionId') &&
+          {props.sessionId &&
             <div>
               <h2>Add to list</h2>
               {lists.map(list => 

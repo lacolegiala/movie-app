@@ -59,7 +59,7 @@ function App() {
             <Login onLogin={onLogin}  />
           </Route>
           <Route path='/movies/:id'>
-            <MovieFullInfo />
+            <MovieFullInfo sessionId={sessionId} />
           </Route>
           <Route path='/genre/:id'>
             <MovieListByGenre />
