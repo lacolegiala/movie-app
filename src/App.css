@@ -9,3 +9,11 @@
 .MovieCard {
   margin-right: 20px;
 }
+
+.GenreList {
+  display: flex;
+}
+
+.Genre {
+  margin-right: 12px;
+}

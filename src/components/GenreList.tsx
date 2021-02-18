@@ -21,11 +21,15 @@ const GenreList: React.FC = () => {
   return (
     <div>
       <h2>Genres</h2>
-      {genres.map(genre =>
-        <Link to={`/genre/${genre.id}`} key={genre.id}>
-          {genre.name}
-        </Link>
-      )}
+      <div className='GenreList'>
+        {genres.map(genre =>
+          <div className='Genre'> 
+            <Link to={`/genre/${genre.id}`} key={genre.id}>
+              {genre.name}
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
