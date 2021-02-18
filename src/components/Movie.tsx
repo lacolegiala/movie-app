@@ -18,7 +18,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
           <div className='MovieCard' key={movie.id}> 
             <Link to={`/movies/${movie.id}`}>
               <img
-                src={createPosterUrl(movie.poster_path, {width: 300})}
+                src={createPosterUrl(movie.poster_path, {width: 185})}
                 alt='Poster of movie'
               /> 
               <h2>{movie.title}</h2>

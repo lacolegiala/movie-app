@@ -8,6 +8,8 @@
 
 .MovieCard {
   margin-right: 20px;
+  width: 200px;
+  height: 350px;
 }
 
 .GenreList {
