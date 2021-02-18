@@ -12,8 +12,8 @@ const MovieListByGenre: React.FC = () => {
   useEffect(() => {
     const discoverMovies = async () => {
       try {
-        const genreResponse = await tmdbApiClient.get('genre/movie/list')
-        const genreList: Genre[] = genreResponse.data.genres
+        const genreResponse = await tmdbApiClient.get<{genres: Genre[]}>('genre/movie/list')
+        const genreList = genreResponse.data.genres
         const selectedGenre = genreList.find(genre => genre.id === parseInt(id))
         setGenre(selectedGenre?.name)
         const moviesWithGenreResponse = await tmdbApiClient.get(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`)
