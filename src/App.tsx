@@ -1,5 +1,5 @@
 import './App.css';
-import { Link, Route, Router, Switch } from 'react-router-dom'
+import { Link, Redirect, Route, Router, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
 import MovieFullInfo from './components/MovieFullInfo'
 import Home from './components/Home';
@@ -68,13 +68,13 @@ function App() {
             <SearchResults />
           </Route>
           <Route exact path='/lists'>
-            <MyLists />
+            {sessionId ? <MyLists /> : <Redirect to={{pathname: '/'}} />}
           </Route>
           <Route path='/lists/new'>
-            <AddList />
+            {sessionId ? <AddList /> : <Redirect to={{pathname: '/'}} />}
           </Route>
           <Route path='/lists/:id'>
-            <List />
+            {sessionId ? <List /> : <Redirect to={{pathname: '/'}} />}
           </Route>
           <Route exact path='/'>
             <Home />
