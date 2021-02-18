@@ -20,6 +20,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
               <img
                 src={createPosterUrl(movie.poster_path, {width: 185})}
                 alt='Poster of movie'
+                className='Poster'
               /> 
               <h2>{movie.title}</h2>
             </Link> 
