@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { Genre } from '../types'
+import action from '../images/actionImage.png'
 
 const GenreList: React.FC = () => {
   const [genres, setGenres] = useState<Genre[]>([])
@@ -23,11 +24,9 @@ const GenreList: React.FC = () => {
       <h2>Genres</h2>
       <div className='GenreList'>
         {genres.map(genre =>
-          <div className='Genre'> 
-            <Link to={`/genre/${genre.id}`} key={genre.id}>
-              {genre.name}
-            </Link>
-          </div>
+          <Link className='Genre' to={`/genre/${genre.id}`} key={genre.id} style={{backgroundImage: `url(${action})`}}>
+            {genre.name}
+          </Link>
         )}
       </div>
     </div>

@@ -21,7 +21,7 @@
 .MovieCard {
   margin-right: 20px;
   width: 180px;
-  min-width: 180px;
+  flex-shrink: 0;
   scroll-snap-align: start;
 }
 
@@ -33,11 +33,12 @@
 
 .Genre {
   margin-right: 12px;
+  flex-shrink: 0;
   background-color: rgb(238, 238, 203);
-  background-image: url(./images/actionImage.png);
   background-size: cover;
-  padding: 24px 6px;
-  min-width: 150px;
+  color: white;
+  padding: 60px 6px;
+  width: 300px;
 }
 
 .Poster {
