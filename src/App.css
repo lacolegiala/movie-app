@@ -34,6 +34,7 @@
 .Genre {
   margin-right: 12px;
   flex-shrink: 0;
+  scroll-snap-align: start;
   background-color: rgb(238, 238, 203);
   background-size: cover;
   background-position: center;
