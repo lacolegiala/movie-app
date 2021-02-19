@@ -41,7 +41,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   }
 
   return (
-    <div>
+    <div className='Container'>
       {movie !== undefined ?
         <div>
           <h1>{movie.title}</h1>
