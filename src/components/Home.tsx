@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    <div>
+    <div className='Container'>
       <SearchBar />
       <GenreList />
       <MovieInfo title='New' movies={newMovies} />
