@@ -12,7 +12,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
   
   return (
     <div>
-      <h1>{props.title}</h1>
+      <h2>{props.title}</h2>
       <div className='MovieList'>
         {props.movies.map(movie =>
           <div className='MovieCard' key={movie.id}> 
@@ -22,7 +22,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
                 alt='Poster of movie'
                 className='Poster'
               /> 
-              <h2>{movie.title}</h2>
+              <h3>{movie.title}</h3>
             </Link> 
           </div>
         )}
