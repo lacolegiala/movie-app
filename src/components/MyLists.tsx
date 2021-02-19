@@ -20,7 +20,7 @@ const MyLists: React.FC = () => {
   }, [])
 
   return (
-    <div>
+    <div className='Container'>
       <h1>My lists</h1>
       <Link to='/lists/new'>Add a new list</Link>
       <hr />
