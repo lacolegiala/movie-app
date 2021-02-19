@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { Genre } from '../types'
-import action from '../images/actionImage.png'
+import action from '../images/action.png'
 
 const GenreList: React.FC = () => {
   const [genres, setGenres] = useState<Genre[]>([])
