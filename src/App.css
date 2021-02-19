@@ -33,7 +33,9 @@
 
 .Genre {
   margin-right: 12px;
-  background-color: beige;
+  background-color: rgb(238, 238, 203);
+  background-image: url(./images/actionImage.png);
+  background-size: cover;
   padding: 24px 6px;
   min-width: 150px;
 }
