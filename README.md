@@ -18,6 +18,8 @@
 |Add logout and fix stuff         |12.2   |   4.5 |
 |List genres in frontpage         |16.2   |   0.5 |
 |List movies by genre             |17.2   |   3   |
+|Refine appearance                |18.2   |   6   |
+|Refine appearance                |19.2   |   8   |
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
