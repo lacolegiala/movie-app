@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .Container {
@@ -33,6 +33,7 @@
 
 .Genre {
   margin-right: 12px;
+  text-align: center;
   flex-shrink: 0;
   scroll-snap-align: start;
   background-color: rgb(238, 238, 203);
