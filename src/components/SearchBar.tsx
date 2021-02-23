@@ -16,8 +16,7 @@ const SearchBar: React.FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Search movies:
-        <input id='searchbar' type='text' name='search' placeholder='search' onChange={handleChange}></input>
+        <input id='searchbar' type='text' name='search' placeholder='search movies' onChange={handleChange}></input>
       </label>
       <input type='submit' value='Search' />
     </form>
