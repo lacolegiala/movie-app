@@ -85,7 +85,7 @@ const GenreList: React.FC = () => {
       <h2>Genres</h2>
       <div className='GenreList'>
         {genres.map(genre =>
-          <Link className='Genre' to={`/genre/${genre.id}`} key={genre.id} style={{backgroundImage: `url(${getImageForGenre(genre.id)})`}}>
+          <Link className='Genre' to={`/genre/${genre.id}`} key={genre.id} style={{backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url(${getImageForGenre(genre.id)})`}}>
             {genre.name}
           </Link>
         )}
