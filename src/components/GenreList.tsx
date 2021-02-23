@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { Genre } from '../types'
@@ -24,6 +24,7 @@ import western from '../images/western.jpeg'
 
 const GenreList: React.FC = () => {
   const [genres, setGenres] = useState<Genre[]>([])
+  const genreListElement = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const getGenres = async () => {
@@ -83,7 +84,9 @@ const GenreList: React.FC = () => {
   return (
     <div>
       <h2>Genres</h2>
-      <div className='GenreList'>
+      <button onClick={() => genreListElement.current?.scrollBy({left: -300, behavior: 'smooth'})}>Previous</button>
+      <button onClick={() => genreListElement.current?.scrollBy({left: 300, behavior: 'smooth'})}>Next</button>
+      <div ref={genreListElement} className='GenreList'>
         {genres.map(genre =>
           <Link className='Genre' to={`/genre/${genre.id}`} key={genre.id} style={{backgroundImage: `linear-gradient(to bottom, rgba(246, 246, 252, 0.54), rgba(120, 18, 96, 0.72)), url(${getImageForGenre(genre.id)})`}}>
             <h3>{genre.name}</h3>
