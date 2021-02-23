@@ -36,7 +36,7 @@ const List: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='Container'>
       {list !== undefined ?
         <div>
           <h1>{list.name}</h1>

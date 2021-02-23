@@ -23,7 +23,7 @@ const SearchResults: React.FC = () => {
   }, [queryParameter])
 
   return (
-    <div>
+    <div className='Container'>
       <h1>Search results for '{queryParameter}'</h1>
       {results.map(result => 
         <div key={result.id}>

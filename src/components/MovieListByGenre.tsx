@@ -26,7 +26,7 @@ const MovieListByGenre: React.FC = () => {
   }, [id])
 
   return (
-    <div>
+    <div className='Container'>
       <h1>{genre}</h1>
       {movies.map(movie => 
         <div key={movie.id}>

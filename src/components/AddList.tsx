@@ -28,7 +28,7 @@ const AddList: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='Container'>
       <h1>Add a new list</h1>
       <form onSubmit={handleSubmit}>
         Name of the list
