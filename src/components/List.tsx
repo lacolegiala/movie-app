@@ -42,7 +42,7 @@ const List: React.FC = () => {
           <h1>{list.name}</h1>
           {list.item_count > 0 ?
             list.items.map(item =>
-              <ul key={item.id}>
+              <div key={item.id}>
                 <Link to={`/movies/${item.id}`}>
                   <h2>{item.title}</h2>
                   <img
@@ -50,7 +50,7 @@ const List: React.FC = () => {
                     alt='Poster of movie'
                  />
                 </Link>
-              </ul>  
+              </div>  
             )
             : <div>No items yet</div>
           }
