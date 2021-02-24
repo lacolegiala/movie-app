@@ -29,12 +29,12 @@ const SearchResults: React.FC = () => {
         {results.map(result => 
           <div key={result.id}>
             <Link to={`/movies/${result.id}`}>
-              <h2>{result.title}</h2>
               <img
                 className='Poster'
                 src={createPosterUrl(result.poster_path, {width: 300})}
                 alt='Poster of movie'
-              /> 
+                /> 
+              <h2>{result.title}</h2>
             </Link> 
           </div>  
         )}
