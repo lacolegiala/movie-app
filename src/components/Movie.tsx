@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { createPosterUrl } from '../imageUrl'
 import { Movie } from '../types'
@@ -9,11 +9,14 @@ type MovieProps = {
 }
 
 const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
+  const movieListElement = useRef<HTMLDivElement | null>(null)
   
   return (
     <div>
       <h2>{props.title}</h2>
-      <div className='MovieList'>
+      <button onClick={() => movieListElement.current?.scrollBy({left: -180, behavior: 'smooth'})}>Previous</button>
+      <button onClick={() => movieListElement.current?.scrollBy({left: 180, behavior: 'smooth'})}>Next</button>
+      <div ref={movieListElement} className='MovieList'>
         {props.movies.map(movie =>
           <div className='MovieCard' key={movie.id}> 
             <Link to={`/movies/${movie.id}`}>
