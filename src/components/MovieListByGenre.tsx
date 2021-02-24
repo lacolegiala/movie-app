@@ -28,17 +28,20 @@ const MovieListByGenre: React.FC = () => {
   return (
     <div className='Container'>
       <h1>{genre}</h1>
-      {movies.map(movie => 
-        <div key={movie.id}>
-          <Link to={`/movies/${movie.id}`}>
-            <h2>{movie.title}</h2>
-            <img
-              src={createPosterUrl(movie.poster_path, {width: 300})}
-              alt='Poster of movie'
-            /> 
-          </Link> 
-        </div>  
-      )}
+      <div className='GridWrapper'>
+        {movies.map(movie => 
+          <div key={movie.id}>
+            <Link to={`/movies/${movie.id}`}>
+              <img
+                className='Poster'
+                src={createPosterUrl(movie.poster_path, {width: 300})}
+                alt='Poster of movie'
+                /> 
+              <h2>{movie.title}</h2>
+            </Link> 
+          </div>  
+        )}
+      </div>
     </div>
   )
 }
