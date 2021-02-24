@@ -31,6 +31,7 @@ const SearchResults: React.FC = () => {
             <Link to={`/movies/${result.id}`}>
               <h2>{result.title}</h2>
               <img
+                className='Poster'
                 src={createPosterUrl(result.poster_path, {width: 300})}
                 alt='Poster of movie'
               /> 

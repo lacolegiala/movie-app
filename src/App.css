@@ -54,3 +54,9 @@
 .Poster {
   max-width: 100%;
 }
+
+@media (max-width: 767px) {
+  .GridWrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
