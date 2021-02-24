@@ -51,6 +51,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
             </li>  
           )}
           <img
+            className='Poster'
             src={createPosterUrl(movie.poster_path, {width: 500})}
             alt='Poster of movie'
           />
