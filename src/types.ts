@@ -45,6 +45,26 @@ type Language = {
   name: string
 }
 
+type Cast = {
+  id: number
+  name: string
+  profile_path: string
+  character: string
+}
+
+type Crew = {
+  id: number
+  name: string
+  profile_path: string
+  department: string
+  job: string
+}
+
+type Credits = {
+  cast: Cast[]
+  crew: Crew[]
+}
+
 export type MovieDetails = {
   adult: boolean
   backdrop_path: string
@@ -71,6 +91,7 @@ export type MovieDetails = {
   video: boolean
   vote_average: number
   vote_count: number
+  credits: Credits
 }
 
 export type List = {

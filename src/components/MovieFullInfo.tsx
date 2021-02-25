@@ -17,7 +17,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   useEffect(() => {
     const getMovieInfo = async () => {
       try {
-        const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US`)
+        const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits`)
         setMovie(movieInfo.data)
         if (window.localStorage.getItem('movie_app/sessionId')) {
           const accountResponse = await tmdbApiClient.get('account')
@@ -65,6 +65,14 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           }
           <h2>Synopsis</h2> 
           <div>{movie.overview}</div>
+          <h2>Cast</h2>
+          <div>
+            {movie.credits.cast.map(castMember => 
+              <div>
+                {castMember.name} as {castMember.character}
+              </div>
+            )}
+          </div>
         </div>
         : <h1>Loading</h1>
       }
