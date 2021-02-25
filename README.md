@@ -2,6 +2,10 @@
 
 ## [Link to production](https://amazing-northcutt-a6f3bd.netlify.app/)
 
+## Description
+
+A movie app where users can browse movies and make lists of them. Uses The Movie Database Api (https://www.themoviedb.org/) as backend.
+
 ## Working hours
 
 | Main task                       | Date  | Hours |
