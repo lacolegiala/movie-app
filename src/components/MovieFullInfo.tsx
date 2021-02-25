@@ -10,6 +10,7 @@ type MovieInfoProps = {
 
 const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   const [movie, setMovie] = useState<MovieDetails | undefined>()
+  const [year, setYear] = useState<number | undefined>()
   const [lists, setLists] = useState<List[]>([])
 
   const {id} = useParams<{id: string}>()
@@ -19,6 +20,8 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
       try {
         const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits`)
         setMovie(movieInfo.data)
+        const movieReleaseDate = new Date(movieInfo.data.release_date)
+        setYear(movieReleaseDate.getFullYear())
         if (window.localStorage.getItem('movie_app/sessionId')) {
           const accountResponse = await tmdbApiClient.get('account')
           const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
@@ -44,7 +47,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
     <div className='Container'>
       {movie !== undefined ?
         <div>
-          <h1>{movie.title}</h1>
+          <h1>{movie.title} ({year})</h1>
           {movie.genres.map(genre =>
             <li key={genre.id}>
               {genre.name}
