@@ -67,7 +67,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           <div>{movie.overview}</div>
           <h2>Cast</h2>
           <div>
-            {movie.credits.cast.map(castMember => 
+            {movie.credits.cast.slice(0, 6).map(castMember => 
               <div>
                 {castMember.name} as {castMember.character}
               </div>
