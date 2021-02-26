@@ -81,4 +81,7 @@
   .NavBar {
     padding: 24px 0px;
   }
+  .ScrollButton {
+    display: none;
+  }
 }
