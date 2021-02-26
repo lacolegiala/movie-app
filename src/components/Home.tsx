@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {tmdbApiClient } from '../tmdbApiClient'
 import { Movie } from '../types'
 import GenreList from './GenreList'
-import MovieInfo from './Movie'
+import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 
 const Home: React.FC = () => {
@@ -32,9 +32,9 @@ const Home: React.FC = () => {
     <div className='Container'>
       <SearchBar />
       <GenreList />
-      <MovieInfo title='New' movies={newMovies} />
-      <MovieInfo title='Most popular' movies={popularMovies} />
-      <MovieInfo title='Top rated' movies={topRatedMovies} />
+      <MovieCard title='New' movies={newMovies} />
+      <MovieCard title='Most popular' movies={popularMovies} />
+      <MovieCard title='Top rated' movies={topRatedMovies} />
     </div>
   )
 
