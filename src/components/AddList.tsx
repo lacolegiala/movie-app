@@ -32,7 +32,7 @@ const AddList: React.FC = () => {
       <h1>Add a new list</h1>
       <form onSubmit={handleSubmit}>
         Name of the list
-        <input value={listName} onChange={handleChange}/>
+        <input className='Input' value={listName} onChange={handleChange}/>
         <button type='submit'>Submit</button>
       </form>
     </div>
