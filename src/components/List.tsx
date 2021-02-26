@@ -40,20 +40,22 @@ const List: React.FC = () => {
       {list !== undefined ?
         <div>
           <h1>{list.name}</h1>
-          {list.item_count > 0 ?
-            list.items.map(item =>
-              <div key={item.id}>
-                <Link to={`/movies/${item.id}`}>
-                  <h2>{item.title}</h2>
-                  <img
-                    src={createPosterUrl(item.poster_path, {width: 300})}
-                    alt='Poster of movie'
-                 />
-                </Link>
-              </div>  
-            )
-            : <div>No items yet</div>
-          }
+          <div className='GridWrapper'>
+            {list.item_count > 0 ?
+              list.items.map(item =>
+                <div key={item.id}>
+                  <Link to={`/movies/${item.id}`}>
+                    <img
+                      src={createPosterUrl(item.poster_path, {width: 300})}
+                      alt='Poster of movie'
+                    />
+                    <h2>{item.title} ({new Date (item.release_date).getFullYear()})</h2>
+                  </Link>
+                </div>  
+              )
+              : <div>No items yet</div>
+            }
+          </div>
           <hr />
           <button onClick={deleteList}>Delete list</button>
         </div>
