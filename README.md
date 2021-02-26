@@ -24,6 +24,9 @@ A movie app where users can browse movies and make lists of them. Uses The Movie
 |List movies by genre             |17.2   |   3   |
 |Refine appearance                |18.2   |   6   |
 |Refine appearance                |19.2   |   8   |
+|Refine appearance                |23.2   |   3.5 |
+|Display search results as grid   |24.2   |   4.5 |
+|Add more info to individual view |25.2   |   2   |
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
