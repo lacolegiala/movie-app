@@ -65,6 +65,17 @@ type Credits = {
   crew: Crew[]
 }
 
+type VideoResult = {
+  id: string
+  key: string
+  site: string
+  type:string
+}
+
+type Videos = {
+  results: VideoResult[]
+}
+
 export type MovieDetails = {
   adult: boolean
   backdrop_path: string
@@ -92,6 +103,7 @@ export type MovieDetails = {
   vote_average: number
   vote_count: number
   credits: Credits
+  videos: Videos
 }
 
 export type List = {
