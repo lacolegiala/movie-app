@@ -34,7 +34,7 @@ const SearchResults: React.FC = () => {
                 src={createPosterUrl(result.poster_path, {width: 300})}
                 alt='Poster of movie'
                 /> 
-              <h2>{result.title}</h2>
+              <h2>{result.title} ({new Date (result.release_date).getFullYear()})</h2>
             </Link> 
           </div>  
         )}

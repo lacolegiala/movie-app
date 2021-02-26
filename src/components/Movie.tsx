@@ -25,7 +25,7 @@ const MovieInfo: React.FC<MovieProps> = (props: MovieProps) => {
                 alt='Poster of movie'
                 className='Poster'
               /> 
-              <h3>{movie.title}</h3>
+              <h3>{movie.title} ({new Date (movie.release_date).getFullYear()})</h3>
             </Link> 
           </div>
         )}

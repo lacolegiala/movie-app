@@ -37,7 +37,7 @@ const MovieListByGenre: React.FC = () => {
                 src={createPosterUrl(movie.poster_path, {width: 300})}
                 alt='Poster of movie'
                 /> 
-              <h2>{movie.title}</h2>
+              <h2>{movie.title} ({new Date (movie.release_date).getFullYear()})</h2>
             </Link> 
           </div>  
         )}
