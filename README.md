@@ -4,7 +4,12 @@
 
 ## Description
 
-A movie app where users can browse movies and make lists of them. Uses The Movie Database Api (https://www.themoviedb.org/) as backend.
+A movie app where users can browse movies and logged in users can make lists of them. Uses The Movie Database Api (https://www.themoviedb.org/) as backend.
+
+## Technologies used
+- React
+- Typescript
+- Netlify
 
 ## Working hours
 
