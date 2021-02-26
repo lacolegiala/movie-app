@@ -50,7 +50,7 @@ function App() {
             <button onClick={login}>Login / sign up</button>
           }
           {sessionId &&
-            <div>
+            <div className='NavBarRight'>
               <button onClick={logout}>Log out</button>
               <Link to='/lists'>My lists</Link>
             </div>

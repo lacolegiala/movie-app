@@ -12,6 +12,10 @@
   padding-left:  12px;
 }
 
+.NavBarRight {
+  text-align: right;
+}
+
 .GridWrapper {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
