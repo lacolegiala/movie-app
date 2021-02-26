@@ -46,6 +46,7 @@ const List: React.FC = () => {
                 <div key={item.id}>
                   <Link to={`/movies/${item.id}`}>
                     <img
+                      className='Poster'
                       src={createPosterUrl(item.poster_path, {width: 300})}
                       alt='Poster of movie'
                     />
