@@ -59,7 +59,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
             <div>
               <h2>Add to list</h2>
               {lists.map(list => 
-                <button onClick={() => addToList(list.id)}>{list.name}</button>  
+                <button key={list.id} onClick={() => addToList(list.id)}>{list.name}</button>  
               )}
             </div>
           }
@@ -68,7 +68,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           <h2>Cast</h2>
           <div>
             {movie.credits.cast.slice(0, 6).map(castMember => 
-              <div>
+              <div key={castMember.id}>
                 {castMember.name} as {castMember.character}
               </div>
             )}
