@@ -78,4 +78,7 @@
   .GridWrapper {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .NavBar {
+    padding: 24px 0px;
+  }
 }
