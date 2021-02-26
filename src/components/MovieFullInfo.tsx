@@ -40,6 +40,8 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
     }
   }
 
+  const youtubeTrailer = movie?.videos.results.find(result => result.site === 'YouTube' && result.type === 'Trailer')
+
   return (
     <div className='Container'>
       {movie !== undefined ?
@@ -65,7 +67,9 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           }
           <h2>Synopsis</h2> 
           <div>{movie.overview}</div>
-          <a href={`https://youtube.com/watch?v=${movie.videos.results[1].key}`}>Trailer</a>
+          {youtubeTrailer !== undefined &&
+            <a href={`https://youtube.com/watch?v=${youtubeTrailer.key}`}>Trailer</a>
+          }
           <h2>Cast</h2>
           <div>
             {movie.credits.cast.slice(0, 6).map(castMember => 
