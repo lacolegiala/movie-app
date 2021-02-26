@@ -83,9 +83,13 @@ const GenreList: React.FC = () => {
 
   return (
     <div>
-      <h2>Genres</h2>
-      <button className='ScrollButton' onClick={() => genreListElement.current?.scrollBy({left: -300, behavior: 'smooth'})}>Previous</button>
-      <button className='ScrollButton' onClick={() => genreListElement.current?.scrollBy({left: 300, behavior: 'smooth'})}>Next</button>
+      <div className='ScrollListHeader'>
+        <h2>Genres</h2>
+        <div>
+          <button className='ScrollButton' onClick={() => genreListElement.current?.scrollBy({left: -300, behavior: 'smooth'})}>Previous</button>
+          <button className='ScrollButton' onClick={() => genreListElement.current?.scrollBy({left: 300, behavior: 'smooth'})}>Next</button>
+        </div>
+      </div>
       <div ref={genreListElement} className='GenreList'>
         {genres.map(genre =>
           <Link className='Genre' to={`/genre/${genre.id}`} key={genre.id} style={{backgroundImage: `linear-gradient(to bottom, rgba(246, 246, 252, 0.54), rgba(120, 18, 96, 0.72)), url(${getImageForGenre(genre.id)})`}}>
