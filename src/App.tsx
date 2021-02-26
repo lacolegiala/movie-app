@@ -44,18 +44,20 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
-        <div className='Container'>
-          <div className='NavBar'>
-            <Link to='/'>Home</Link>
-            {!sessionId &&
-              <button onClick={login}>Login / sign up</button>
-            }
-            {sessionId &&
-              <div>
-                <button onClick={logout}>Log out</button>
-                <Link to='/lists'>My lists</Link>
-              </div>
-            }
+        <div className='NavBar'>
+          <div className='Container'>
+            <div className='InnerNavBar'>
+              <Link to='/'>Home</Link>
+              {!sessionId &&
+                <button onClick={login}>Login / sign up</button>
+              }
+              {sessionId &&
+                <div>
+                  <Link className='ListLink' to='/lists'>My lists</Link>
+                  <button onClick={logout}>Log out</button>
+                </div>
+              }
+            </div>
           </div>
         </div>
         <Switch>
