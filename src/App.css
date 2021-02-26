@@ -12,8 +12,11 @@
   padding-left:  12px;
 }
 
-.NavBarRight {
-  text-align: right;
+.NavBar {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .GridWrapper {

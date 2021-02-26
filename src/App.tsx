@@ -45,16 +45,18 @@ function App() {
     <div className="App">
       <Router history={history}>
         <div className='Container'>
-          <Link to='/'>Home</Link>
-          {!sessionId &&
-            <button onClick={login}>Login / sign up</button>
-          }
-          {sessionId &&
-            <div className='NavBarRight'>
-              <button onClick={logout}>Log out</button>
-              <Link to='/lists'>My lists</Link>
-            </div>
-          }
+          <div className='NavBar'>
+            <Link to='/'>Home</Link>
+            {!sessionId &&
+              <button onClick={login}>Login / sign up</button>
+            }
+            {sessionId &&
+              <div>
+                <button onClick={logout}>Log out</button>
+                <Link to='/lists'>My lists</Link>
+              </div>
+            }
+          </div>
         </div>
         <Switch>
           <Route path='/login'>
