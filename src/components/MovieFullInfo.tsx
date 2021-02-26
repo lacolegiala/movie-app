@@ -68,7 +68,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           <h2>Synopsis</h2> 
           <div>{movie.overview}</div>
           {youtubeTrailer !== undefined &&
-            <a href={`https://youtube.com/watch?v=${youtubeTrailer.key}`} rel="noreferrer" target='_blank'>Watch trailer</a>
+            <a href={`https://youtube.com/watch?v=${youtubeTrailer.key}`} rel='noreferrer' target='_blank'>Watch trailer</a>
           }
           <h2>Cast</h2>
           <div>
