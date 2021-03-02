@@ -13,9 +13,13 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
   
   return (
     <div>
-      <h2>{props.title}</h2>
-        <button className='ScrollButton' onClick={() => movieListElement.current?.scrollBy({left: -180, behavior: 'smooth'})}>Previous</button>
-        <button className='ScrollButton' onClick={() => movieListElement.current?.scrollBy({left: 180, behavior: 'smooth'})}>Next</button>
+      <div className='ScrollListHeader'>
+        <h2>{props.title}</h2>
+        <div>
+          <button className='ScrollButton' onClick={() => movieListElement.current?.scrollBy({left: -180, behavior: 'smooth'})}>Previous</button>
+          <button className='ScrollButton' onClick={() => movieListElement.current?.scrollBy({left: 180, behavior: 'smooth'})}>Next</button>
+        </div>
+      </div>
         <div ref={movieListElement} className='MovieList'>
           {props.movies.map(movie =>
             <div className='MovieCard' key={movie.id}> 
