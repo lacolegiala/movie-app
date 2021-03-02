@@ -15,23 +15,24 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 | Main task                       | Date  | Hours |
 | --------------------------------|:------| -----:|
-|Planning                         |26.1   |   4   |
-|Planning                         |27.1   |   6   |
-|Making the base of the frontpage |29.1   |   8   |
-|Base of the movie info page      |1.2    |   6.5 |
-|Search                           |4.2    |   6.5 |
-|Login                            |5.2    |   6.5 |
-|Modify login                     |9.2    |   3   |
-|Add a user list component        |10.2   |   5.5 |
-|Add lists and movies to them     |11.2   |   6.5 |
-|Add logout and fix stuff         |12.2   |   4.5 |
-|List genres in frontpage         |16.2   |   0.5 |
-|List movies by genre             |17.2   |   3   |
-|Refine appearance                |18.2   |   6   |
-|Refine appearance                |19.2   |   8   |
-|Refine appearance                |23.2   |   3.5 |
-|Display search results as grid   |24.2   |   4.5 |
-|Add more info to individual view |25.2   |   2   |
+|Planning                          |26.1   |   4   |
+|Planning                          |27.1   |   6   |
+|Making the base of the frontpage  |29.1   |   8   |
+|Base of the movie info page       |1.2    |   6.5 |
+|Search                            |4.2    |   6.5 |
+|Login                             |5.2    |   6.5 |
+|Modify login                      |9.2    |   3   |
+|Add a user list component         |10.2   |   5.5 |
+|Add lists and movies to them      |11.2   |   6.5 |
+|Add logout and fix stuff          |12.2   |   4.5 |
+|List genres in frontpage          |16.2   |   0.5 |
+|List movies by genre              |17.2   |   3   |
+|Refine appearance                 |18.2   |   6   |
+|Refine appearance                 |19.2   |   8   |
+|Refine appearance                 |23.2   |   3.5 |
+|Display search results as grid    |24.2   |   4.5 |
+|Add more info to individual view  |25.2   |   2   |
+|Add movie info, refine appearance |26.2   |   5.5 |
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
