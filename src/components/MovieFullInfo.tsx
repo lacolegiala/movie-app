@@ -35,6 +35,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
     try {
       const movieId = movie !== undefined ? movie.id : undefined
       await tmdbApiClient.post(`list/${id}/add_item`, {media_id: movieId})
+      window.alert('Added to list')
     } catch (error) {
       console.log(error)
     }
