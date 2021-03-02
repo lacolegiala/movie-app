@@ -4,6 +4,7 @@ import { useQuery } from '../hooks/useQuery';
 import { createPosterUrl } from '../imageUrl';
 import { tmdbApiClient } from '../tmdbApiClient';
 import { Movie } from '../types';
+import SearchBar from './SearchBar';
 
 const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
@@ -24,6 +25,7 @@ const SearchResults: React.FC = () => {
 
   return (
     <div className='Container'>
+      <SearchBar />
       <h1>Search results for '{queryParameter}'</h1>
       <div className='GridWrapper'>
         {results.map(result => 

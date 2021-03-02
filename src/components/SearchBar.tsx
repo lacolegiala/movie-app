@@ -13,10 +13,11 @@ const SearchBar: React.FC = () => {
     history.push(`/search?query=${value}`)
     event.preventDefault()
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        <input className='Input' id='searchbar' type='search' name='search' placeholder='search movies' onChange={handleChange}></input>
+        <input className='Input' id='searchbar' type='search' name='search' placeholder='search movies' onChange={handleChange} />
       </label>
       <input type='submit' value='Search' />
     </form>
