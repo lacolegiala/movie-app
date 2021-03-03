@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { createPosterUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
@@ -15,24 +15,27 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
 
   const {id} = useParams<{id: string}>()
 
-  const getMovieInfo = async () => {
-    try {
-      const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits,videos`)
-      setMovie(movieInfo.data)
-      if (window.localStorage.getItem('movie_app/sessionId')) {
-        const accountResponse = await tmdbApiClient.get('account')
-        const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
-        setLists(listResponse.data.results)
+  const getMovieInfo =  useCallback( 
+    async () => {
+      try {
+        const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits,videos`)
+        setMovie(movieInfo.data)
+        if (window.localStorage.getItem('movie_app/sessionId')) {
+          const accountResponse = await tmdbApiClient.get('account')
+          const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
+          setLists(listResponse.data.results)
+        }
+      } catch (error) {
+        setError(true)
+        console.error(error)
       }
-    } catch (error) {
-      setError(true)
-      console.error(error)
-    }
-  }
+    },
+    [id] 
+  )
 
   useEffect(() => {
     getMovieInfo()
-  }, [id])
+  }, [getMovieInfo])
 
   const addToList = async (id: number) => {
     try {
