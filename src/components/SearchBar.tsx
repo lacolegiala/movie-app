@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import React from 'react'
 
 type SearchBarProps = {
   value: string | undefined
@@ -8,17 +7,6 @@ type SearchBarProps = {
 }
 
 const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
-  const [value, setValue] = useState('')
-  const history = useHistory();
-
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setValue(event.target.value)
-  }
-  
-  function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    history.push(`/search?query=${value}`)
-    event.preventDefault()
-  }
 
   return (
     <form onSubmit={props.handleSubmit}>
