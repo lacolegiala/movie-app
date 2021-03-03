@@ -12,12 +12,14 @@ const Login: React.FC<Props> = (props) => {
 
   const requestToken = useQuery().get('request_token')
 
+  const onLogin = props.onLogin
+
   useEffect(() => {
     const createSession = async () => {
       try {
         const sessionIdResponse = await tmdbApiClient.post('/authentication/session/new', {request_token: requestToken})
         window.localStorage.setItem('movie_app/sessionId', sessionIdResponse.data.session_id)
-        props.onLogin(sessionIdResponse.data.session_id)
+        onLogin(sessionIdResponse.data.session_id)
         history.push('/')
       } catch (error) {
         console.log(error)
@@ -31,8 +33,7 @@ const Login: React.FC<Props> = (props) => {
       history.push('/')
     }
   // I disabled eslint for this line because props in the dependency array caused an error.  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [history, requestToken])
+  }, [history, requestToken, onLogin])
   
   return (
     <div>

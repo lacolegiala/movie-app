@@ -5,7 +5,7 @@ import MovieFullInfo from './components/MovieFullInfo'
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
 import Login from './components/Login';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { tmdbApiClient } from './tmdbApiClient';
 import MyLists from './components/MyLists';
 import AddList from './components/AddList';
@@ -27,9 +27,12 @@ const login = async () => {
 function App() {
   const [sessionId, setSessionId] = useState<string | null>(window.localStorage.getItem('movie_app/sessionId'))
   
-  const onLogin = (sessionIdProp: string) => {
-    setSessionId(sessionIdProp)
-  }
+  const onLogin = useCallback (
+    (sessionIdProp: string) => {
+      setSessionId(sessionIdProp)
+    },
+    []
+  )
 
   const logout = async () => {
     try {
