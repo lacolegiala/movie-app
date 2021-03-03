@@ -15,21 +15,22 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
 
   const {id} = useParams<{id: string}>()
 
-  useEffect(() => {
-    const getMovieInfo = async () => {
-      try {
-        const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits,videos`)
-        setMovie(movieInfo.data)
-        if (window.localStorage.getItem('movie_app/sessionId')) {
-          const accountResponse = await tmdbApiClient.get('account')
-          const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
-          setLists(listResponse.data.results)
-        }
-      } catch (error) {
-        setError(true)
-        console.error(error)
+  const getMovieInfo = async () => {
+    try {
+      const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits,videos`)
+      setMovie(movieInfo.data)
+      if (window.localStorage.getItem('movie_app/sessionId')) {
+        const accountResponse = await tmdbApiClient.get('account')
+        const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
+        setLists(listResponse.data.results)
       }
+    } catch (error) {
+      setError(true)
+      console.error(error)
     }
+  }
+
+  useEffect(() => {
     getMovieInfo()
   }, [id])
 
@@ -83,7 +84,11 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           </div>
         </div>
         : !error ? <h1>Loading</h1>
-        : <h1>Something went wrong. Refresh page or check that the id is correct.</h1>
+        : 
+        <div>
+          <h1>Something went wrong. Refresh page or check that the id is correct.</h1>
+          <button onClick={getMovieInfo}>Try again</button>
+        </div>
       }
     </div>
   )
