@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([])
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
-  const [searchBarValue, setSearchBarValue] = useState<string | null>(null)
+  const [searchBarValue, setSearchBarValue] = useState<string>('')
 
   const history = useHistory();
 
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
 
   return (
     <div className='Container'>
-      <SearchBar value='Search movies' handleSubmit={handleSubmit} handleChange={handleChange} />
+      <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange} />
       <GenreList />
       <MovieCard title='New' movies={newMovies} />
       <MovieCard title='Most popular' movies={popularMovies} />

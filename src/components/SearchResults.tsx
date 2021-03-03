@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
-  const [searchBarValue, setSearchBarValue] = useState<string | undefined>(undefined)
+  const [searchBarValue, setSearchBarValue] = useState<string>('')
 
   const history = useHistory();
 
