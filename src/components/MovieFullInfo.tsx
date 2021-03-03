@@ -11,6 +11,7 @@ type MovieInfoProps = {
 const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   const [movie, setMovie] = useState<MovieDetails | undefined>()
   const [lists, setLists] = useState<List[]>([])
+  const [error, setError] = useState(false)
 
   const {id} = useParams<{id: string}>()
 
@@ -25,6 +26,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
           setLists(listResponse.data.results)
         }
       } catch (error) {
+        setError(true)
         console.error(error)
       }
     }
@@ -80,7 +82,8 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
             )}
           </div>
         </div>
-        : <h1>Loading</h1>
+        : !error ? <h1>Loading</h1>
+        : <h1>Something went wrong. Refresh page or check that the id is correct.</h1>
       }
     </div>
   )
