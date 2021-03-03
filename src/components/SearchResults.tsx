@@ -9,11 +9,11 @@ import { useHistory } from "react-router-dom";
 
 const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
-  const [searchBarValue, setSearchBarValue] = useState<string>('')
+  const queryParameter = useQuery().get('query')
+  const [searchBarValue, setSearchBarValue] = useState<string>(queryParameter ?? '')
 
   const history = useHistory();
 
-  const queryParameter = useQuery().get('query')
 
   useEffect(() => {
     const getResults = async () => {
@@ -21,7 +21,6 @@ const SearchResults: React.FC = () => {
         if (queryParameter) {
           const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=1&include_adult=false`)
           setResults(resultInfo.data.results)
-          setSearchBarValue(queryParameter)
         }
       } catch {
         console.log('error')
