@@ -4,11 +4,15 @@ import { Movie } from '../types'
 import GenreList from './GenreList'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
+import { useHistory } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([])
   const [popularMovies, setPopularMovies] = useState<Movie[]>([])
   const [newMovies, setNewMovies] = useState<Movie[]>([])
+  const [searchBarValue, setSearchBarValue] = useState<string | null>(null)
+
+  const history = useHistory();
 
   useEffect(() => {
     const getMovies = async () => {
@@ -28,9 +32,18 @@ const Home: React.FC = () => {
     getMovies()
   }, [])
 
+  function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+    history.push(`/search?query=${searchBarValue}`)
+    event.preventDefault()
+  }
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchBarValue(event.target.value)
+  }
+
   return (
     <div className='Container'>
-      <SearchBar />
+      <SearchBar value='Search movies' handleSubmit={handleSubmit} handleChange={handleChange} />
       <GenreList />
       <MovieCard title='New' movies={newMovies} />
       <MovieCard title='Most popular' movies={popularMovies} />

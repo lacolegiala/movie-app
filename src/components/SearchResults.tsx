@@ -5,27 +5,43 @@ import { createPosterUrl } from '../imageUrl';
 import { tmdbApiClient } from '../tmdbApiClient';
 import { Movie } from '../types';
 import SearchBar from './SearchBar';
+import { useHistory } from "react-router-dom";
 
 const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
+  const [searchBarValue, setSearchBarValue] = useState<string | undefined>(undefined)
+
+  const history = useHistory();
 
   const queryParameter = useQuery().get('query')
 
   useEffect(() => {
     const getResults = async () => {
       try {
-        const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=1&include_adult=false`)
-        setResults(resultInfo.data.results)
+        if (queryParameter) {
+          const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=1&include_adult=false`)
+          setResults(resultInfo.data.results)
+          setSearchBarValue(queryParameter)
+        }
       } catch {
         console.log('error')
       }
     }
     getResults()
   }, [queryParameter])
+  
+  function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+    history.push(`/search?query=${searchBarValue}`)
+    event.preventDefault()
+  }
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchBarValue(event.target.value)
+  }
 
   return (
     <div className='Container'>
-      <SearchBar />
+      <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange}/>
       <h1>Search results for '{queryParameter}'</h1>
       <div className='GridWrapper'>
         {results.map(result => 
