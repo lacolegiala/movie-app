@@ -25,7 +25,7 @@ const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
             <div className='BigMovieCard' key={movie.id}> 
               <Link to={`/movies/${movie.id}`}>
                 <img
-                  src={createImageUrl(movie.backdrop_path, {width: 780})}
+                  src={createImageUrl(movie.backdrop_path, {width: 1280})}
                   alt='Poster of movie'
                   className='Poster'
                 /> 

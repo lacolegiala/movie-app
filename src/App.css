@@ -48,7 +48,7 @@
 
 .BigMovieCard {
   margin-right: 20px;
-  width: 942px;
+  width: 100%;
   flex-shrink: 0;
   scroll-snap-align: start;
 }
