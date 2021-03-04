@@ -25,8 +25,6 @@ type Case = Success | Loading | ErrorData
 
 const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   const [appCase, setAppCase] = useState<Case>()
-  
-
   const [lists, setLists] = useState<List[]>([])
 
   const {id} = useParams<{id: string}>()
