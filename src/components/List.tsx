@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import { createPosterUrl } from '../imageUrl'
+import { createImageUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { ListDetails } from '../types'
 
@@ -67,7 +67,7 @@ const List: React.FC = () => {
                   <Link to={`/movies/${item.id}`}>
                     <img
                       className='Poster'
-                      src={createPosterUrl(item.poster_path, {width: 300})}
+                      src={createImageUrl(item.poster_path, {width: 300})}
                       alt='Poster of movie'
                     />
                     <h2>{item.title} ({new Date (item.release_date).getFullYear()})</h2>

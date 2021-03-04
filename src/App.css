@@ -46,6 +46,13 @@
   scroll-snap-align: start;
 }
 
+.BigMovieCard {
+  margin-right: 20px;
+  width: 942px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
 .GenreList {
   display: flex;
   scroll-snap-type: x mandatory;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { createPosterUrl } from '../imageUrl'
+import { createImageUrl } from '../imageUrl'
 import { List, MovieDetails } from '../types'
 
 type SuccessProps = {
@@ -23,7 +23,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
       )}
       <img
         className='Poster'
-        src={createPosterUrl(props.movieData.poster_path, {width: 500})}
+        src={createImageUrl(props.movieData.poster_path, {width: 500})}
         alt='Poster of movie'
       />
       {props.sessionId &&

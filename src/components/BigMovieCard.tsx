@@ -8,7 +8,7 @@ type MovieProps = {
   movies: Movie[]
 }
 
-const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
+const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
   const movieListElement = useRef<HTMLDivElement | null>(null)
   
   return (
@@ -22,10 +22,10 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
       </div>
         <div ref={movieListElement} className='MovieList'>
           {props.movies.map(movie =>
-            <div className='MovieCard' key={movie.id}> 
+            <div className='BigMovieCard' key={movie.id}> 
               <Link to={`/movies/${movie.id}`}>
                 <img
-                  src={createImageUrl(movie.poster_path, {width: 185})}
+                  src={createImageUrl(movie.backdrop_path, {width: 780})}
                   alt='Poster of movie'
                   className='Poster'
                 /> 
@@ -38,4 +38,4 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
   )
 }
 
-export default MovieCard
+export default BigMovieCard

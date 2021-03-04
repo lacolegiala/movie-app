@@ -5,6 +5,7 @@ import GenreList from './GenreList'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 import { useHistory } from "react-router-dom";
+import BigMovieCard from './BigMovieCard'
 
 const Home: React.FC = () => {
   const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([])
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
     <div className='Container'>
       <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange} />
       <GenreList />
-      <MovieCard title='New' movies={newMovies} />
+      <BigMovieCard title='New' movies={newMovies} />
       <MovieCard title='Most popular' movies={popularMovies} />
       <MovieCard title='Top rated' movies={topRatedMovies} />
     </div>

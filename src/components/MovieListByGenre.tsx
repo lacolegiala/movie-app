@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { createPosterUrl } from '../imageUrl'
+import { createImageUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { Genre, Movie } from '../types'
 
@@ -34,7 +34,7 @@ const MovieListByGenre: React.FC = () => {
             <Link to={`/movies/${movie.id}`}>
               <img
                 className='Poster'
-                src={createPosterUrl(movie.poster_path, {width: 300})}
+                src={createImageUrl(movie.poster_path, {width: 300})}
                 alt='Poster of movie'
                 /> 
               <h2>{movie.title} ({new Date (movie.release_date).getFullYear()})</h2>

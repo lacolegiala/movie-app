@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useQuery } from '../hooks/useQuery';
-import { createPosterUrl } from '../imageUrl';
+import { createImageUrl } from '../imageUrl';
 import { tmdbApiClient } from '../tmdbApiClient';
 import { Movie } from '../types';
 import SearchBar from './SearchBar';
@@ -50,7 +50,7 @@ const SearchResults: React.FC = () => {
             <Link to={`/movies/${result.id}`}>
               <img
                 className='Poster'
-                src={createPosterUrl(result.poster_path, {width: 300})}
+                src={createImageUrl(result.poster_path, {width: 300})}
                 alt='Poster of movie'
                 /> 
               <h2>{result.title} ({new Date (result.release_date).getFullYear()})</h2>
