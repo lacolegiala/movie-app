@@ -33,6 +33,8 @@ A movie app where users can browse movies and logged in users can make lists of 
 |Display search results as grid    |24.2   |   4.5 |
 |Add more info to individual view  |25.2   |   2   |
 |Add movie info, refine appearance |26.2   |   5.5 |
+|Minor ui tweaks                   |2.3    |   1.5 |
+|Ui tweaks & fixes                 |3.3    |   7   |
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
