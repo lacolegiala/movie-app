@@ -38,12 +38,14 @@ const SearchResults: React.FC = () => {
     setSearchBarValue(event.target.value)
   }
 
+  const resultsToShow = results.filter(result => result.poster_path !== null)
+
   return (
     <div className='Container'>
       <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange}/>
       <h1>Search results for '{queryParameter}'</h1>
       <div className='GridWrapper'>
-        {results.map(result => 
+        {resultsToShow.map(result => 
           <div key={result.id}>
             <Link to={`/movies/${result.id}`}>
               <img
