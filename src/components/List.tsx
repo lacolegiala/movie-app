@@ -1,27 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { createPosterUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
 import { ListDetails } from '../types'
 
+type Success = {
+  type: 'success'
+  data: ListDetails
+}
+
+type Loading = {
+  type: 'loading'
+}
+
+type ErrorData = {
+  type: 'error'
+}
+
+type Case = Success | Loading | ErrorData
+
 const List: React.FC = () => {
-  const [list, setList] = useState<ListDetails | undefined>()
+  const [appCase, setAppCase] = useState<Case>({type: 'loading'})
 
   const history = useHistory()
 
   const {id} = useParams<{id: string}>()
 
-  useEffect(() => {
-    const getListDetails = async () => {
+  const getListDetails = useCallback(
+    async () => {
       try {
         const detailsResponse = await tmdbApiClient.get(`list/${id}`)
-        setList(detailsResponse.data)
+        setAppCase({type: 'success', data: detailsResponse.data})
       } catch (error) {
+        setAppCase({type: 'error'})
         console.log(error)
       }
-    }
+    },
+    [id]
+  ) 
+
+  useEffect(() => {
     getListDetails()
-  }, [id])
+  }, [getListDetails])
 
   const deleteList = async () => {
     try {
@@ -37,12 +57,12 @@ const List: React.FC = () => {
 
   return (
     <div className='Container'>
-      {list !== undefined ?
+      {appCase.type === 'success' &&
         <div>
-          <h1>{list.name}</h1>
+          <h1>{appCase.data.name}</h1>
           <div className='GridWrapper'>
-            {list.item_count > 0 ?
-              list.items.map(item =>
+            {appCase.data.item_count > 0 ?
+              appCase.data.items.map(item =>
                 <div key={item.id}>
                   <Link to={`/movies/${item.id}`}>
                     <img
@@ -60,7 +80,15 @@ const List: React.FC = () => {
           <hr />
           <button onClick={deleteList}>Delete list</button>
         </div>
-        : <h1>Loading</h1>
+      }
+      {appCase.type === 'loading' &&
+        <h1>Loading</h1>
+      }
+      {appCase.type === 'error' &&
+      <div>
+        <h1>Something went wrong. Try again or check that the id is correct.</h1>
+        <button onClick={getListDetails}>Try again</button>
+      </div>
       }
     </div>
   )

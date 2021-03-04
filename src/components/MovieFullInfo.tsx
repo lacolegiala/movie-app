@@ -29,7 +29,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
 
   const {id} = useParams<{id: string}>()
 
-  const getMovieInfo =  useCallback( 
+  const getMovieInfo = useCallback( 
     async () => {
       try {
         const movieInfo = await tmdbApiClient.get(`movie/${id}?&language=en-US&append_to_response=credits,videos`)
