@@ -1,0 +1,54 @@
+import React from 'react'
+import { createPosterUrl } from '../imageUrl'
+import { List, MovieDetails } from '../types'
+
+type SuccessProps = {
+  movieData: MovieDetails
+  sessionId: string | null
+  lists: List[]
+  addToList: (listId: number, movieId: number) => void
+}
+
+const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
+
+  const youtubeTrailer = props.movieData.videos.results.find(result => result.site === 'YouTube' && result.type === 'Trailer')
+
+  return (
+    <div>
+      <h1>{props.movieData.title} ({new Date (props.movieData.release_date).getFullYear()})</h1>
+      {props.movieData.genres.map(genre =>
+        <li key={genre.id}>
+          {genre.name}
+        </li>  
+      )}
+      <img
+        className='Poster'
+        src={createPosterUrl(props.movieData.poster_path, {width: 500})}
+        alt='Poster of movie'
+      />
+      {props.sessionId &&
+        <div>
+          <h2>Add to list</h2>
+          {props.lists.map(list => 
+            <button key={list.id} onClick={() => props.addToList(list.id, props.movieData.id)}>{list.name}</button>  
+          )}
+        </div>
+      }
+      <h2>Synopsis</h2> 
+      <div>{props.movieData.overview}</div>
+      {youtubeTrailer !== undefined &&
+        <a href={`https://youtube.com/watch?v=${youtubeTrailer.key}`} rel='noreferrer' target='_blank'>Watch trailer</a>
+      }
+      <h2>Cast</h2>
+      <div>
+        {props.movieData.credits.cast.slice(0, 6).map(castMember => 
+          <div key={castMember.id}>
+            {castMember.name} as {castMember.character}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default MovieFullInfoSuccess
