@@ -23,7 +23,7 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
         <div ref={movieListElement} className='MovieList'>
           {props.movies.map(movie =>
             <div className='MovieCard' key={movie.id}> 
-              <Link to={`/movies/${movie.id}`}>
+              <Link className='MovieCard' to={`/movies/${movie.id}`}>
                 <img
                   src={createImageUrl(movie.poster_path, {width: 185})}
                   alt='Poster of movie'

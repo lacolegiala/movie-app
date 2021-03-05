@@ -44,6 +44,8 @@
   width: 180px;
   flex-shrink: 0;
   scroll-snap-align: start;
+  color: #3c3d40;
+  text-decoration: none;
 }
 
 .BigMovieCard {
