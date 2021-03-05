@@ -45,9 +45,9 @@ const Home: React.FC = () => {
   return (
     <div className='Container'>
       <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange} />
-      <GenreList />
       <BigMovieCard title='New' movies={newMovies} />
       <MovieCard title='Most popular' movies={popularMovies} />
+      <GenreList />
       <MovieCard title='Top rated' movies={topRatedMovies} />
     </div>
   )
