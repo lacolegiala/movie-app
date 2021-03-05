@@ -22,16 +22,13 @@ const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
       </div>
         <div ref={movieListElement} className='MovieList'>
           {props.movies.map(movie =>
-            <div className='BigMovieCard' key={movie.id}> 
-              <Link to={`/movies/${movie.id}`}>
-                <img
-                  src={createImageUrl(movie.backdrop_path, {width: 1280})}
-                  alt='Poster of movie'
-                  className='Poster'
-                /> 
-                <h3>{movie.title} ({new Date (movie.release_date).getFullYear()})</h3>
-              </Link> 
-            </div>
+            <Link to={`/movies/${movie.id}`}
+              className='BigMovieCard'
+              style={
+                {backgroundImage: `linear-gradient(to bottom, rgba(227, 226, 226, 0), rgba(28, 27, 27, 0.90)), url(${createImageUrl(movie.backdrop_path, {width: 1280})})`}
+              }>
+              <h3 className='BigMovieCardText'>{movie.title} ({new Date (movie.release_date).getFullYear()})</h3>
+            </Link>
           )}
       </div>
     </div>
