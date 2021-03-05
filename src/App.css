@@ -55,6 +55,7 @@
   flex-shrink: 0;
   scroll-snap-align: start;
   background-size: cover;
+  border-radius: 6px;
 }
 
 .BigMovieCardText {
@@ -91,6 +92,7 @@
 
 .Poster {
   max-width: 100%;
+  border-radius: 6px;
 }
 
 .Input {
