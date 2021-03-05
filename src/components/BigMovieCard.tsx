@@ -12,7 +12,7 @@ type MovieProps = {
 const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
   const movieListElement = useRef<HTMLDivElement | null>(null)
 
-  const findGenreNames = (genreIds: number[]) => {
+  const createGenreDisplayNames = (genreIds: number[]) => {
     return genreIds.slice(0, 3).map(id => props.genres?.find(genre => genre.id === id)?.name).join(', ')
   }
 
@@ -34,7 +34,7 @@ const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
               }>
                 <div className='BigMovieCardText'>
                   <h3 className='SmallMargin'>{movie.title}</h3>
-                  <p className='SmallMargin'>{findGenreNames(movie.genre_ids)}</p>
+                  <p className='SmallMargin'>{createGenreDisplayNames(movie.genre_ids)}</p>
                 </div>
             </Link>
           )}
