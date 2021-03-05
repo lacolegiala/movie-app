@@ -54,6 +54,7 @@
   position: relative;
   flex-shrink: 0;
   scroll-snap-align: start;
+  background-size: cover;
 }
 
 .BigMovieCardText {
@@ -63,7 +64,6 @@
   bottom: 30px;
   left: 30px;  
 }
-
 
 .GenreList {
   display: flex;
@@ -109,5 +109,8 @@
   }
   .ScrollButton {
     display: none;
+  }
+  .BigMovieCard {
+    height: 240px;
   }
 }
