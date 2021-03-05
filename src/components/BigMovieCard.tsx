@@ -27,7 +27,10 @@ const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
               style={
                 {backgroundImage: `linear-gradient(to bottom, rgba(227, 226, 226, 0), rgba(28, 27, 27, 0.90)), url(${createImageUrl(movie.backdrop_path, {width: 1280})})`}
               }>
-              <h3 className='BigMovieCardText'>{movie.title} ({new Date (movie.release_date).getFullYear()})</h3>
+                <div className='BigMovieCardText'>
+                  <h3 className='SmallMargin'>{movie.title}</h3>
+                  <p className='SmallMargin'>{new Date (movie.release_date).getFullYear()}</p>
+                </div>
             </Link>
           )}
       </div>

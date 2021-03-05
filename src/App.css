@@ -65,6 +65,10 @@
   left: 30px;  
 }
 
+.SmallMargin {
+  margin: 6px
+}
+
 .GenreList {
   display: flex;
   scroll-snap-type: x mandatory;
