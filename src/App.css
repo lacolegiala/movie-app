@@ -40,7 +40,7 @@
 }
 
 .MovieCard {
-  margin-right: 14px;
+  margin-right: 18px;
   width: 180px;
   flex-shrink: 0;
   scroll-snap-align: start;
