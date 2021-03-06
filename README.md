@@ -13,8 +13,8 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ## Working hours
 
-| Main task                       | Date  | Hours |
-| --------------------------------|:------| -----:|
+| Main task                       | Date  | Hours  |
+| --------------------------------|:------| -----: |
 |Planning                          |26.1   |   4   |
 |Planning                          |27.1   |   6   |
 |Making the base of the frontpage  |29.1   |   8   |
