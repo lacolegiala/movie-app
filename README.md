@@ -35,6 +35,8 @@ A movie app where users can browse movies and logged in users can make lists of 
 |Add movie info, refine appearance |26.2   |   5.5 |
 |Minor ui tweaks                   |2.3    |   1.5 |
 |Ui tweaks & fixes                 |3.3    |   7   |
+|Refactoring, change frontpage view|4.3    |   6   |
+|UI enhancement                    |5.3    |   5   |
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
