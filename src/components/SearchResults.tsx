@@ -54,8 +54,8 @@ const SearchResults: React.FC = () => {
                 alt='Poster of movie'
                 />
               <div className='PosterTextBox'>
-                <h2 className='PosterText'>{result.title}</h2>
-                <p className='PosterText'>{new Date (result.release_date).getFullYear()}</p>
+                <h2 className='SmallMargin'>{result.title}</h2>
+                <p className='SmallMargin'>{new Date (result.release_date).getFullYear()}</p>
               </div>
             </Link> 
           </div>  
