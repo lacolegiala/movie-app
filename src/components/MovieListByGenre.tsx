@@ -30,14 +30,15 @@ const MovieListByGenre: React.FC = () => {
       <h1>{genre}</h1>
       <div className='GridWrapper'>
         {movies.map(movie => 
-          <div key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
+          <div className='PosterCard' key={movie.id}>
+            <Link className='PosterText' to={`/movies/${movie.id}`}>
               <img
                 className='Poster'
                 src={createImageUrl(movie.poster_path, {width: 300})}
                 alt='Poster of movie'
                 /> 
-              <h2>{movie.title} ({new Date (movie.release_date).getFullYear()})</h2>
+              <h2>{movie.title}</h2>
+              <p>{new Date (movie.release_date).getFullYear()}</p>
             </Link> 
           </div>  
         )}
