@@ -28,6 +28,7 @@ const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
         <div ref={movieListElement} className='MovieList'>
           {props.movies.map(movie =>
             <Link to={`/movies/${movie.id}`}
+              key={movie.id}
               className='BigMovieCard'
               style={
                 {backgroundImage: `linear-gradient(to bottom, rgba(227, 226, 226, 0), rgba(28, 27, 27, 0.90)), url(${createImageUrl(movie.backdrop_path, {width: 1280})})`}
