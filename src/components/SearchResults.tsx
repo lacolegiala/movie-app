@@ -53,10 +53,8 @@ const SearchResults: React.FC = () => {
                 src={createImageUrl(result.poster_path, {width: 300})}
                 alt='Poster of movie'
                 />
-              <div className='PosterTextBox'>
-                <h2 className='SmallMargin'>{result.title}</h2>
-                <p className='SmallMargin'>{new Date (result.release_date).getFullYear()}</p>
-              </div>
+              <h2>{result.title}</h2>
+              <p>{new Date (result.release_date).getFullYear()}</p>
             </Link> 
           </div>  
         )}
