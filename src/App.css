@@ -93,9 +93,30 @@
   border-radius: 6px;
 }
 
+.PosterCard {
+  margin: 12px;
+  background-color: white;
+}
+
 .Poster {
   max-width: 100%;
   border-radius: 6px;
+}
+
+.PosterOnList {
+  max-width: 100%;
+  border-radius: 6px;
+  padding-bottom: 6%
+}
+
+.PosterTextBox {
+  padding: 0.875rem 1rem;
+}
+
+.PosterText {
+  color: #3c3d40;
+  margin: 0;
+  text-decoration: none;
 }
 
 .Input {
