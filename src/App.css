@@ -12,6 +12,13 @@
   padding-left:  12px;
 }
 
+.HomeLink {
+  color:#3c3d40;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
 .NavBar {
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 8px;
   padding: 30px 0px;
@@ -24,6 +31,8 @@
 }
 
 .ListLink {
+  color:#3c3d40;
+  text-decoration: none;
   margin: 24px;
 }
 
