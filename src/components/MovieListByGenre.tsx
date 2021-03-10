@@ -7,6 +7,7 @@ import { Genre, Movie } from '../types'
 const MovieListByGenre: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([])
   const [genre, setGenre] = useState<string>()
+  const [counter, setCounter] = useState(1)
   const { id } = useParams<{id: string}>()
 
   useEffect(() => {
@@ -16,14 +17,14 @@ const MovieListByGenre: React.FC = () => {
         const genreList = genreResponse.data.genres
         const selectedGenre = genreList.find(genre => genre.id === parseInt(id))
         setGenre(selectedGenre?.name)
-        const moviesWithGenreResponse = await tmdbApiClient.get(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`)
+        const moviesWithGenreResponse = await tmdbApiClient.get(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${counter}&with_genres=${id}`)
         setMovies(moviesWithGenreResponse.data.results)
       } catch (error) {
         console.log(error)
       }
     }
     discoverMovies()
-  }, [id])
+  }, [id, counter])
 
   return (
     <div className='Container'>
@@ -43,6 +44,7 @@ const MovieListByGenre: React.FC = () => {
           </div>  
         )}
       </div>
+      <button onClick={() => setCounter(counter + 1)}>Load more</button>
     </div>
   )
 }
