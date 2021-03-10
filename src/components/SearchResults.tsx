@@ -11,28 +11,33 @@ const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
   const queryParameter = useQuery().get('query')
   const [searchBarValue, setSearchBarValue] = useState<string>(queryParameter ?? '')
-  const [counter, setCounter] = useState(1)
+  const [page, setPage] = useState(1)
 
   const history = useHistory();
-
 
   useEffect(() => {
     const getResults = async () => {
       try {
         if (queryParameter) {
-          const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=${counter}&include_adult=false`)
-          setResults(resultInfo.data.results)
+          const resultInfo = await tmdbApiClient.get<{results: Movie[]}>(`search/movie?&language=en-US&query=${queryParameter}&page=${page}&include_adult=false`)
+          if (page > 1) {
+            setResults(results.concat(resultInfo.data.results))
+          }
+          else {
+            setResults(resultInfo.data.results)
+          }
         }
       } catch {
         console.log('error')
       }
     }
     getResults()
-  }, [queryParameter, counter])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, queryParameter])
   
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     history.push(`/search?query=${searchBarValue}`)
-    setCounter(1)
+    setPage(1)
     event.preventDefault()
   }
 
@@ -56,12 +61,12 @@ const SearchResults: React.FC = () => {
                 alt='Poster of movie'
                 />
               <h2>{result.title}</h2>
-              <p>{new Date (result.release_date).getFullYear()}</p>
+              <p>{result.release_date !== '' ? new Date(result.release_date).getFullYear() : 'Unknown'}</p>
             </Link> 
           </div>  
         )}
       </div>
-      <button onClick={() => setCounter(counter + 1)}>Load more</button>
+      <button onClick={() => setPage(page + 1)}>Load more</button>
     </div>
   )
 }
