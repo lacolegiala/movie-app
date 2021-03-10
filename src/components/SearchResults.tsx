@@ -11,6 +11,7 @@ const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
   const queryParameter = useQuery().get('query')
   const [searchBarValue, setSearchBarValue] = useState<string>(queryParameter ?? '')
+  const [counter, setCounter] = useState(1)
 
   const history = useHistory();
 
@@ -19,7 +20,7 @@ const SearchResults: React.FC = () => {
     const getResults = async () => {
       try {
         if (queryParameter) {
-          const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=1&include_adult=false`)
+          const resultInfo = await tmdbApiClient.get(`search/movie?&language=en-US&query=${queryParameter}&page=${counter}&include_adult=false`)
           setResults(resultInfo.data.results)
         }
       } catch {
@@ -27,10 +28,11 @@ const SearchResults: React.FC = () => {
       }
     }
     getResults()
-  }, [queryParameter])
+  }, [queryParameter, counter])
   
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     history.push(`/search?query=${searchBarValue}`)
+    setCounter(1)
     event.preventDefault()
   }
 
@@ -59,6 +61,7 @@ const SearchResults: React.FC = () => {
           </div>  
         )}
       </div>
+      <button onClick={() => setCounter(counter + 1)}>Load more</button>
     </div>
   )
 }
