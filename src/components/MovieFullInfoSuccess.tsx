@@ -1,8 +1,6 @@
-import { AxiosResponse } from 'axios'
 import React from 'react'
 import { createImageUrl } from '../imageUrl'
-import { tmdbApiClient } from '../tmdbApiClient'
-import { List, ListDetails, MovieDetails } from '../types'
+import { List, MovieDetails } from '../types'
 
 type SuccessProps = {
   movieData: MovieDetails
