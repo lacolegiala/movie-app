@@ -36,8 +36,13 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
         setAppCase({type: 'success', data: movieInfo.data})
         if (window.localStorage.getItem('movie_app/sessionId')) {
           const accountResponse = await tmdbApiClient.get('account')
-          const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
-          setLists(listResponse.data.results)
+          const listResponse = await tmdbApiClient.get<{results: List[]}>(`account/${accountResponse.data.id}/lists`)
+          const listResults = listResponse.data.results.map(list => {
+            return tmdbApiClient.get<{item_present: boolean}>(`/list/${list.id}/item_status?movie_id=${movieInfo.data.id}`)
+          })
+          const itemStatuses = await Promise.all(listResults)
+          const listsMovieIsNotAddedTo = listResponse.data.results.filter((list, index) => !itemStatuses[index].data.item_present)
+          setLists(listsMovieIsNotAddedTo)
         }
       } catch (error) {
         setAppCase({type: 'error'})

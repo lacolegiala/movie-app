@@ -1,6 +1,8 @@
+import { AxiosResponse } from 'axios'
 import React from 'react'
 import { createImageUrl } from '../imageUrl'
-import { List, MovieDetails } from '../types'
+import { tmdbApiClient } from '../tmdbApiClient'
+import { List, ListDetails, MovieDetails } from '../types'
 
 type SuccessProps = {
   movieData: MovieDetails
@@ -26,7 +28,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
         src={createImageUrl(props.movieData.poster_path, {width: 500})}
         alt='Poster of movie'
       />
-      {props.sessionId &&
+      {props.sessionId && props.lists.length > 0 &&
         <div>
           <h2>Add to list</h2>
           {props.lists.map(list => 
