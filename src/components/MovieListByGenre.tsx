@@ -6,7 +6,7 @@ import { Genre, Movie } from '../types'
 import { createReleaseYear } from '../utils/releaseYear'
 
 const MovieListByGenre: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([])
+  const [movies, setMovies] = useState<{movies: Movie[], numberOfMovies: number}>({movies: [], numberOfMovies: 0})
   const [genre, setGenre] = useState<string>()
   const [page, setPage] = useState(1)
   const { id } = useParams<{id: string}>()
@@ -18,8 +18,13 @@ const MovieListByGenre: React.FC = () => {
         const genreList = genreResponse.data.genres
         const selectedGenre = genreList.find(genre => genre.id === parseInt(id))
         setGenre(selectedGenre?.name)
-        const moviesWithGenreResponse = await tmdbApiClient.get<{results: Movie[]}>(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`)
-        setMovies(movies.concat(moviesWithGenreResponse.data.results))
+        const moviesWithGenreResponse = 
+        await tmdbApiClient.get<{results: Movie[], total_results: number}>(
+          `discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`
+        )
+        setMovies({movies: movies.movies.concat(
+          moviesWithGenreResponse.data.results), numberOfMovies: moviesWithGenreResponse.data.total_results}
+        )
       } catch (error) {
         console.log(error)
       }
@@ -36,8 +41,9 @@ const MovieListByGenre: React.FC = () => {
   return (
     <div className='Container'>
       <h1>{genre}</h1>
+      <p>{movies.numberOfMovies} results</p>
       <div className='GridWrapper'>
-        {movies.map(movie => 
+        {movies.movies.map(movie => 
           <div className='PosterCard' key={movie.id}>
             <Link className='PosterText' to={`/movies/${movie.id}`}>
               <img
