@@ -143,6 +143,11 @@
   font-weight: bold;
 }
 
+.BottomText {
+  margin-top: 30px;
+  margin-bottom: 42px;
+}
+
 @media (max-width: 767px) {
   .GridWrapper {
     grid-template-columns: repeat(2, minmax(0, 1fr));

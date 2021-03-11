@@ -72,12 +72,12 @@ const SearchResults: React.FC = () => {
           </div>  
         )}
       </div>
-      {results.movies.length < results.numberOfMovies ? 
-        <div className='ButtonContainer'>
+      <div className='ButtonContainer'>
+        {results.movies.length < results.numberOfMovies ? 
           <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
-        </div>
-        : <div>No more movies to show</div>
-     }
+          : <div className='BottomText'>No more movies to show</div>
+        }
+      </div>
     </div>
   )
 }
