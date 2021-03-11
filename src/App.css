@@ -120,8 +120,10 @@
 .Input {
   font-size: 16px;
   width: 100%;
-  padding: 6px;
-
+  border-radius: 6px;
+  border: 1px solid #C9C8C8;
+  padding: 6px 12px;
+  margin-top: 12px;
 } 
 
 .ScrollListHeader {
