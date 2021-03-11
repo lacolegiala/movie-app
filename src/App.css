@@ -38,7 +38,7 @@
 .GridWrapper {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 14px;
 }
 
 .MovieList {
@@ -102,7 +102,7 @@
 }
 
 .PosterCard {
-  margin: 12px;
+  margin: 12px 0px;
   background-color: white;
 }
 
@@ -157,6 +157,7 @@
 @media (max-width: 767px) {
   .GridWrapper {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
   }
   .NavBar {
     padding: 24px 0px;
