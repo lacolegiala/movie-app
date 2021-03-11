@@ -25,11 +25,15 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
           {props.movies.map(movie =>
             <div className='MovieCard' key={movie.id}> 
               <Link className='MovieCard' to={`/movies/${movie.id}`}>
-                <img
-                  src={createImageUrl(movie.poster_path, {width: 185})}
-                  alt='Poster of movie'
-                  className='Poster'
-                /> 
+                {movie.poster_path ?
+                  <img
+                    src={createImageUrl(movie.poster_path, {width: 185})}
+                    alt='Poster of movie'
+                    className='Poster'
+                  />
+                  :
+                  <div className='NoPosterCard'>No poster available</div> 
+                }
                 <h3 className='SmallMargin'>{movie.title}</h3>
                 <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
               </Link> 

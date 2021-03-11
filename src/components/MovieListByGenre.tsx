@@ -45,11 +45,15 @@ const MovieListByGenre: React.FC = () => {
         {movies.movies.map(movie => 
           <div className='PosterCard' key={movie.id}>
             <Link className='PosterText' to={`/movies/${movie.id}`}>
-              <img
-                className='Poster'
-                src={createImageUrl(movie.poster_path, {width: 300})}
-                alt='Poster of movie'
-                /> 
+              {movie.poster_path ?
+                <img
+                  className='Poster'
+                  src={createImageUrl(movie.poster_path, {width: 300})}
+                  alt='Poster of movie'
+                  /> 
+                :
+                <div className='NoPosterCard'>No poster available</div>
+              }
               <h2>{movie.title}</h2>
               <p>{createReleaseYear(movie.release_date)}</p>
             </Link> 
