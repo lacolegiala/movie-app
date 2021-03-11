@@ -58,14 +58,18 @@ const SearchResults: React.FC = () => {
       <h1>Search results for '{queryParameter}'</h1>
       <p>{results.numberOfMovies} results</p>
       <div className='GridWrapper'>
-        {resultsToShow.map(result => 
+        {results.movies.map(result =>
           <div className='PosterCard' key={result.id}>
             <Link className='PosterText' to={`/movies/${result.id}`}>
-              <img
-                className='Poster'
-                src={createImageUrl(result.poster_path, {width: 300})}
-                alt='Poster of movie'
+              {result.poster_path ?
+                <img
+                  className='Poster'
+                  src={createImageUrl(result.poster_path, {width: 300})}
+                  alt='Poster of movie'
                 />
+                :
+                <div className='NoPosterCard'>No poster available</div>
+              }
               <h2>{result.title}</h2>
               <p>{createReleaseYear(result.release_date)}</p>
             </Link> 
