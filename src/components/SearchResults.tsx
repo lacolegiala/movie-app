@@ -28,7 +28,7 @@ const SearchResults: React.FC = () => {
             setResults({movies: results.movies.concat(resultInfo.data.results), numberOfMovies: resultInfo.data.total_results})
           }
           else {
-            setResults({movies : resultInfo.data.results, numberOfMovies: resultInfo.data.total_results})
+            setResults({movies: resultInfo.data.results, numberOfMovies: resultInfo.data.total_results})
           }
         }
       } catch {
