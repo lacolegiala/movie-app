@@ -9,7 +9,7 @@ type SearchBarProps = {
 const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
 
   return (
-    <div className='SearchBar'>
+    <div>
       <form onSubmit={props.handleSubmit}>
         <input
           value={props.value} 

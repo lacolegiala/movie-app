@@ -148,12 +148,6 @@
   font-weight: bold;
 }
 
-.SearchBar {
-  flex-direction: column;
-  display: flex;
-  padding: 6px;
-}
-
 .BottomText {
   margin-top: 30px;
   margin-bottom: 42px;
