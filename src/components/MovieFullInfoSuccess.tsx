@@ -15,14 +15,10 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
   const youtubeTrailer = props.movieData.videos.results.find(result => result.site === 'YouTube' && result.type === 'Trailer')
 
   return (
-    <div>
+    <div className='PosterText'>
       <h1 className='SmallMargin'>{props.movieData.title}</h1>
       <p className='SmallMargin'>{createReleaseYear(props.movieData.release_date)}</p>
-      {props.movieData.genres.map(genre =>
-        <p key={genre.id}>
-          {genre.name}
-        </p>  
-      )}
+      <p className='SmallMargin'>{props.movieData.genres.slice(0, 3).map(genre => genre.name).join(', ')}</p>
       <img
         className='Poster'
         src={createImageUrl(props.movieData.poster_path, {width: 500})}
