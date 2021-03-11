@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useQuery } from '../hooks/useQuery'
-import { tmdbApiClient } from '../tmdbApiClient'
+import { tmdbApiClient } from '../utils/tmdbApiClient'
 
 type Props = {
   onLogin: (sessionId: string) => void

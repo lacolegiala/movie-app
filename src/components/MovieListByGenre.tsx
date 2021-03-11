@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { createImageUrl } from '../imageUrl'
-import { tmdbApiClient } from '../tmdbApiClient'
+import { createImageUrl } from '../utils/imageUrl'
+import { tmdbApiClient } from '../utils/tmdbApiClient'
 import { Genre, Movie } from '../types'
+import { createReleaseYear } from '../utils/releaseYear'
 
 const MovieListByGenre: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([])
@@ -45,7 +46,7 @@ const MovieListByGenre: React.FC = () => {
                 alt='Poster of movie'
                 /> 
               <h2>{movie.title}</h2>
-              <p>{new Date (movie.release_date).getFullYear()}</p>
+              <p>{createReleaseYear(movie.release_date)}</p>
             </Link> 
           </div>  
         )}

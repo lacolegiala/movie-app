@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { tmdbApiClient } from '../tmdbApiClient'
+import { tmdbApiClient } from '../utils/tmdbApiClient'
 
 
 const AddList: React.FC = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { tmdbApiClient } from '../tmdbApiClient'
+import { tmdbApiClient } from '../utils/tmdbApiClient'
 import { Genre } from '../types'
 import action from '../images/action.jpeg'
 import adventure from '../images/adventure.jpeg'

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { tmdbApiClient } from '../tmdbApiClient'
+import { tmdbApiClient } from '../utils/tmdbApiClient'
 import { List, MovieDetails } from '../types'
 import MovieFullInfoSuccess from './MovieFullInfoSuccess'
 

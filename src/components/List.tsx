@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import { createImageUrl } from '../imageUrl'
-import { tmdbApiClient } from '../tmdbApiClient'
+import { createImageUrl } from '../utils/imageUrl'
+import { tmdbApiClient } from '../utils/tmdbApiClient'
 import { ListDetails } from '../types'
 
 type Success = {

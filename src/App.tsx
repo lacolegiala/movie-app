@@ -5,8 +5,8 @@ import MovieFullInfo from './components/MovieFullInfo'
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
 import Login from './components/Login';
-import React, { useCallback, useState } from 'react';
-import { tmdbApiClient } from './tmdbApiClient';
+import { useCallback, useState } from 'react';
+import { tmdbApiClient } from './utils/tmdbApiClient';
 import MyLists from './components/MyLists';
 import AddList from './components/AddList';
 import List from './components/List';

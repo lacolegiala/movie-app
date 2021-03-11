@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {tmdbApiClient } from '../tmdbApiClient'
+import {tmdbApiClient } from '../utils/tmdbApiClient'
 import { Genre, Movie } from '../types'
 import GenreList from './GenreList'
 import MovieCard from './MovieCard'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { createImageUrl } from '../imageUrl'
+import { createImageUrl } from '../utils/imageUrl'
 import { List, MovieDetails } from '../types'
 
 type SuccessProps = {

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { createImageUrl } from '../imageUrl'
+import { createImageUrl } from '../utils/imageUrl'
 import { Genre, Movie } from '../types'
 
 type MovieProps = {

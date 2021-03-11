@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useQuery } from '../hooks/useQuery';
-import { createImageUrl } from '../imageUrl';
-import { tmdbApiClient } from '../tmdbApiClient';
+import { createImageUrl } from '../utils/imageUrl';
+import { tmdbApiClient } from '../utils/tmdbApiClient';
 import { Movie } from '../types';
 import SearchBar from './SearchBar';
 import { useHistory } from "react-router-dom";
+import { createReleaseYear } from '../utils/releaseYear';
 
 const SearchResults: React.FC = () => {
   const [results, setResults] = useState<Movie[]>([])
@@ -62,7 +63,7 @@ const SearchResults: React.FC = () => {
                 alt='Poster of movie'
                 />
               <h2>{result.title}</h2>
-              <p>{result.release_date !== '' ? new Date(result.release_date).getFullYear() : 'Unknown'}</p>
+              <p>{createReleaseYear(result.release_date)}</p>
             </Link> 
           </div>  
         )}
