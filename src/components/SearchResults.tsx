@@ -50,8 +50,6 @@ const SearchResults: React.FC = () => {
     setSearchBarValue(event.target.value)
   }
 
-  const resultsToShow = results.movies.filter(result => result.poster_path !== null)
-
   return (
     <div className='Container'>
       <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange}/>
