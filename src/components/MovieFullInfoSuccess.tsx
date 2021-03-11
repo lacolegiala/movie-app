@@ -1,6 +1,7 @@
 import React from 'react'
 import { createImageUrl } from '../utils/imageUrl'
 import { List, MovieDetails } from '../types'
+import { createReleaseYear } from '../utils/releaseYear'
 
 type SuccessProps = {
   movieData: MovieDetails
@@ -15,7 +16,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
 
   return (
     <div>
-      <h1>{props.movieData.title} ({new Date (props.movieData.release_date).getFullYear()})</h1>
+      <h1>{props.movieData.title} ({createReleaseYear(props.movieData.release_date)})</h1>
       {props.movieData.genres.map(genre =>
         <li key={genre.id}>
           {genre.name}

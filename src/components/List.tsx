@@ -3,6 +3,7 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 import { createImageUrl } from '../utils/imageUrl'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
 import { ListDetails } from '../types'
+import { createReleaseYear } from '../utils/releaseYear'
 
 type Success = {
   type: 'success'
@@ -70,7 +71,7 @@ const List: React.FC = () => {
                       src={createImageUrl(item.poster_path, {width: 300})}
                       alt='Poster of movie'
                     />
-                    <h2>{item.title} ({new Date (item.release_date).getFullYear()})</h2>
+                    <h2>{item.title} ({createReleaseYear(item.release_date)})</h2>
                   </Link>
                 </div>  
               )

@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { createImageUrl } from '../utils/imageUrl'
 import { Movie } from '../types'
+import { createReleaseYear } from '../utils/releaseYear'
 
 type MovieProps = {
   title: string
@@ -30,7 +31,7 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
                   className='Poster'
                 /> 
                 <h3 className='SmallMargin'>{movie.title}</h3>
-                <p className='SmallMargin'>{new Date (movie.release_date).getFullYear()}</p>
+                <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
               </Link> 
             </div>
           )}
