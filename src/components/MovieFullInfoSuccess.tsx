@@ -16,11 +16,12 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
 
   return (
     <div>
-      <h1>{props.movieData.title} ({createReleaseYear(props.movieData.release_date)})</h1>
+      <h1 className='SmallMargin'>{props.movieData.title}</h1>
+      <p className='SmallMargin'>{createReleaseYear(props.movieData.release_date)}</p>
       {props.movieData.genres.map(genre =>
-        <li key={genre.id}>
+        <p key={genre.id}>
           {genre.name}
-        </li>  
+        </p>  
       )}
       <img
         className='Poster'
