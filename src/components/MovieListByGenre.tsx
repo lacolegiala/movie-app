@@ -41,7 +41,6 @@ const MovieListByGenre: React.FC = () => {
   return (
     <div className='Container'>
       <h1>{genre}</h1>
-      <p>{movies.numberOfMovies} results</p>
       <div className='GridWrapper'>
         {movies.movies.map(movie => 
           <div className='PosterCard' key={movie.id}>
