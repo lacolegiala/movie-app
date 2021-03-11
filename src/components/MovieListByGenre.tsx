@@ -57,7 +57,10 @@ const MovieListByGenre: React.FC = () => {
         )}
       </div>
       <div className='ButtonContainer'>
-        <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
+        {movies.movies.length < movies.numberOfMovies ? 
+          <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
+          : <div className='BottomText'>No more movies to show</div>
+        }
       </div>
     </div>
   )
