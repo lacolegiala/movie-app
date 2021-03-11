@@ -32,6 +32,7 @@ const SearchResults: React.FC = () => {
       }
     }
     getResults()
+    // there is really no need to listen to results' changes, it just causes an infinite loop
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, queryParameter])
   
