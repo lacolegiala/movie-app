@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { createImageUrl } from '../imageUrl'
 import { tmdbApiClient } from '../tmdbApiClient'
@@ -7,24 +7,30 @@ import { Genre, Movie } from '../types'
 const MovieListByGenre: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([])
   const [genre, setGenre] = useState<string>()
-  const [counter, setCounter] = useState(1)
+  const [page, setPage] = useState(1)
   const { id } = useParams<{id: string}>()
 
-  useEffect(() => {
-    const discoverMovies = async () => {
+  const discoverMovies = useCallback(
+    async () => {
       try {
         const genreResponse = await tmdbApiClient.get<{genres: Genre[]}>('genre/movie/list')
         const genreList = genreResponse.data.genres
         const selectedGenre = genreList.find(genre => genre.id === parseInt(id))
         setGenre(selectedGenre?.name)
-        const moviesWithGenreResponse = await tmdbApiClient.get(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${counter}&with_genres=${id}`)
-        setMovies(moviesWithGenreResponse.data.results)
+        const moviesWithGenreResponse = await tmdbApiClient.get<{results: Movie[]}>(`discover/movie?&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}`)
+        setMovies(movies.concat(moviesWithGenreResponse.data.results))
       } catch (error) {
         console.log(error)
       }
-    }
+    },
+    // no need to listen to movies, just causes an infinite loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [page, id]
+  ) 
+
+  useEffect(() => {
     discoverMovies()
-  }, [id, counter])
+  }, [discoverMovies])
 
   return (
     <div className='Container'>
@@ -44,7 +50,7 @@ const MovieListByGenre: React.FC = () => {
           </div>  
         )}
       </div>
-      <button onClick={() => setCounter(counter + 1)}>Load more</button>
+      <button onClick={() => setPage(page + 1)}>Load more</button>
     </div>
   )
 }
