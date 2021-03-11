@@ -123,6 +123,7 @@
   border-radius: 6px;
   border: 1px solid #C9C8C8;
   padding: 6px 12px;
+  -webkit-appearance: none;
   margin-top: 12px;
 } 
 
