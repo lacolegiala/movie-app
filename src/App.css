@@ -118,12 +118,13 @@
 }
 
 .NoPosterCard {
-  margin: 12px 0px;
   background-color: #B2B2B2;
   padding: 6px;
   height: 432px;
   border-radius: 6px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Input {
@@ -180,5 +181,8 @@
   .BigMovieCardText {
     bottom: 12px;
     left: 12px;
+  }
+  .NoPosterCard {
+    height: 246px
   }
 }
