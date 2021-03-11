@@ -56,6 +56,7 @@ const SearchResults: React.FC = () => {
     <div className='Container'>
       <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange}/>
       <h1>Search results for '{queryParameter}'</h1>
+      <p>{results.numberOfMovies} results</p>
       <div className='GridWrapper'>
         {resultsToShow.map(result => 
           <div className='PosterCard' key={result.id}>
