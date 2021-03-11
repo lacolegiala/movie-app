@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 import { createReleaseYear } from '../utils/releaseYear';
 
 const SearchResults: React.FC = () => {
-  const [results, setResults] = useState<Movie[]>([])
+  const [results, setResults] = useState<{movies: Movie[], numberOfMovies: number}>({movies: [], numberOfMovies: 0})
   const queryParameter = useQuery().get('query')
   const [searchBarValue, setSearchBarValue] = useState<string>(queryParameter ?? '')
   const [page, setPage] = useState(1)
@@ -20,12 +20,15 @@ const SearchResults: React.FC = () => {
     const getResults = async () => {
       try {
         if (queryParameter) {
-          const resultInfo = await tmdbApiClient.get<{results: Movie[]}>(`search/movie?&language=en-US&query=${queryParameter}&page=${page}&include_adult=false`)
+          const resultInfo =
+           await tmdbApiClient.get<{results: Movie[], total_results: number}>(
+             `search/movie?&language=en-US&query=${queryParameter}&page=${page}&include_adult=false`
+            )
           if (page > 1) {
-            setResults(results.concat(resultInfo.data.results))
+            setResults({movies: results.movies.concat(resultInfo.data.results), numberOfMovies: resultInfo.data.total_results})
           }
           else {
-            setResults(resultInfo.data.results)
+            setResults({movies : resultInfo.data.results, numberOfMovies: resultInfo.data.total_results})
           }
         }
       } catch {
@@ -47,7 +50,7 @@ const SearchResults: React.FC = () => {
     setSearchBarValue(event.target.value)
   }
 
-  const resultsToShow = results.filter(result => result.poster_path !== null)
+  const resultsToShow = results.movies.filter(result => result.poster_path !== null)
 
   return (
     <div className='Container'>
@@ -68,9 +71,12 @@ const SearchResults: React.FC = () => {
           </div>  
         )}
       </div>
-      <div className='ButtonContainer'>
-        <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
-      </div>
+      {results.movies.length < results.numberOfMovies ? 
+        <div className='ButtonContainer'>
+          <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
+        </div>
+        : <div>No more movies to show</div>
+     }
     </div>
   )
 }
