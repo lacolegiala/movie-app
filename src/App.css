@@ -167,4 +167,8 @@
   .BigMovieCard {
     height: 240px;
   }
+  .BigMovieCardText {
+    bottom: 12px;
+    left: 12px;
+  }
 }
