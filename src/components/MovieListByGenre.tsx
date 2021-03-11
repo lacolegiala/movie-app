@@ -51,7 +51,9 @@ const MovieListByGenre: React.FC = () => {
           </div>  
         )}
       </div>
-      <button onClick={() => setPage(page + 1)}>Load more</button>
+      <div className='ButtonContainer'>
+        <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
+      </div>
     </div>
   )
 }

@@ -128,6 +128,20 @@
   align-items: center;
 }
 
+.ButtonContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.LoadButton {
+  padding: 6px;
+  margin: 30px;
+  background-color: #625E5E;
+  color: white;
+  font-weight: bold;
+}
+
 @media (max-width: 767px) {
   .GridWrapper {
     grid-template-columns: repeat(2, minmax(0, 1fr));
