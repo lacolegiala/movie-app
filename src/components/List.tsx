@@ -65,13 +65,14 @@ const List: React.FC = () => {
             {appCase.data.item_count > 0 ?
               appCase.data.items.map(item =>
                 <div key={item.id}>
-                  <Link to={`/movies/${item.id}`}>
+                  <Link className='PosterText' to={`/movies/${item.id}`}>
                     <img
                       className='Poster'
                       src={createImageUrl(item.poster_path, {width: 300})}
                       alt='Poster of movie'
                     />
-                    <h2>{item.title} ({createReleaseYear(item.release_date)})</h2>
+                    <h2 className='SmallMargin'>{item.title}</h2>
+                    <p className='SmallMargin'>{createReleaseYear(item.release_date)}</p>
                   </Link>
                 </div>  
               )
