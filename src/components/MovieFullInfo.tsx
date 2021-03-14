@@ -66,13 +66,13 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
   }
 
   return (
-    <div className='Container'>
+    <div>
       {appCase.type === 'success' &&
         <MovieFullInfoSuccess movieData={appCase.data} sessionId={props.sessionId} lists={lists} addToList={addToList} />
       }
-      {appCase.type === 'loading' && <h1>Loading</h1>}
+      {appCase.type === 'loading' && <h1 className='Container'>Loading</h1>}
       {appCase.type === 'error' &&
-        <div>
+        <div className='Container'> 
           <h1>Something went wrong. Refresh page or check that the id is correct.</h1>
           <button onClick={getMovieInfo}>Try again</button>
         </div>
