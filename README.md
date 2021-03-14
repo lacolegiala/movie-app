@@ -13,32 +13,33 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ## Working hours
 
-| Main task                       | Date  | Hours  |
-| --------------------------------|:------| -----: |
-|Planning                          |26.1   |   4   |
-|Planning                          |27.1   |   6   |
-|Making the base of the frontpage  |29.1   |   8   |
-|Base of the movie info page       |1.2    |   6.5 |
-|Search                            |4.2    |   6.5 |
-|Login                             |5.2    |   6.5 |
-|Modify login                      |9.2    |   3   |
-|Add a user list component         |10.2   |   5.5 |
-|Add lists and movies to them      |11.2   |   6.5 |
-|Add logout and fix stuff          |12.2   |   4.5 |
-|List genres in frontpage          |16.2   |   0.5 |
-|List movies by genre              |17.2   |   3   |
-|Refine appearance                 |18.2   |   6   |
-|Refine appearance                 |19.2   |   8   |
-|Refine appearance                 |23.2   |   3.5 |
-|Display search results as grid    |24.2   |   4.5 |
-|Add more info to individual view  |25.2   |   2   |
-|Add movie info, refine appearance |26.2   |   5.5 |
-|Minor ui tweaks                   |2.3    |   1.5 |
-|Ui tweaks & fixes                 |3.3    |   7   |
-|Refactoring, change frontpage view|4.3    |   6   |
-|UI enhancement                    |5.3    |   5   |
-|UI enhancement                    |9.3    |   2.5 |
-|UI enhancement, load more button  |10.3   |   2.5 |
+| Main task                        | Date  | Hours | Total|
+|--------------------------------- |:------| -----:| ----:|
+|Planning                          |26.1   |   4   |  4   |
+|Planning                          |27.1   |   6   |  10  |
+|Making the base of the frontpage  |29.1   |   8   |  18  |
+|Base of the movie info page       |1.2    |   6.5 |  24.5|
+|Search                            |4.2    |   6.5 |  31  |
+|Login                             |5.2    |   6.5 |  37.5|
+|Modify login                      |9.2    |   3   |  40.5|
+|Add a user list component         |10.2   |   5.5 |  46  |
+|Add lists and movies to them      |11.2   |   6.5 |  52.5|
+|Add logout and fix stuff          |12.2   |   4.5 |  57  |
+|List genres in frontpage          |16.2   |   0.5 |  57.5|
+|List movies by genre              |17.2   |   3   |  60.5|
+|Refine appearance                 |18.2   |   6   |  66.5|
+|Refine appearance                 |19.2   |   8   |  74.5|
+|Refine appearance                 |23.2   |   3.5 |  78  |
+|Display search results as grid    |24.2   |   4.5 |  82.5|
+|Add more info to individual view  |25.2   |   2   |  84.5|
+|Add movie info, refine appearance |26.2   |   5.5 |  90  |
+|Minor ui tweaks                   |2.3    |   1.5 |  91.5|
+|Ui tweaks & fixes                 |3.3    |   7   |  98.5|
+|Refactoring, change frontpage view|4.3    |   6   | 104.5|
+|UI enhancement                    |5.3    |   5   | 109.5|
+|UI enhancement                    |9.3    |   2.5 |  112 |
+|UI enhancement, load more button  |10.3   |   2.5 | 114.5| 
+|Styling, logic & UI tweaks        |11.3   |   6.5 |  121 | 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
