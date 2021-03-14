@@ -39,7 +39,8 @@ A movie app where users can browse movies and logged in users can make lists of 
 |UI enhancement                    |5.3    |   5   | 109.5|
 |UI enhancement                    |9.3    |   2.5 |  112 |
 |UI enhancement, load more button  |10.3   |   2.5 | 114.5| 
-|Styling, logic & UI tweaks        |11.3   |   6.5 |  121 | 
+|Styling, logic & UI tweaks        |11.3   |   6.5 |  121 |
+|Movie info view styling           |14.3   |   2.5 | 123.5| 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
