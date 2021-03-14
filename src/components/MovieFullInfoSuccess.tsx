@@ -22,17 +22,19 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
           {backgroundImage: `linear-gradient(to bottom, rgba(227, 226, 226, 0), rgba(28, 27, 27, 0.90)), url(${createImageUrl(props.movieData.backdrop_path, {width: 1280})})`}
         }>
       </div>
-      <div className='MovieInfoContainer'>
-        <div className='FullInfoTitle'>
-          <h1 className='SmallMargin'>{props.movieData.title}</h1>
-          <p className='SmallMargin'>{createReleaseYear(props.movieData.release_date)}</p>
-          <p className='SmallMargin'>{props.movieData.genres.slice(0, 3).map(genre => genre.name).join(', ')}</p>
+      <div className='Container'>
+        <div className='FullInfoPosterText'>
+          <img
+            className='FullInfoPoster'
+            src={createImageUrl(props.movieData.poster_path, {width: 185})}
+            alt='Poster of movie'
+          />
+          <div className='FullInfoTitle'>
+            <h1 className='SmallMargin'>{props.movieData.title}</h1>
+            <p className='SmallMargin'>{createReleaseYear(props.movieData.release_date)}</p>
+            <p className='SmallMargin'>{props.movieData.genres.slice(0, 3).map(genre => genre.name).join(', ')}</p>
+          </div>
         </div>
-        <img
-          className='PosterIndividual'
-          src={createImageUrl(props.movieData.poster_path, {width: 185})}
-          alt='Poster of movie'
-        />
         {props.sessionId && props.lists.length > 0 &&
           <div>
             <h2>Add to list</h2>
