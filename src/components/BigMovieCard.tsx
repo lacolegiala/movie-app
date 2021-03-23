@@ -21,8 +21,8 @@ const BigMovieCard: React.FC<MovieProps> = (props: MovieProps) => {
       <div className='ScrollListHeader'>
         <h2>{props.title}</h2>
         <div>
-          <button className='ScrollButton' onClick={() => movieListElement.current?.scrollBy({left: -180, behavior: 'smooth'})}>Previous</button>
-          <button className='ScrollButton' onClick={() => movieListElement.current?.scrollBy({left: 180, behavior: 'smooth'})}>Next</button>
+          <button className='SecondaryButton' onClick={() => movieListElement.current?.scrollBy({left: -180, behavior: 'smooth'})}>Previous</button>
+          <button className='SecondaryButton' onClick={() => movieListElement.current?.scrollBy({left: 180, behavior: 'smooth'})}>Next</button>
         </div>
       </div>
         <div ref={movieListElement} className='MovieList'>

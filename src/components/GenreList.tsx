@@ -86,8 +86,8 @@ const GenreList: React.FC = () => {
       <div className='ScrollListHeader'>
         <h2>Genres</h2>
         <div>
-          <button className='ScrollButton' onClick={() => genreListElement.current?.scrollBy({left: -300, behavior: 'smooth'})}>Previous</button>
-          <button className='ScrollButton' onClick={() => genreListElement.current?.scrollBy({left: 300, behavior: 'smooth'})}>Next</button>
+          <button className='SecondaryButton' onClick={() => genreListElement.current?.scrollBy({left: -300, behavior: 'smooth'})}>Previous</button>
+          <button className='SecondaryButton' onClick={() => genreListElement.current?.scrollBy({left: 300, behavior: 'smooth'})}>Next</button>
         </div>
       </div>
       <div ref={genreListElement} className='GenreList'>

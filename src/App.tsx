@@ -57,7 +57,7 @@ function App() {
               {sessionId &&
                 <div>
                   <Link className='ListLink' to='/lists'>My lists</Link>
-                  <button onClick={logout}>Log out</button>
+                  <button className='SecondaryButton' onClick={logout}>Log out</button>
                 </div>
               }
             </div>
