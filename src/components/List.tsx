@@ -80,7 +80,7 @@ const List: React.FC = () => {
             }
           </div>
           <hr />
-          <button onClick={deleteList}>Delete list</button>
+          <button className='SecondaryButton' onClick={deleteList}>Delete list</button>
         </div>
       }
       {appCase.type === 'loading' &&

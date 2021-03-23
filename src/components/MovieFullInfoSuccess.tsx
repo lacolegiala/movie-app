@@ -39,7 +39,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
           <div>
             <h2>Add to list</h2>
             {props.lists.map(list => 
-              <button key={list.id} onClick={() => props.addToList(list.id, props.movieData.id)}>{list.name}</button>  
+              <button className='SecondaryButton' key={list.id} onClick={() => props.addToList(list.id, props.movieData.id)}>{list.name}</button>  
             )}
           </div>
         }
