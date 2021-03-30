@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
 import { Genre } from '../types'
+import ScrollButtons from './ScrollButtons'
 import action from '../images/action.jpeg'
 import adventure from '../images/adventure.jpeg'
 import animation from '../images/animation.jpeg'
@@ -85,10 +86,7 @@ const GenreList: React.FC = () => {
     <div>
       <div className='ScrollListHeader'>
         <h2>Genres</h2>
-        <div>
-          <button className='SecondaryButton' onClick={() => genreListElement.current?.scrollBy({left: -300, behavior: 'smooth'})}>Previous</button>
-          <button className='SecondaryButton' onClick={() => genreListElement.current?.scrollBy({left: 300, behavior: 'smooth'})}>Next</button>
-        </div>
+        <ScrollButtons listElement={genreListElement} scrollDistance={300}></ScrollButtons>
       </div>
       <div ref={genreListElement} className='GenreList'>
         {genres.map(genre =>

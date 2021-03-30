@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { createImageUrl } from '../utils/imageUrl'
 import { Movie } from '../types'
 import { createReleaseYear } from '../utils/releaseYear'
+import ScrollButtons from './ScrollButtons'
 
 type MovieProps = {
   title: string
@@ -16,10 +17,7 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
     <div>
       <div className='ScrollListHeader'>
         <h2>{props.title}</h2>
-        <div>
-          <button className='SecondaryButton' onClick={() => movieListElement.current?.scrollBy({left: -180, behavior: 'smooth'})}>Previous</button>
-          <button className='SecondaryButton' onClick={() => movieListElement.current?.scrollBy({left: 180, behavior: 'smooth'})}>Next</button>
-        </div>
+        <ScrollButtons listElement={movieListElement} scrollDistance={180}></ScrollButtons>
       </div>
         <div ref={movieListElement} className='MovieList'>
           {props.movies.map(movie =>
