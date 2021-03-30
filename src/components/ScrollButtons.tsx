@@ -9,10 +9,10 @@ const ScrollButtons = (props: Props) => {
 
   return (
     <div>
-      <button className='SecondaryButton' onClick={() =>
+      <button className='SecondaryButton ScrollButton' onClick={() =>
         props.listElement.current?.scrollBy({left: - props.scrollDistance, behavior: 'smooth'})}>Previous
       </button>
-      <button className='SecondaryButton' onClick={() =>
+      <button className='SecondaryButton ScrollButton' onClick={() =>
         props.listElement.current?.scrollBy({left: props.scrollDistance, behavior: 'smooth'})}>Next
       </button>
     </div>
