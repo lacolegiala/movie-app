@@ -1,7 +1,7 @@
 import React from 'react'
 
 type Props = {
-  genreListElement: React.MutableRefObject<HTMLDivElement | null>
+  listElement: React.MutableRefObject<HTMLDivElement | null>
   scrollDistance: number
 }
 
@@ -10,10 +10,10 @@ const ScrollButtons = (props: Props) => {
   return (
     <div>
       <button className='SecondaryButton' onClick={() =>
-        props.genreListElement.current?.scrollBy({left: - props.scrollDistance, behavior: 'smooth'})}>Previous
+        props.listElement.current?.scrollBy({left: - props.scrollDistance, behavior: 'smooth'})}>Previous
       </button>
       <button className='SecondaryButton' onClick={() =>
-        props.genreListElement.current?.scrollBy({left: props.scrollDistance, behavior: 'smooth'})}>Next
+        props.listElement.current?.scrollBy({left: props.scrollDistance, behavior: 'smooth'})}>Next
       </button>
     </div>
   )
