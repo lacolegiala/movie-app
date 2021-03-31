@@ -156,6 +156,12 @@
   border-radius: 6px;
 }
 
+.ActorProfile {
+  max-width: 120px;
+  border-radius: 120px;
+  margin-right: 24px;
+}
+
 .FullInfoPoster {
   max-width: 100%;
   border-radius: 6px;

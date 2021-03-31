@@ -56,12 +56,15 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
         </div>
         <div ref={castListElement} className='MovieList'>
           {props.movieData.credits.cast.map(castMember => 
-            <div key={castMember.id} className='MovieCard'>
-              {castMember.profile_path ? 
-                <img
-                  src={createImageUrl(castMember.profile_path, {width: 300})}
-                  alt={castMember.name}
-                />
+            <div key={castMember.id}>
+              {castMember.profile_path ?
+                <div className='MovieList'> 
+                  <img
+                    src={createImageUrl(castMember.profile_path, {width: 300})}
+                    alt={castMember.name}
+                    className='ActorProfile'
+                  />
+                </div>
               :
               <div className='NoPosterCard'>No photo available</div>
               }
