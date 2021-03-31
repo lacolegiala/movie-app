@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { createImageUrl } from '../utils/imageUrl'
 import { List, MovieDetails } from '../types'
 import { createReleaseYear } from '../utils/releaseYear'
+import ScrollButtons from './ScrollButtons'
 
 type SuccessProps = {
   movieData: MovieDetails
@@ -11,6 +12,7 @@ type SuccessProps = {
 }
 
 const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
+  const castListElement = useRef<HTMLDivElement | null>(null)
 
   const youtubeTrailer = props.movieData.videos.results.find(result => result.site === 'YouTube' && result.type === 'Trailer')
 
@@ -48,10 +50,13 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
         {youtubeTrailer !== undefined &&
           <a href={`https://youtube.com/watch?v=${youtubeTrailer.key}`} rel='noreferrer' target='_blank'>Watch trailer</a>
         }
-        <h2>Cast</h2>
-        <div>
-          {props.movieData.credits.cast.slice(0, 6).map(castMember => 
-            <div key={castMember.id}>
+        <div className='ScrollListHeader'>
+          <h2>Cast</h2>
+          <ScrollButtons listElement={castListElement} scrollDistance={180}></ScrollButtons>
+        </div>
+        <div ref={castListElement} className='MovieList'>
+          {props.movieData.credits.cast.map(castMember => 
+            <div key={castMember.id} className='MovieCard'>
               {castMember.name} as {castMember.character}
             </div>
           )}
