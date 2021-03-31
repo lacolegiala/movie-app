@@ -157,7 +157,9 @@
 }
 
 .ActorProfile {
-  max-width: 120px;
+  object-fit: contain;
+  width: 120px;
+  height: 120px;
   border-radius: 120px;
   margin-right: 24px;
 }
@@ -192,8 +194,18 @@
 .NoPosterCard {
   background-color: #B2B2B2;
   padding: 6px;
-  height: 432px;
-  border-radius: 6px;
+  margin-right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NoProfileCard {
+  background-color: #B2B2B2;
+  padding: 6px;
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
   display: flex;
   align-items: center;
   justify-content: center;

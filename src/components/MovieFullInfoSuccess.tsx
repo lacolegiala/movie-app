@@ -66,7 +66,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
                   />
                 </div>
               :
-              <div className='NoPosterCard'>No photo available</div>
+              <div className='NoProfileCard'>No photo available</div>
               }
               <h3>{castMember.name}</h3>
               <h4>{castMember.character}</h4>
