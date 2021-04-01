@@ -157,6 +157,8 @@
 }
 
 .ActorProfile {
+  flex-shrink: 0;
+  scroll-snap-align: start;
   object-fit: cover;
   width: 120px;
   height: 120px;

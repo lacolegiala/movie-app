@@ -58,7 +58,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
           {props.movieData.credits.cast.map(castMember => 
             <div key={castMember.id}>
               {castMember.profile_path ?
-                <div className='MovieList'> 
+                <div className='ActorProfile'> 
                   <img
                     src={createImageUrl(castMember.profile_path, {width: 300})}
                     alt={castMember.name}
