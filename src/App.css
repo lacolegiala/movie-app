@@ -198,6 +198,7 @@
   padding: 6px;
   margin-right: 24px;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
 }
@@ -209,6 +210,7 @@
   margin-right: 24px;
   border-radius: 120px;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
 }
