@@ -76,7 +76,7 @@ const SearchResults: React.FC = () => {
       </div>
       <div className='ButtonContainer'>
         {results.movies.length < results.numberOfMovies ? 
-          <button className='LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
+          <button className='SecondaryButton LoadButton' onClick={() => setPage(page + 1)}>Load more</button>
           : <div className='BottomText'>No more movies to show</div>
         }
       </div>
