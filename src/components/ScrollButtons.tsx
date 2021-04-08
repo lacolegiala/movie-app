@@ -8,7 +8,7 @@ type Props = {
 const ScrollButtons = (props: Props) => {
 
   return (
-    <div>
+    <div className='ScrollButtonGrid'>
       <button className='SecondaryButton ScrollButton' onClick={() =>
         props.listElement.current?.scrollBy({left: - props.scrollDistance, behavior: 'smooth'})}>Previous
       </button>
