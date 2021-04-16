@@ -52,19 +52,17 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
         }
         <div className='ScrollListHeader'>
           <h2>Cast</h2>
-          <ScrollButtons listElement={castListElement} scrollDistance={180}></ScrollButtons>
+          <ScrollButtons listElement={castListElement} scrollDistance={120}></ScrollButtons>
         </div>
         <div ref={castListElement} className='ActorGrid'>
           {props.movieData.credits.cast.map(castMember => 
             <div className='ActorProfile' key={castMember.id}>
               {castMember.profile_path ?
-                <div> 
-                  <img
-                    src={createImageUrl(castMember.profile_path, {width: 300})}
-                    alt={castMember.name}
-                    className='ActorProfilePicture  '
-                  />
-                </div>
+                <img
+                  src={createImageUrl(castMember.profile_path, {width: 300})}
+                  alt={castMember.name}
+                  className='ActorProfilePicture  '
+                />
               : 
                 <div className='NoProfileCard'>No photo available</div>
               }

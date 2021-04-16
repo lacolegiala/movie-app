@@ -165,15 +165,13 @@
   display: flex;
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
-  gap: 6px;
+  gap: 12px;
 }
 
 .ActorProfile {
   flex-shrink: 0;
   scroll-snap-align: start;
-  margin-right: 24px;
-  background-color: white;
-  width: 100px;
+  width: 120px;
 }
 
 .ActorProfilePicture {
@@ -184,6 +182,7 @@
 }
 
 .ActorName {
+  font-size: 16px;
   margin-bottom: 4px;
 }
 
