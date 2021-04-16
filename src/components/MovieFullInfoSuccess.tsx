@@ -54,7 +54,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
           <h2>Cast</h2>
           <ScrollButtons listElement={castListElement} scrollDistance={180}></ScrollButtons>
         </div>
-        <div ref={castListElement} className='MovieList'>
+        <div ref={castListElement} className='ActorGrid'>
           {props.movieData.credits.cast.map(castMember => 
             <div className='ActorProfile' key={castMember.id}>
               {castMember.profile_path ?
