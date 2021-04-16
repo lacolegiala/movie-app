@@ -164,11 +164,25 @@
 .ActorProfile {
   flex-shrink: 0;
   scroll-snap-align: start;
+  margin-right: 24px;
+  background-color: white;
+  width: 100px;
+}
+
+.ActorProfilePicture {
   object-fit: cover;
   width: 120px;
   height: 120px;
   border-radius: 120px;
-  margin-right: 24px;
+}
+
+.ActorName {
+  margin-bottom: 4px;
+}
+
+.ActorCharacterText {
+  font-size: 14px;
+  margin-top: 6px;
 }
 
 .FullInfoPoster {
