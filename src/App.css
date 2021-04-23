@@ -220,8 +220,8 @@
 
 .NoPosterCard {
   background-color: #B2B2B2;
-  width: 120px;
-  height: 120px;
+  width: 288px;
+  height: 440px;
   border-radius: 6px;
   padding: 6px;
   margin-right: 24px;
@@ -295,6 +295,7 @@
   }
   .NoPosterCard {
     height: 246px;
+    width: 156px;
   }
   .MovieInfoContainer {
     left: 60px;
