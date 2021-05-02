@@ -11,6 +11,7 @@ import MyLists from './components/MyLists';
 import AddList from './components/AddList';
 import List from './components/List';
 import MovieListByGenre from './components/MovieListByGenre';
+import ActorPage from './components/ActorPage';
 
 const history = createBrowserHistory();
 
@@ -69,6 +70,9 @@ function App() {
           </Route>
           <Route path='/movies/:id'>
             <MovieFullInfo sessionId={sessionId} />
+          </Route>
+          <Route path='/actors/:id'>
+            <ActorPage />
           </Route>
           <Route path='/genre/:id'>
             <MovieListByGenre />

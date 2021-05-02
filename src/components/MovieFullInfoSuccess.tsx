@@ -3,6 +3,7 @@ import { createImageUrl } from '../utils/imageUrl'
 import { List, MovieDetails } from '../types'
 import { createReleaseYear } from '../utils/releaseYear'
 import ScrollButtons from './ScrollButtons'
+import { Link } from 'react-router-dom'
 
 type SuccessProps = {
   movieData: MovieDetails
@@ -56,7 +57,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
         </div>
         <div ref={castListElement} className='ActorGrid'>
           {props.movieData.credits.cast.map(castMember => 
-            <div className='ActorProfile' key={castMember.id}>
+            <Link className='ActorProfile' key={castMember.id} to={`/actors/${castMember.id}`}>
               {castMember.profile_path ?
                 <img
                   src={createImageUrl(castMember.profile_path, {width: 300})}
@@ -68,7 +69,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
               }
               <h3 className='ActorName'>{castMember.name}</h3>
               <h4 className='ActorCharacterText'>{castMember.character}</h4>
-            </div>
+            </Link>
           )}
         </div>
       </div>
