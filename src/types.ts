@@ -146,3 +146,11 @@ export type ListDetails = {
   name: string
   poster_path: null | string
 }
+
+export type PersonDetails = {
+  biography: string
+  birthday: string | null
+  deathday: string | null
+  name: string
+  profile_path: string | null
+}
