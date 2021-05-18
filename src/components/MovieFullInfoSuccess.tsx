@@ -35,6 +35,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
           <div className='FullInfoTitle'>
             <h1 className='SmallMargin'>{props.movieData.title}</h1>
             <p className='SmallMargin'>{createReleaseYear(props.movieData.release_date)}</p>
+            <p className='SmallMargin'>{`${props.movieData.vote_average}/10`}</p>
             <p className='SmallMargin'>{props.movieData.genres.slice(0, 3).map(genre => genre.name).join(', ')}</p>
           </div>
         </div>

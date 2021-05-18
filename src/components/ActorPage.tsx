@@ -73,7 +73,7 @@ const ActorPage = () => {
           <h2>Movies</h2>
           <div className='MovieList'>
             {appCase.movieCredits.cast.map(movie =>
-              <Link className='MovieCard' to={`/movies/${movie.id}`}>
+              <Link key={movie.id} className='MovieCard' to={`/movies/${movie.id}`}>
                 {movie.poster_path ?
                   <img
                     src={createImageUrl(movie.poster_path, {width: 185})}
