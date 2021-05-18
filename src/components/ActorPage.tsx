@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { PersonDetails } from '../types'
+import { createImageUrl } from '../utils/imageUrl'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
 
 type Success = {
@@ -46,6 +47,15 @@ const ActorPage = () => {
       {appCase.type ==='success' &&
         <div>
           <h1>{appCase.data.name}</h1>
+          {appCase.data.birthday &&
+            <div>{appCase.data.birthday}</div>
+          }
+          {appCase.data.profile_path &&
+            <img
+              src={createImageUrl(appCase.data.profile_path, {width: 300})}
+              alt='Actor'
+            />
+          }
           <div>{appCase.data.biography}</div>
         </div>
       }
