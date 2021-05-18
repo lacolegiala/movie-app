@@ -81,7 +81,7 @@ const ActorPage = () => {
                     className='Poster'
                   />
                   :
-                  <div className='NoPosterCard'>No poster available</div> 
+                  <div className='SmallNoPosterCard'>No poster available</div> 
                 }
                 <h3 className='SmallMargin'>{movie.title}</h3>
                 <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>

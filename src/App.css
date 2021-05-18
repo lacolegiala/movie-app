@@ -239,6 +239,19 @@
   justify-content: center;
 }
 
+.SmallNoPosterCard {
+  background-color: #B2B2B2;
+  width: 168px;
+  height: 260px;
+  border-radius: 6px;
+  padding: 6px;
+  margin-right: 24px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .NoProfileCard {
   background-color: #B2B2B2;
   width: 120px;
