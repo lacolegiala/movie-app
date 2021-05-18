@@ -42,10 +42,11 @@ const ActorPage = () => {
   }, [getActorInfo])
 
   return (
-    <div>
+    <div className='Container'>
       {appCase.type ==='success' &&
         <div>
           <h1>{appCase.data.name}</h1>
+          <div>{appCase.data.biography}</div>
         </div>
       }
     </div>
