@@ -154,3 +154,8 @@ export type PersonDetails = {
   name: string
   profile_path: string | null
 }
+
+export type MovieCredits = {
+  cast: Movie[]
+  crew: Movie[]
+}

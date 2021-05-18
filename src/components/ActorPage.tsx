@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { PersonDetails } from '../types'
+import { Link, useParams } from 'react-router-dom'
+import { MovieCredits, PersonDetails } from '../types'
 import { createImageUrl } from '../utils/imageUrl'
+import { createReleaseYear } from '../utils/releaseYear'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
 
 type Success = {
   type: 'success'
-  data: PersonDetails
+  personData: PersonDetails
+  movieCredits: MovieCredits
 }
 
 type Loading = {
@@ -28,7 +30,8 @@ const ActorPage = () => {
     async () => {
       try {
         const personInfo = await tmdbApiClient.get(`person/${id}`)
-        setAppCase({type: 'success', data: personInfo.data})
+        const movieInfo = await tmdbApiClient.get(`person/${id}/movie_credits`)
+        setAppCase({type: 'success', personData: personInfo.data, movieCredits: movieInfo.data})
       }
       catch (error) {
         setAppCase({type: 'error'})
@@ -46,27 +49,45 @@ const ActorPage = () => {
     <div className='Container'>
       {appCase.type ==='success' &&
         <div>
-          <h1>{appCase.data.name}</h1>
-          {appCase.data.profile_path &&
+          <h1>{appCase.personData.name}</h1>
+          {appCase.personData.profile_path &&
             <img
-            src={createImageUrl(appCase.data.profile_path, {width: 300})}
+            src={createImageUrl(appCase.personData.profile_path, {width: 300})}
             alt='Actor'
             />
           }
-          {appCase.data.birthday &&
+          {appCase.personData.birthday &&
             <div>
               <h2>Date of birth</h2>
-              <div>{appCase.data.birthday}</div>
+              <div>{appCase.personData.birthday}</div>
             </div>
           }
-          {appCase.data.deathday &&
+          {appCase.personData.deathday &&
             <div>
               <h2>Date of death</h2>
-              <div>{appCase.data.deathday}</div>
+              <div>{appCase.personData.deathday}</div>
             </div>
           }
           <h2>Biography</h2>
-          <div className='ActorInfo'>{appCase.data.biography}</div>
+          <div className='ActorInfo'>{appCase.personData.biography}</div>
+          <h2>Movies</h2>
+          <div className='MovieList'>
+            {appCase.movieCredits.cast.map(movie =>
+              <Link className='MovieCard' to={`/movies/${movie.id}`}>
+                {movie.poster_path ?
+                  <img
+                    src={createImageUrl(movie.poster_path, {width: 185})}
+                    alt='Poster of movie'
+                    className='Poster'
+                  />
+                  :
+                  <div className='NoPosterCard'>No poster available</div> 
+                }
+                <h3 className='SmallMargin'>{movie.title}</h3>
+                <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
+              </Link>   
+            )}
+          </div>
         </div>
       }
     </div>
