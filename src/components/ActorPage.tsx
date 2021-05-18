@@ -47,16 +47,26 @@ const ActorPage = () => {
       {appCase.type ==='success' &&
         <div>
           <h1>{appCase.data.name}</h1>
-          {appCase.data.birthday &&
-            <div>{appCase.data.birthday}</div>
-          }
           {appCase.data.profile_path &&
             <img
-              src={createImageUrl(appCase.data.profile_path, {width: 300})}
-              alt='Actor'
+            src={createImageUrl(appCase.data.profile_path, {width: 300})}
+            alt='Actor'
             />
           }
-          <div>{appCase.data.biography}</div>
+          {appCase.data.birthday &&
+            <div>
+              <h2>Date of birth</h2>
+              <div>{appCase.data.birthday}</div>
+            </div>
+          }
+          {appCase.data.deathday &&
+            <div>
+              <h2>Date of death</h2>
+              <div>{appCase.data.deathday}</div>
+            </div>
+          }
+          <h2>Biography</h2>
+          <div className='ActorInfo'>{appCase.data.biography}</div>
         </div>
       }
     </div>
