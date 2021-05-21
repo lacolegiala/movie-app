@@ -11,6 +11,19 @@ A movie app where users can browse movies and logged in users can make lists of 
 - Typescript
 - Netlify
 
+## Screenshots
+
+![Frontpage](./src/images/screenshots/Frontpage.png)
+
+![Individual movie view](./src/images/screenshots/MovieView.png)
+
+![Actor list on movie view](./src/images/screenshots/ActorList.png)
+
+![Lists of genres and the most popular movies on frontpage](./src/images/screenshots/PopularAndGenres.png)
+
+![List of search results](./src/images/screenshots/SearchResults.png)
+
+![User list view](./src/images/screenshots/List.png)
 ## Working hours
 
 | Main task                        | Date  | Hours | Total|
