@@ -13,18 +13,18 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ## Screenshots
 
-![Frontpage](./src/images/screenshots/Frontpage.png)
+### Frontpage
 
-![Individual movie view](./src/images/screenshots/MovieView.png)
+![Frontpage](./src/images/screenshots/frontpage.png)
 
-![Actor list on movie view](./src/images/screenshots/ActorList.png)
+### Movie info page
 
-![Lists of genres and the most popular movies on frontpage](./src/images/screenshots/PopularAndGenres.png)
+![Individual movie view](./src/images/screenshots/movieview.png)
 
-![List of search results](./src/images/screenshots/SearchResults.png)
+### Search result view
 
-![User list view](./src/images/screenshots/List.png)
-## Working hours
+![List of search results](./src/images/screenshots/searchresults.png)
+
 
 | Main task                        | Date  | Hours | Total|
 |--------------------------------- |:------| -----:| ----:|
