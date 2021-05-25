@@ -49,7 +49,7 @@ const ActorPage = () => {
     if (appCase.type === 'success') {
       const sortedMovies = ([] as Movie[]).concat(appCase.movieCredits.cast)
         .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
-      {return sortedMovies.map(movie =>
+      return sortedMovies.map(movie =>
         <Link key={movie.id} className='MovieCard' to={`/movies/${movie.id}`}>
           {movie.poster_path ?
             <img
@@ -63,7 +63,7 @@ const ActorPage = () => {
           <h3 className='SmallMargin'>{movie.title}</h3>
           <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
         </Link>
-      )}
+      )
     }
   }
 
