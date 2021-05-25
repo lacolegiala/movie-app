@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { MovieCredits, PersonDetails } from '../types'
+import { Movie, MovieCredits, PersonDetails } from '../types'
 import { createImageUrl } from '../utils/imageUrl'
 import { createReleaseYear } from '../utils/releaseYear'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
@@ -45,6 +45,28 @@ const ActorPage = () => {
     getActorInfo()
   }, [getActorInfo])
 
+  const sortMovies = () => {
+    if (appCase.type === 'success') {
+      const sortedMovies = ([] as Movie[]).concat(appCase.movieCredits.cast)
+        .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
+      {return sortedMovies.map(movie =>
+        <Link key={movie.id} className='MovieCard' to={`/movies/${movie.id}`}>
+          {movie.poster_path ?
+            <img
+              src={createImageUrl(movie.poster_path, {width: 185})}
+              alt='Poster of movie'
+              className='Poster'
+            />
+            :
+            <div className='SmallNoPosterCard'>No poster available</div> 
+          }
+          <h3 className='SmallMargin'>{movie.title}</h3>
+          <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
+        </Link>
+      )}
+    }
+  }
+
   return (
     <div className='Container'>
       {appCase.type ==='success' &&
@@ -72,21 +94,7 @@ const ActorPage = () => {
           <div className='ActorInfo'>{appCase.personData.biography}</div>
           <h2>Movies</h2>
           <div className='ActorMovieGrid'>
-            {appCase.movieCredits.cast.map(movie =>
-              <Link key={movie.id} className='MovieCard' to={`/movies/${movie.id}`}>
-                {movie.poster_path ?
-                  <img
-                    src={createImageUrl(movie.poster_path, {width: 185})}
-                    alt='Poster of movie'
-                    className='Poster'
-                  />
-                  :
-                  <div className='SmallNoPosterCard'>No poster available</div> 
-                }
-                <h3 className='SmallMargin'>{movie.title}</h3>
-                <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
-              </Link>   
-            )}
+            {sortMovies()}
           </div>
         </div>
       }
