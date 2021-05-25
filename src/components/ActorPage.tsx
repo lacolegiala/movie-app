@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Movie, MovieCredit, MovieCredits, PersonDetails } from '../types'
+import { MovieCredit, MovieCredits, PersonDetails } from '../types'
 import { createImageUrl } from '../utils/imageUrl'
 import { createReleaseYear } from '../utils/releaseYear'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
