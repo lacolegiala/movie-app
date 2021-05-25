@@ -71,7 +71,7 @@ const ActorPage = () => {
           <h2>Biography</h2>
           <div className='ActorInfo'>{appCase.personData.biography}</div>
           <h2>Movies</h2>
-          <div className='MovieList'>
+          <div className='ActorMovieGrid'>
             {appCase.movieCredits.cast.map(movie =>
               <Link key={movie.id} className='MovieCard' to={`/movies/${movie.id}`}>
                 {movie.poster_path ?
