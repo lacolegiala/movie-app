@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Movie, MovieCredits, PersonDetails } from '../types'
+import { Movie, MovieCredit, MovieCredits, PersonDetails } from '../types'
 import { createImageUrl } from '../utils/imageUrl'
 import { createReleaseYear } from '../utils/releaseYear'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
@@ -47,7 +47,7 @@ const ActorPage = () => {
 
   const sortMovies = () => {
     if (appCase.type === 'success') {
-      const sortedMovies = ([] as Movie[]).concat(appCase.movieCredits.cast)
+      const sortedMovies = ([] as MovieCredit[]).concat(appCase.movieCredits.cast)
         .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
       return sortedMovies.map(movie =>
         <Link key={movie.id} className='MovieCard' to={`/movies/${movie.id}`}>
@@ -62,6 +62,7 @@ const ActorPage = () => {
           }
           <h3 className='SmallMargin'>{movie.title}</h3>
           <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
+          <p>{movie.character}</p>
         </Link>
       )
     }
