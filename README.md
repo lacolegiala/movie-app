@@ -23,7 +23,8 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ### Search result view
 
-![Search results](https://user-images.githubusercontent.com/44336875/120070810-f7cc8280-c094-11eb-9d92-b3351059e2c0.png)
+![Search results)](https://user-images.githubusercontent.com/44336875/120071092-46c6e780-c096-11eb-9b06-b57dfcd854f5.png)
+
 
 
 | Main task                        | Date  | Hours | Total|
