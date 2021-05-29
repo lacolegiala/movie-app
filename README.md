@@ -15,7 +15,7 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ### Frontpage
 
-![Frontpage](https://user-images.githubusercontent.com/44336875/120070810-f7cc8280-c094-11eb-9d92-b3351059e2c0.png)
+![Frontpage)](https://user-images.githubusercontent.com/44336875/120071045-0f583b00-c096-11eb-9af0-3077096c19e4.png)
 
 ### Movie info page
 
