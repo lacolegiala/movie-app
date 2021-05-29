@@ -19,7 +19,7 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ### Movie info page
 
-![Individual movie view](src/images/screenshots/movieview.png)
+![image](https://user-images.githubusercontent.com/44336875/120070810-f7cc8280-c094-11eb-9d92-b3351059e2c0.png)
 
 ### Search result view
 
