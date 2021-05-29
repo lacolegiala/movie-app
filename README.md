@@ -15,15 +15,15 @@ A movie app where users can browse movies and logged in users can make lists of 
 
 ### Frontpage
 
-![Frontpage](./src/images/screenshots/frontpage.png)
+![Frontpage](src/images/screenshots/frontpage.png)
 
 ### Movie info page
 
-![Individual movie view](./src/images/screenshots/movieview.png)
+![Individual movie view](src/images/screenshots/movieview.png)
 
 ### Search result view
 
-![List of search results](./src/images/screenshots/searchresults.png)
+![List of search results](src/images/screenshots/searchresults.png)
 
 
 | Main task                        | Date  | Hours | Total|
