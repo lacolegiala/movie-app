@@ -61,6 +61,7 @@ const List: React.FC = () => {
       {appCase.type === 'success' &&
         <div>
           <h1>{appCase.data.name}</h1>
+          <button className='SecondaryButton DeleteButton' onClick={deleteList}>Delete list</button>
           <div className='GridWrapper'>
             {appCase.data.item_count > 0 ?
               appCase.data.items.map(item =>
@@ -80,7 +81,6 @@ const List: React.FC = () => {
             }
           </div>
           <hr />
-          <button className='SecondaryButton DeleteButton' onClick={deleteList}>Delete list</button>
         </div>
       }
       {appCase.type === 'loading' &&
