@@ -28,18 +28,9 @@
 }
 
 .DeleteButton {
-  background-color: white;
   margin-bottom: 16px;
   width: 102px;
   height: 36px;
-  color: #4B534F;
-  border-color: #C1C2C1;
-  border-style: solid;
-  border-width: 1px;
-  padding: 6px 6px;
-  border-radius: 3px;
-  text-align: center;
-  box-shadow: rgb(0 0 0 / 6%) 0px 1px 3px;
 }
 
 .ScrollButton {
