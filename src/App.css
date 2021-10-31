@@ -83,8 +83,8 @@
 }
 
 .ActorMovieGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -167,6 +167,10 @@
 .PosterCard {
   margin: 12px 0px;
   background-color: white;
+}
+
+.ActorPagePoster {
+  max-width: fit-content;
 }
 
 .Poster {
