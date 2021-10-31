@@ -56,7 +56,20 @@ A movie app where users can browse movies and logged in users can make lists of 
 |UI enhancement, load more button  |10.3   |   2.5 | 114.5| 
 |Styling, logic & UI tweaks        |11.3   |   6.5 |  121 |
 |Movie info view styling           |14.3   |   2.5 | 123.5| 
-
+|Styling                           |23.3   |   1.5 | 125  |
+|Styling & refactoring             |30.3   |   4   | 129  |
+|Cast images styling               |31.3   |   2   | 131  |
+|Style imporovements               |1.4    |   0.5 | 131.5|
+|Style imporovements               |8.4    |   0.5 | 132  |
+|Actor list style imporovements    |16.4   |   4   | 136  |
+|Style fix                         |23.4   |   0.5 | 136.5|
+|Actor page                        |2.5    |   0.5 | 137  |
+|Actor page improvement            |3.5    |   0.5 | 137.5|
+|Style improvements                |17.5   |   0.5 | 138  |
+|Actor page improvements           |18.5   |   2   | 140  |
+|Actor page improvements           |31.5   |   0.5 | 140.5|
+|Style improvements                |1.6    |   0.5 | 141  |
+|Style improvements                |7.9    |   6   | 147  |
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
