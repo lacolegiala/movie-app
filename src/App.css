@@ -178,6 +178,11 @@
   border-radius: 6px;
 }
 
+.ActorMoviePoster {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
 .ActorGrid {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(120px, 1fr) );
@@ -357,5 +362,9 @@
   .HomeLink {
     padding: 6px;
     font-size: 14px;
+  }
+  .ActorMovieGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
   }
 }
