@@ -10,7 +10,7 @@ type MovieProps = {
   movies: Movie[]
 }
 
-const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
+const MovieScrollList: React.FC<MovieProps> = (props: MovieProps) => {
   const movieListElement = useRef<HTMLDivElement | null>(null)
   
   return (
@@ -42,4 +42,4 @@ const MovieCard: React.FC<MovieProps> = (props: MovieProps) => {
   )
 }
 
-export default MovieCard
+export default MovieScrollList

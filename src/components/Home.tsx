@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {tmdbApiClient } from '../utils/tmdbApiClient'
 import { Genre, Movie } from '../types'
 import GenreList from './GenreList'
-import MovieCard from './MovieCard'
+import MovieScrollList from './MovieScrollList'
 import SearchBar from './SearchBar'
 import { useHistory } from "react-router-dom";
 import BigMovieCard from './BigMovieCard'
@@ -49,9 +49,9 @@ const Home: React.FC = () => {
     <div className='Container'>
       <SearchBar value={searchBarValue} handleSubmit={handleSubmit} handleChange={handleChange} />
       <BigMovieCard title='New' movies={newMovies} genres={genres} />
-      <MovieCard title='Most popular' movies={popularMovies} />
+      <MovieScrollList title='Most popular' movies={popularMovies} />
       <GenreList />
-      <MovieCard title='Top rated' movies={topRatedMovies} />
+      <MovieScrollList title='Top rated' movies={topRatedMovies} />
     </div>
   )
 
