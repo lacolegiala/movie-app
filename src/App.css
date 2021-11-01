@@ -178,11 +178,6 @@
   border-radius: 6px;
 }
 
-.ActorMoviePoster {
-  max-width: 100%;
-  border-radius: 6px;
-}
-
 .ActorGrid {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(120px, 1fr) );
