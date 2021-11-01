@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: left;
 }
@@ -245,21 +249,9 @@
 
 .NoPosterCard {
   background-color: #B2B2B2;
-  width: 288px;
-  height: 440px;
-  border-radius: 6px;
-  padding: 6px;
-  margin-right: 24px;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.SmallNoPosterCard {
-  background-color: #B2B2B2;
-  width: 168px;
-  height: 260px;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  object-fit: contain;
   border-radius: 6px;
   padding: 6px;
   margin-right: 24px;
@@ -330,10 +322,6 @@
   .BigMovieCardText {
     bottom: 12px;
     left: 12px;
-  }
-  .NoPosterCard {
-    height: 246px;
-    width: 156px;
   }
   .MovieInfoContainer {
     left: 60px;

@@ -54,12 +54,12 @@ const ActorPage = () => {
           <Link className='PosterText' to={`/movies/${movie.id}`}>
             {movie.poster_path ?
               <img
-                src={createImageUrl(movie.poster_path, {width: 185})}
+                src={createImageUrl(movie.poster_path, {width: 300})}
                 alt='Poster of movie'
                 className='Poster'
               />
               :
-              <div className='SmallNoPosterCard'>No poster available</div> 
+              <div className='NoPosterCard'>No poster available</div> 
             }
             <h3 className='SmallMargin'>{movie.title}</h3>
             <p className='SmallMargin'>{createReleaseYear(movie.release_date)}</p>
