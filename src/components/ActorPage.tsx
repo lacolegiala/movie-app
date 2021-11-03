@@ -22,7 +22,7 @@ type ErrorData = {
 type Case = Success | Loading | ErrorData
 
 const ActorPage = () => {
-  const [appCase, setAppCase] = useState<Case>({type: 'loading'})
+  const [actorPageState, setActorPageState] = useState<Case>({type: 'loading'})
 
   const {id} = useParams<{id: string}>()
 
@@ -31,10 +31,10 @@ const ActorPage = () => {
       try {
         const personInfo = await tmdbApiClient.get(`person/${id}`)
         const movieInfo = await tmdbApiClient.get(`person/${id}/movie_credits`)
-        setAppCase({type: 'success', personData: personInfo.data, movieCredits: movieInfo.data})
+        setActorPageState({type: 'success', personData: personInfo.data, movieCredits: movieInfo.data})
       }
       catch (error) {
-        setAppCase({type: 'error'})
+        setActorPageState({type: 'error'})
         console.error(error)
       }
     },
@@ -46,8 +46,8 @@ const ActorPage = () => {
   }, [getActorInfo])
 
   const sortMovies = () => {
-    if (appCase.type === 'success') {
-      const sortedMovies = ([] as MovieCredit[]).concat(appCase.movieCredits.cast)
+    if (actorPageState.type === 'success') {
+      const sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
         .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
       return sortedMovies.map(movie =>
         <div className='PosterCard' key={movie.id}>
@@ -72,29 +72,29 @@ const ActorPage = () => {
 
   return (
     <div className='Container'>
-      {appCase.type ==='success' &&
+      {actorPageState.type ==='success' &&
         <div>
-          <h1>{appCase.personData.name}</h1>
-          {appCase.personData.profile_path &&
+          <h1>{actorPageState.personData.name}</h1>
+          {actorPageState.personData.profile_path &&
             <img
-            src={createImageUrl(appCase.personData.profile_path, {width: 300})}
+            src={createImageUrl(actorPageState.personData.profile_path, {width: 300})}
             alt='Actor'
             />
           }
-          {appCase.personData.birthday &&
+          {actorPageState.personData.birthday &&
             <div>
               <h2>Date of birth</h2>
-              <div>{appCase.personData.birthday}</div>
+              <div>{actorPageState.personData.birthday}</div>
             </div>
           }
-          {appCase.personData.deathday &&
+          {actorPageState.personData.deathday &&
             <div>
               <h2>Date of death</h2>
-              <div>{appCase.personData.deathday}</div>
+              <div>{actorPageState.personData.deathday}</div>
             </div>
           }
           <h2>Biography</h2>
-          <div className='ActorInfo'>{appCase.personData.biography}</div>
+          <div className='ActorInfo'>{actorPageState.personData.biography}</div>
           <h2>Movies</h2>
           <div className='ActorMovieGrid'>
             {sortMovies()}
