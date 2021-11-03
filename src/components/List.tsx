@@ -21,7 +21,7 @@ type ErrorData = {
 type Case = Success | Loading | ErrorData
 
 const List: React.FC = () => {
-  const [appCase, setAppCase] = useState<Case>({type: 'loading'})
+  const [listState, setListState] = useState<Case>({type: 'loading'})
 
   const history = useHistory()
 
@@ -31,9 +31,9 @@ const List: React.FC = () => {
     async () => {
       try {
         const detailsResponse = await tmdbApiClient.get(`list/${id}`)
-        setAppCase({type: 'success', data: detailsResponse.data})
+        setListState({type: 'success', data: detailsResponse.data})
       } catch (error) {
-        setAppCase({type: 'error'})
+        setListState({type: 'error'})
         console.log(error)
       }
     },
@@ -46,8 +46,8 @@ const List: React.FC = () => {
 
   const deleteList = async () => {
     try {
-      if (appCase.type === 'success') {
-        if (window.confirm(`Delete list ${appCase.data.name}?`)) {
+      if (listState.type === 'success') {
+        if (window.confirm(`Delete list ${listState.data.name}?`)) {
           await tmdbApiClient.delete(`list/${id}`)
           history.push('/lists')
         }
@@ -64,21 +64,22 @@ const List: React.FC = () => {
     try {
       if (window.confirm(`Delete ${movieName}?`)) {
         await tmdbApiClient.post(`list/${id}/remove_item`, {media_id: movieId})
+        getListDetails()
       }
     } catch (error) {
-      setAppCase({type: 'error'})
+      setListState({type: 'error'})
     }
   }
 
   return (
     <div className='Container'>
-      {appCase.type === 'success' &&
+      {listState.type === 'success' &&
         <div>
-          <h1>{appCase.data.name}</h1>
+          <h1>{listState.data.name}</h1>
           <button className='SecondaryButton DeleteButton' onClick={deleteList}>Delete list</button>
           <div className='GridWrapper'>
-            {appCase.data.item_count > 0 ?
-              appCase.data.items.map(item =>
+            {listState.data.item_count > 0 ?
+              listState.data.items.map(item =>
                 <div key={item.id}>
                   <Link className='PosterText' to={`/movies/${item.id}`}>
                     <img
@@ -98,10 +99,10 @@ const List: React.FC = () => {
           <hr />
         </div>
       }
-      {appCase.type === 'loading' &&
+      {listState.type === 'loading' &&
         <h1>Loading</h1>
       }
-      {appCase.type === 'error' &&
+      {listState.type === 'error' &&
       <div>
         <h1>Something went wrong. Try again or check that the id is correct.</h1>
         <button onClick={getListDetails}>Try again</button>
