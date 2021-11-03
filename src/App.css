@@ -244,9 +244,19 @@
   text-decoration: none;
 }
 
+.aspect-ratio-box::before {
+  float: left;
+  padding-top: 150%;
+  content: '';
+}
+.aspect-ratio-box::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
 .NoPosterCard {
   background-color: #B2B2B2;
-  aspect-ratio: 2 / 3;
   width: 100%;
   object-fit: contain;
   border-radius: 6px;
