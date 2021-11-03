@@ -46,8 +46,12 @@ const List: React.FC = () => {
 
   const deleteList = async () => {
     try {
-      await tmdbApiClient.delete(`list/${id}`)
-      history.push('/lists')
+      if (appCase.type === 'success') {
+        if (window.confirm(`Delete list ${appCase.data.name}?`)) {
+          await tmdbApiClient.delete(`list/${id}`)
+          history.push('/lists')
+        }
+      }
       // The endpoint returns 500 for some reason, but the deleting still works.
       // That's why catch also pushes user back to the list of lists.
       // TMDB's problem, not mine 🤷‍♀️  https://www.themoviedb.org/talk/5cb730900e0a266b9bef1f3b?language=fr-FR
