@@ -60,6 +60,16 @@ const List: React.FC = () => {
     }
   }
 
+  const deleteMovie = async (movieId: number, movieName: string) => {
+    try {
+      if (window.confirm(`Delete ${movieName}?`)) {
+        await tmdbApiClient.post(`list/${id}/remove_item`, {media_id: movieId})
+      }
+    } catch (error) {
+      setAppCase({type: 'error'})
+    }
+  }
+
   return (
     <div className='Container'>
       {appCase.type === 'success' &&
@@ -79,6 +89,7 @@ const List: React.FC = () => {
                     <h2 className='SmallMargin'>{item.title}</h2>
                     <p className='SmallMargin'>{createReleaseYear(item.release_date)}</p>
                   </Link>
+                  <button onClick={() => deleteMovie(item.id, item.title)}>Delete</button>
                 </div>  
               )
               : <div>No items yet</div>
