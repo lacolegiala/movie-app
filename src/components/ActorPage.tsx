@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { MovieCredit, MovieCredits, PersonDetails } from '../types'
+import { extractDate } from '../utils/dateExtractor'
 import { createImageUrl } from '../utils/imageUrl'
 import { createReleaseYear } from '../utils/releaseYear'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
@@ -45,6 +46,13 @@ const ActorPage = () => {
     getActorInfo()
   }, [getActorInfo])
 
+  const formatDate = (date: string) => {
+    const extractedDate = extractDate(date)
+    if (extractedDate) {
+      return (`${extractedDate[2]}.${extractedDate[1] + 1}.${extractedDate[0]}`)
+    }
+  }
+
   const sortMovies = () => {
     if (actorPageState.type === 'success') {
       const sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
@@ -84,13 +92,13 @@ const ActorPage = () => {
           {actorPageState.personData.birthday &&
             <div>
               <h2>Date of birth</h2>
-              <div>{actorPageState.personData.birthday}</div>
+              <div>{formatDate(actorPageState.personData.birthday)}</div>
             </div>
           }
           {actorPageState.personData.deathday &&
             <div>
               <h2>Date of death</h2>
-              <div>{actorPageState.personData.deathday}</div>
+              <div>{formatDate(actorPageState.personData.deathday)}</div>
             </div>
           }
           <h2>Biography</h2>
