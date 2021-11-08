@@ -1,4 +1,4 @@
-export const extractDate = (date: string | Date | null) => {
+export const extractDate = (date: string | Date) => {
   if (date) {
     const year = new Date(date).getFullYear()
     const month = new Date(date).getMonth()
