@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { MovieCredit, MovieCredits, PersonDetails } from '../types'
-import { extractDate } from '../utils/dateExtractor'
 import { createImageUrl } from '../utils/imageUrl'
 import { createReleaseYear } from '../utils/releaseYear'
 import { tmdbApiClient } from '../utils/tmdbApiClient'
@@ -47,10 +46,7 @@ const ActorPage = () => {
   }, [getActorInfo])
 
   const formatDate = (date: string) => {
-    const extractedDate = extractDate(date)
-    if (extractedDate) {
-      return (`${extractedDate[2]}.${extractedDate[1] + 1}.${extractedDate[0]}`)
-    }
+    return new Date(date).toLocaleDateString()
   }
 
   const sortMovies = () => {
