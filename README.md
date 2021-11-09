@@ -72,6 +72,8 @@ A movie app where users can browse movies and logged in users can make lists of 
 |Style improvements                |7.9    |   6   | 147  |
 |Actor page improvements           |31.10  |   1   | 148  |
 |Actor page improvements           |1.11   |   5   | 153  |
+|Movie deletion from list feature  |3.11   |   6   | 159  |
+|Better date formation             |8.11   |   4   | 163  |
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
