@@ -66,7 +66,7 @@ const SearchResults: React.FC = () => {
                   alt='Poster of movie'
                 />
                 :
-                <div className='NoPosterCard'>No poster available</div>
+                <div className='NoPosterCard aspect-ratio-box'>No poster available</div>
               }
               <h2>{result.title}</h2>
               <p>{createReleaseYear(result.release_date)}</p>
