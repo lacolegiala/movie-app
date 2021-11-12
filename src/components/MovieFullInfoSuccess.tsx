@@ -27,11 +27,16 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
       </div>
       <div className='Container'>
         <div className='FullInfoPosterText'>
-          <img
-            className='FullInfoPoster'
-            src={createImageUrl(props.movieData.poster_path, {width: 185})}
-            alt='Poster of movie'
-          />
+          {props.movieData.poster_path &&
+            <img
+              className='FullInfoPoster'
+              src={createImageUrl(props.movieData.poster_path, {width: 185})}
+              alt='Poster of movie'
+            />
+          }
+          {!props.movieData.poster_path &&
+            <div className='FullInfoNoPoster'>No poster available</div>
+          }
           <div className='FullInfoTitle'>
             <h1 className='SmallMargin'>{props.movieData.title}</h1>
             <p className='SmallMargin'>{createReleaseYear(props.movieData.release_date)}</p>
