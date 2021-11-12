@@ -53,11 +53,7 @@ const ActorPage = () => {
   const sortMovies = () => {
     if (actorPageState.type === 'success') {
       let sortedMovies
-      if (sortMoviesBy === 'newest') {
-        sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
-          .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
-      }
-      else if (sortMoviesBy === 'oldest') {
+      if (sortMoviesBy === 'oldest') {
         sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
           .sort((a, b) => a.release_date < b.release_date ? -1 : 1)
       }
@@ -69,7 +65,10 @@ const ActorPage = () => {
         sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
           .sort((a, b) => a.vote_average > b.vote_average ? -1 : 1)
       }
-      if (sortedMovies)
+      else {
+        sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
+          .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
+      }
       return sortedMovies.map(movie =>
         <div className='PosterCard' key={movie.id}>
           <Link className='PosterText' to={`/movies/${movie.id}`}>
