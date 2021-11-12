@@ -23,7 +23,7 @@ type Case = Success | Loading | ErrorData
 
 const ActorPage = () => {
   const [actorPageState, setActorPageState] = useState<Case>({type: 'loading'})
-  const [sortMoviesBy, setSortMoviesBy] = useState<string>('Newest')
+  const [sortMoviesBy, setSortMoviesBy] = useState<string>('newest')
 
   const {id} = useParams<{id: string}>()
 
@@ -53,19 +53,19 @@ const ActorPage = () => {
   const sortMovies = () => {
     if (actorPageState.type === 'success') {
       let sortedMovies
-      if (sortMoviesBy === 'Newest') {
+      if (sortMoviesBy === 'newest') {
         sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
           .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
       }
-      else if (sortMoviesBy === 'Oldest') {
+      else if (sortMoviesBy === 'oldest') {
         sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
           .sort((a, b) => a.release_date < b.release_date ? -1 : 1)
       }
-      else if (sortMoviesBy === 'Most popular') {
+      else if (sortMoviesBy === 'most_popular') {
         sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
           .sort((a, b) => a.popularity > b.popularity ? -1 : 1)
       }
-      else if (sortMoviesBy === 'Top rated') {
+      else if (sortMoviesBy === 'top_rated') {
         sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
           .sort((a, b) => a.vote_average > b.vote_average ? -1 : 1)
       }
@@ -122,10 +122,10 @@ const ActorPage = () => {
           <div className='ActorInfo'>{actorPageState.personData.biography}</div>
           <h2>Movies</h2>
           <select onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
-            <option value='Newest'>Newest</option>
-            <option value='Oldest'>Oldest</option>
-            <option value='Most popular'>Most popular</option>
-            <option value='Top rated'>Top rated</option>
+            <option value='newest'>Newest</option>
+            <option value='oldest'>Oldest</option>
+            <option value='most_popular'>Most popular</option>
+            <option value='top_rated'>Top rated</option>
           </select>
           <div className='ActorMovieGrid'>
             {sortMovies()}
