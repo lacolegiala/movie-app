@@ -121,14 +121,12 @@ const ActorPage = () => {
           <h2>Biography</h2>
           <div className='ActorInfo'>{actorPageState.personData.biography}</div>
           <h2>Movies</h2>
-          <label>nakke
-            <select onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
-              <option value='Newest'>Newest</option>
-              <option value='Oldest'>Oldest</option>
-              <option value='Most popular'>Most popular</option>
-              <option value='Top rated'>Top rated</option>
-            </select>
-          </label>
+          <select onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
+            <option value='Newest'>Newest</option>
+            <option value='Oldest'>Oldest</option>
+            <option value='Most popular'>Most popular</option>
+            <option value='Top rated'>Top rated</option>
+          </select>
           <div className='ActorMovieGrid'>
             {sortMovies()}
           </div>
