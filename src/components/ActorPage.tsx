@@ -23,6 +23,7 @@ type Case = Success | Loading | ErrorData
 
 const ActorPage = () => {
   const [actorPageState, setActorPageState] = useState<Case>({type: 'loading'})
+  const [sortMoviesBy, setSortMoviesBy] = useState<string>('Newest')
 
   const {id} = useParams<{id: string}>()
 
@@ -51,8 +52,24 @@ const ActorPage = () => {
 
   const sortMovies = () => {
     if (actorPageState.type === 'success') {
-      const sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
-        .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
+      let sortedMovies
+      if (sortMoviesBy === 'Newest') {
+        sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
+          .sort((a, b) => a.release_date > b.release_date ? -1 : 1)
+      }
+      else if (sortMoviesBy === 'Oldest') {
+        sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
+          .sort((a, b) => a.release_date < b.release_date ? -1 : 1)
+      }
+      else if (sortMoviesBy === 'Most popular') {
+        sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
+          .sort((a, b) => a.popularity > b.popularity ? -1 : 1)
+      }
+      else if (sortMoviesBy === 'Top rated') {
+        sortedMovies = ([] as MovieCredit[]).concat(actorPageState.movieCredits.cast)
+          .sort((a, b) => a.vote_average > b.vote_average ? -1 : 1)
+      }
+      if (sortedMovies)
       return sortedMovies.map(movie =>
         <div className='PosterCard' key={movie.id}>
           <Link className='PosterText' to={`/movies/${movie.id}`}>
@@ -72,6 +89,10 @@ const ActorPage = () => {
         </div>
       )
     }
+  }
+
+  const handleSelectOptionChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
+    setSortMoviesBy(event.target.value)
   }
 
   return (
@@ -100,6 +121,14 @@ const ActorPage = () => {
           <h2>Biography</h2>
           <div className='ActorInfo'>{actorPageState.personData.biography}</div>
           <h2>Movies</h2>
+          <label>nakke
+            <select onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
+              <option value='Newest'>Newest</option>
+              <option value='Oldest'>Oldest</option>
+              <option value='Most popular'>Most popular</option>
+              <option value='Top rated'>Top rated</option>
+            </select>
+          </label>
           <div className='ActorMovieGrid'>
             {sortMovies()}
           </div>
