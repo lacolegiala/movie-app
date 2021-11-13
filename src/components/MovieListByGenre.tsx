@@ -52,7 +52,7 @@ const MovieListByGenre: React.FC = () => {
                   alt='Poster of movie'
                   /> 
                 :
-                <div className='NoPosterCard'>No poster available</div>
+                <div className='NoPosterCard aspect-ratio-box'>No poster available</div>
               }
               <h2>{movie.title}</h2>
               <p>{createReleaseYear(movie.release_date)}</p>
