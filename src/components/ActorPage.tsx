@@ -120,7 +120,7 @@ const ActorPage = () => {
           <h2>Biography</h2>
           <div className='ActorInfo'>{actorPageState.personData.biography}</div>
           <h2>Movies</h2>
-          <select onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
+          <select className='Select' onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
             <option value='newest'>Newest</option>
             <option value='oldest'>Oldest</option>
             <option value='most_popular'>Most popular</option>
