@@ -181,7 +181,7 @@
 
 .ActorGrid {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(120px, 1fr) );
+  grid-template-columns: repeat( auto-fit, minmax(120px, 0fr) );
   scroll-snap-type: x mandatory;
   grid-auto-flow: column;
   overflow-x: scroll;
