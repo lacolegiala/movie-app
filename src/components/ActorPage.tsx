@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useQuery } from '../hooks/useQuery'
 import { MovieCredit, MovieCredits, PersonDetails } from '../types'
 import { createImageUrl } from '../utils/imageUrl'
 import { createReleaseYear } from '../utils/releaseYear'
@@ -23,7 +24,8 @@ type Case = Success | Loading | ErrorData
 
 const ActorPage = () => {
   const [actorPageState, setActorPageState] = useState<Case>({type: 'loading'})
-  const [sortMoviesBy, setSortMoviesBy] = useState<string>('newest')
+  const queryParameter = useQuery().get('sortmoviesby')
+  const [sortMoviesBy, setSortMoviesBy] = useState<string>(queryParameter ?? 'newest')
 
   const {id} = useParams<{id: string}>()
 
@@ -92,6 +94,8 @@ const ActorPage = () => {
 
   const handleSelectOptionChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
     setSortMoviesBy(event.target.value)
+    // eslint-disable-next-line no-restricted-globals
+    history.replaceState(sortMoviesBy, 'sortmoviesby', `?sortmoviesby=${sortMoviesBy}`)
   }
 
   return (
@@ -120,7 +124,7 @@ const ActorPage = () => {
           <h2>Biography</h2>
           <div className='ActorInfo'>{actorPageState.personData.biography}</div>
           <h2>Movies</h2>
-          <select className='Select' onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
+          <select value={sortMoviesBy} className='Select' onChange={handleSelectOptionChange} name='sortBy' id='sortBy'>
             <option value='newest'>Newest</option>
             <option value='oldest'>Oldest</option>
             <option value='most_popular'>Most popular</option>
