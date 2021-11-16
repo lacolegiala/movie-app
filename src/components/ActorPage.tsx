@@ -95,7 +95,7 @@ const ActorPage = () => {
   const handleSelectOptionChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
     setSortMoviesBy(event.target.value)
     // eslint-disable-next-line no-restricted-globals
-    history.replaceState(sortMoviesBy, 'sortmoviesby', `?sortmoviesby=${sortMoviesBy}`)
+    history.replaceState(sortMoviesBy, 'sortmoviesby', `?sortmoviesby=${event.target.value}`)
   }
 
   return (
