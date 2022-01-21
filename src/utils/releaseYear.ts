@@ -1,8 +1,7 @@
 export const createReleaseYear = (date: string | Date) => {
   if (date) {
-    return new Date(date).getFullYear()
+    return new Date(date).getFullYear();
+  } else {
+    return 'Unknown';
   }
-  else {
-    return 'Unknown'
-  }
-}
+};

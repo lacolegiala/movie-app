@@ -1,10 +1,9 @@
-
 .App {
   text-align: left;
 }
 
 .PrimaryButton {
-  background-color: #1E1A92;
+  background-color: #1e1a92;
   border: none;
   color: white;
   padding: 12px 18px;
@@ -27,8 +26,8 @@
 
 .SecondaryButton {
   background-color: white;
-  color: #4B534F;
-  border-color: #C1C2C1;
+  color: #4b534f;
+  border-color: #c1c2c1;
   border-style: solid;
   border-width: 1px;
   padding: 6px 6px;
@@ -53,16 +52,16 @@
 
 .Container {
   margin-right: auto;
-  margin-left:  auto;
-  
+  margin-left: auto;
+
   max-width: 960px;
-  
+
   padding-right: 12px;
-  padding-left:  12px;
+  padding-left: 12px;
 }
 
 .HomeLink {
-  color:#3c3d40;
+  color: #3c3d40;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -85,13 +84,13 @@
 }
 
 .MyListsLink {
-  color:#3c3d40;
+  color: #3c3d40;
   text-decoration: none;
   margin: 24px;
 }
 
 .ListLink {
-  color:#3c3d40;
+  color: #3c3d40;
   text-decoration: none;
   font-weight: bold;
 }
@@ -156,11 +155,11 @@
   position: absolute;
   margin: 0;
   bottom: 30px;
-  left: 30px;  
+  left: 30px;
 }
 
 .SmallMargin {
-  margin: 6px
+  margin: 6px;
 }
 
 .GenreList {
@@ -200,7 +199,7 @@
 
 .ActorGrid {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(120px, 0fr) );
+  grid-template-columns: repeat(auto-fit, minmax(120px, 0fr));
   scroll-snap-type: x mandatory;
   grid-auto-flow: column;
   overflow-x: scroll;
@@ -269,7 +268,7 @@
 }
 
 .NoPosterCard {
-  background-color: #B2B2B2;
+  background-color: #b2b2b2;
   width: 100%;
   object-fit: contain;
   border-radius: 6px;
@@ -288,7 +287,7 @@
 }
 
 .FullInfoNoPoster {
-  background-color: #B2B2B2;
+  background-color: #b2b2b2;
   height: 270px;
   width: 180px;
   align-items: center;
@@ -299,7 +298,7 @@
 }
 
 .NoProfileCard {
-  background-color: #B2B2B2;
+  background-color: #b2b2b2;
   width: 120px;
   height: 120px;
   margin-right: 24px;
@@ -318,11 +317,11 @@
   font-size: 16px;
   width: 100%;
   border-radius: 6px;
-  border: 1px solid #C9C8C8;
+  border: 1px solid #c9c8c8;
   padding: 6px 12px;
   -webkit-appearance: none;
   margin-top: 12px;
-} 
+}
 
 .ScrollListHeader {
   padding: 6px 0px;

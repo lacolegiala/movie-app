@@ -1,23 +1,37 @@
-import React from 'react'
+import React from 'react';
 
 type Props = {
-  listElement: React.MutableRefObject<HTMLDivElement | null>
-  scrollDistance: number
-}
+  listElement: React.MutableRefObject<HTMLDivElement | null>;
+  scrollDistance: number;
+};
 
 const ScrollButtons = (props: Props) => {
-
   return (
-    <div className='ScrollButtonGrid'>
-      <button className='SecondaryButton ScrollButton' onClick={() =>
-        props.listElement.current?.scrollBy({left: - props.scrollDistance, behavior: 'smooth'})}>Previous
+    <div className="ScrollButtonGrid">
+      <button
+        className="SecondaryButton ScrollButton"
+        onClick={() =>
+          props.listElement.current?.scrollBy({
+            left: -props.scrollDistance,
+            behavior: 'smooth',
+          })
+        }
+      >
+        Previous
       </button>
-      <button className='SecondaryButton ScrollButton' onClick={() =>
-        props.listElement.current?.scrollBy({left: props.scrollDistance, behavior: 'smooth'})}>Next
+      <button
+        className="SecondaryButton ScrollButton"
+        onClick={() =>
+          props.listElement.current?.scrollBy({
+            left: props.scrollDistance,
+            behavior: 'smooth',
+          })
+        }
+      >
+        Next
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default ScrollButtons
-
+export default ScrollButtons;

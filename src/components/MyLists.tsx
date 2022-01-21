@@ -1,36 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { tmdbApiClient } from '../utils/tmdbApiClient'
-import { List } from '../types'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { tmdbApiClient } from '../utils/tmdbApiClient';
+import { List } from '../types';
 
 const MyLists: React.FC = () => {
-  const [lists, setLists] = useState<List[]>([])
+  const [lists, setLists] = useState<List[]>([]);
 
   useEffect(() => {
     const getLists = async () => {
       try {
-        const accountResponse = await tmdbApiClient.get('account')
-        const listResponse = await tmdbApiClient.get(`account/${accountResponse.data.id}/lists`)
-        setLists(listResponse.data.results)
+        const accountResponse = await tmdbApiClient.get('account');
+        const listResponse = await tmdbApiClient.get(
+          `account/${accountResponse.data.id}/lists`
+        );
+        setLists(listResponse.data.results);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    getLists()
-  }, [])
+    };
+    getLists();
+  }, []);
 
   return (
-    <div className='Container'>
+    <div className="Container">
       <h1>My lists</h1>
-      <Link className='PrimaryButton AddListButton' to='/lists/new'>Add a new list</Link>
+      <Link className="PrimaryButton AddListButton" to="/lists/new">
+        Add a new list
+      </Link>
       <hr />
-      {lists.map(list =>
+      {lists.map((list) => (
         <li key={list.id}>
-          <Link className='ListLink' to={`/lists/${list.id}`}>{list.name} ({list.item_count})</Link>  
-        </li> 
-      )}
+          <Link className="ListLink" to={`/lists/${list.id}`}>
+            {list.name} ({list.item_count})
+          </Link>
+        </li>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default MyLists
+export default MyLists;
