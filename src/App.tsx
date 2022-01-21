@@ -53,7 +53,7 @@ function App() {
             <div className='InnerNavBar'>
               <Link className='HomeLink' to='/'>Home</Link>
               {!sessionId &&
-                <button className='LoginButton' onClick={login}>Login / sign up</button>
+                <button className='PrimaryButton' onClick={login}>Login / sign up</button>
               }
               {sessionId &&
                 <div>

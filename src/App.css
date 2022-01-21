@@ -3,7 +3,7 @@
   text-align: left;
 }
 
-.LoginButton {
+.PrimaryButton {
   background-color: #1E1A92;
   border: none;
   color: white;
@@ -17,16 +17,7 @@
 }
 
 .AddListButton {
-  background-color: #1E1A92;
-  border: none;
-  color: white;
   padding: 10px 14px;
-  border-radius: 6px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
   margin-bottom: 8px;
 }
 
@@ -383,7 +374,7 @@
   .BackgroundIndividual {
     height: 336px;
   }
-  .LoginButton {
+  .PrimaryButton {
     padding: 6px 12px;
     font-size: 12px;
     font-weight: bold;
