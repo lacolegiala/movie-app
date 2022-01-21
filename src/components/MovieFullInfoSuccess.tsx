@@ -55,7 +55,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
         <h2>Synopsis</h2> 
         <div>{props.movieData.overview}</div>
         {youtubeTrailer !== undefined &&
-          <a href={`https://youtube.com/watch?v=${youtubeTrailer.key}`} rel='noreferrer' target='_blank'>Watch trailer</a>
+          <a className='PrimaryButton TrailerButton' href={`https://youtube.com/watch?v=${youtubeTrailer.key}`} rel='noreferrer' target='_blank'>Watch trailer</a>
         }
         <div className='ScrollListHeader'>
           <h2>Cast</h2>
