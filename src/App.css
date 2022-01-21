@@ -16,6 +16,20 @@
   font-weight: bold;
 }
 
+.AddListButton {
+  background-color: #1E1A92;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
 .SecondaryButton {
   background-color: white;
   color: #4B534F;
@@ -71,10 +85,16 @@
   align-items: flex-end;
 }
 
-.ListLink {
+.MyListsLink {
   color:#3c3d40;
   text-decoration: none;
   margin: 24px;
+}
+
+.ListLink {
+  color:#3c3d40;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .GridWrapper {

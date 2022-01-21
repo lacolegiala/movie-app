@@ -22,11 +22,11 @@ const MyLists: React.FC = () => {
   return (
     <div className='Container'>
       <h1>My lists</h1>
-      <Link to='/lists/new'>Add a new list</Link>
+      <Link className='AddListButton' to='/lists/new'>Add a new list</Link>
       <hr />
       {lists.map(list =>
         <li key={list.id}>
-          <Link to={`/lists/${list.id}`}>{list.name}</Link>  
+          <Link className='ListLink' to={`/lists/${list.id}`}>{list.name} ({list.item_count})</Link>  
         </li> 
       )}
     </div>
