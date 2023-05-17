@@ -47,7 +47,7 @@ const MovieFullInfoSuccess: React.FC<SuccessProps> = (props: SuccessProps) => {
             <p className="SmallMargin">
               {createReleaseYear(props.movieData.release_date)}
             </p>
-            <p className="SmallMargin">{`${props.movieData.vote_average} / 10`}</p>
+            <p className="SmallMargin">{`${props.movieData.vote_average.toFixed(1)} / 10`}</p>
             <p className="SmallMargin">
               {props.movieData.genres
                 .slice(0, 3)
