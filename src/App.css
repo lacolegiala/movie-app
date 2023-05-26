@@ -189,6 +189,9 @@
 .PosterCard {
   margin: 12px 0px;
   background-color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ActorPagePoster {
