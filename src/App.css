@@ -325,7 +325,7 @@
   border-radius: 6px;
   border: 1px solid #c9c8c8;
   padding: 6px 12px;
-  -webkit-appearance: none;
+  appearance: none;
   margin-top: 12px;
 }
 
