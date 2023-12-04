@@ -8,6 +8,7 @@ import SearchBar from './SearchBar';
 import { useHistory } from 'react-router-dom';
 import { createReleaseYear } from '../utils/releaseYear';
 import { getMovieResults } from '../utils/movieResults';
+import { getPeopleResults } from '../utils/peopleResults';
 
 const SearchResults: React.FC = () => {
   const [movieResults, setMovieResults] = useState<{
@@ -31,20 +32,14 @@ const SearchResults: React.FC = () => {
       try {
         if (queryParameter) {
           const movieResultInfo = await getMovieResults({page: 1, queryParameter: queryParameter})
-          const personResultInfo = await tmdbApiClient.get<{
-            results: PersonDetails[];
-            total_results: number
-          }>(
-            `search/person?include_adult=false&language=en-US&query=${queryParameter}&page=${page}`
-          )
-          personResultInfo.data.results.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
+          const personResultInfo = await getPeopleResults({page: 1, queryParameter: queryParameter})
           setMovieResults({
             movies: movieResults.movies.concat(movieResultInfo.results),
             numberOfMovies: movieResultInfo.totalResults,
           });
           setPersonResults({
-            people: personResultInfo.data.results,
-            numberOfPeople: personResultInfo.data.total_results
+            people: personResultInfo.results,
+            numberOfPeople: personResultInfo.totalResults
           })
         }
       } catch {
@@ -104,20 +99,22 @@ const SearchResults: React.FC = () => {
         <Link to={{ pathname: `/search/movies?query=${queryParameter}`, state: movieDataToPass }}>See all</Link>
         <h2>Top people results</h2>
         {personResults.people.slice(0, 6).map((result) => (
-          <div key={result.id}>
-            {result.profile_path ? (
-              <img
-                src={createImageUrl(result.profile_path, {
-                  width: 300
-                })}
-                alt={result.name}
-              />
-            ) : (
-              <div className="NoPosterCard aspect-ratio-box">
-                No poster available
-              </div>
-            )}
-            <div>{result.name}</div>
+          <div className='PosterCard' key={result.id}>
+            <Link className='PosterText' to={`/actors/${result.id}`}>
+              {result.profile_path ? (
+                <img
+                  src={createImageUrl(result.profile_path, {
+                    width: 300
+                  })}
+                  alt={result.name}
+                />
+              ) : (
+                <div className="NoPosterCard aspect-ratio-box">
+                  No poster available
+                </div>
+              )}
+              <div>{result.name}</div>
+            </Link>
           </div>
         ))}
       </div>
