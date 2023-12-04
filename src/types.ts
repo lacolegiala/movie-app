@@ -148,6 +148,8 @@ export type ListDetails = {
 }
 
 export type PersonDetails = {
+  popularity: any
+  id: number
   biography: string
   birthday: string | null
   deathday: string | null
@@ -176,4 +178,9 @@ export type MovieCredit = {
 export type MovieCredits = {
   cast: MovieCredit[]
   crew: MovieCredit[]
+}
+
+export type MovieResult = {
+  movies: Movie[],
+  numberOfResults: number
 }

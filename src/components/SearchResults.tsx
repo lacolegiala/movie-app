@@ -3,16 +3,21 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '../hooks/useQuery';
 import { createImageUrl } from '../utils/imageUrl';
 import { tmdbApiClient } from '../utils/tmdbApiClient';
-import { Movie } from '../types';
+import { Movie, PersonDetails } from '../types';
 import SearchBar from './SearchBar';
 import { useHistory } from 'react-router-dom';
 import { createReleaseYear } from '../utils/releaseYear';
+import { getMovieResults } from '../utils/movieResults';
 
 const SearchResults: React.FC = () => {
-  const [results, setResults] = useState<{
+  const [movieResults, setMovieResults] = useState<{
     movies: Movie[];
     numberOfMovies: number;
   }>({ movies: [], numberOfMovies: 0 });
+  const [personResults, setPersonResults] = useState<{
+    people: PersonDetails[];
+    numberOfPeople: number;
+  }>({ people: [], numberOfPeople: 0 })
   const queryParameter = useQuery().get('query');
   const [searchBarValue, setSearchBarValue] = useState<string>(
     queryParameter ?? ''
@@ -25,23 +30,22 @@ const SearchResults: React.FC = () => {
     const getResults = async () => {
       try {
         if (queryParameter) {
-          const resultInfo = await tmdbApiClient.get<{
-            results: Movie[];
-            total_results: number;
+          const movieResultInfo = await getMovieResults({page: 1, queryParameter: queryParameter})
+          const personResultInfo = await tmdbApiClient.get<{
+            results: PersonDetails[];
+            total_results: number
           }>(
-            `search/movie?&language=en-US&query=${queryParameter}&page=${page}&include_adult=false`
-          );
-          if (page > 1) {
-            setResults({
-              movies: results.movies.concat(resultInfo.data.results),
-              numberOfMovies: resultInfo.data.total_results,
-            });
-          } else {
-            setResults({
-              movies: resultInfo.data.results,
-              numberOfMovies: resultInfo.data.total_results,
-            });
-          }
+            `search/person?include_adult=false&language=en-US&query=${queryParameter}&page=${page}`
+          )
+          personResultInfo.data.results.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
+          setMovieResults({
+            movies: movieResults.movies.concat(movieResultInfo.results),
+            numberOfMovies: movieResultInfo.totalResults,
+          });
+          setPersonResults({
+            people: personResultInfo.data.results,
+            numberOfPeople: personResultInfo.data.total_results
+          })
         }
       } catch {
         console.log('error');
@@ -51,6 +55,11 @@ const SearchResults: React.FC = () => {
     // there is really no need to listen to results' changes, it just causes an infinite loop
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, queryParameter]);
+
+  const movieDataToPass = {
+    movies: movieResults.movies,
+    numberOfResults: movieResults.numberOfMovies
+  }
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     history.push(`/search?query=${searchBarValue}`);
@@ -70,9 +79,10 @@ const SearchResults: React.FC = () => {
         handleChange={handleChange}
       />
       <h1>Search results for '{queryParameter}'</h1>
-      <p>{results.numberOfMovies} results</p>
+      <h2> Top movie results</h2>
+      <p>{movieResults.numberOfMovies} results</p>
       <div className="GridWrapper">
-        {results.movies.map((result) => (
+        {movieResults.movies.slice(0, 6).map((result) => (
           <div className="PosterCard" key={result.id}>
             <Link className="PosterText" to={`/movies/${result.id}`}>
               {result.poster_path ? (
@@ -91,18 +101,25 @@ const SearchResults: React.FC = () => {
             </Link>
           </div>
         ))}
-      </div>
-      <div className="ButtonContainer">
-        {results.movies.length < results.numberOfMovies ? (
-          <button
-            className="SecondaryButton LoadButton"
-            onClick={() => setPage(page + 1)}
-          >
-            Load more
-          </button>
-        ) : (
-          <div className="BottomText">No more movies to show</div>
-        )}
+        <Link to={{ pathname: `/search/movies?query=${queryParameter}`, state: movieDataToPass }}>See all</Link>
+        <h2>Top people results</h2>
+        {personResults.people.slice(0, 6).map((result) => (
+          <div key={result.id}>
+            {result.profile_path ? (
+              <img
+                src={createImageUrl(result.profile_path, {
+                  width: 300
+                })}
+                alt={result.name}
+              />
+            ) : (
+              <div className="NoPosterCard aspect-ratio-box">
+                No poster available
+              </div>
+            )}
+            <div>{result.name}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

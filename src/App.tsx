@@ -12,6 +12,7 @@ import AddList from './components/AddList';
 import List from './components/List';
 import MovieListByGenre from './components/MovieListByGenre';
 import ActorPage from './components/ActorPage';
+import MovieSearchResults from './components/AllMovieSearchResults';
 
 const history = createBrowserHistory();
 
@@ -89,8 +90,11 @@ function App() {
           <Route path="/genre/:id">
             <MovieListByGenre />
           </Route>
-          <Route path="/search">
+          <Route exact path="/search">
             <SearchResults />
+          </Route>
+          <Route path="/search/movies">
+            <MovieSearchResults />
           </Route>
           <Route exact path="/lists">
             {sessionId ? <MyLists /> : <Redirect to={{ pathname: '/' }} />}
