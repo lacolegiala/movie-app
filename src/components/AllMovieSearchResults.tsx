@@ -18,7 +18,6 @@ const MovieSearchResults: React.FC = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    console.log('nak', page)
     const getResults = async () => {
       try {
         if (queryParameter) {
