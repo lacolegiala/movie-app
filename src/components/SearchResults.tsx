@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '../hooks/useQuery';
 import { createImageUrl } from '../utils/imageUrl';
-import { tmdbApiClient } from '../utils/tmdbApiClient';
 import { Movie, PersonDetails } from '../types';
 import SearchBar from './SearchBar';
 import { useHistory } from 'react-router-dom';
@@ -34,7 +33,7 @@ const SearchResults: React.FC = () => {
           const movieResultInfo = await getMovieResults({page: 1, queryParameter: queryParameter})
           const personResultInfo = await getPeopleResults({page: 1, queryParameter: queryParameter})
           setMovieResults({
-            movies: movieResults.movies.concat(movieResultInfo.results),
+            movies: movieResultInfo.results,
             numberOfMovies: movieResultInfo.totalResults,
           });
           setPersonResults({
@@ -55,6 +54,13 @@ const SearchResults: React.FC = () => {
     movies: movieResults.movies,
     numberOfResults: movieResults.numberOfMovies
   }
+
+  const peopleDataToPass = {
+    people: personResults.people,
+    numberOfResults: personResults.numberOfPeople
+  }
+
+  console.log('data', peopleDataToPass)
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     history.push(`/search?query=${searchBarValue}`);
@@ -117,6 +123,7 @@ const SearchResults: React.FC = () => {
             </Link>
           </div>
         ))}
+        <Link to={{ pathname: `/search/people?query=${queryParameter}`, state: peopleDataToPass }}>See all</Link>
       </div>
     </div>
   );

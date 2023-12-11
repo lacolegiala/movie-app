@@ -184,3 +184,8 @@ export type MovieResult = {
   movies: Movie[],
   numberOfResults: number
 }
+
+export type PersonResult = {
+  people: PersonDetails[],
+  numberOfResults: number
+}

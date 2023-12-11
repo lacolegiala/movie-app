@@ -1,4 +1,4 @@
-import { Movie, PersonDetails } from "../types";
+import { PersonDetails } from "../types";
 import { tmdbApiClient } from "./tmdbApiClient";
 
 type Props = {

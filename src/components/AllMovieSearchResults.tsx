@@ -3,7 +3,6 @@ import { Movie, MovieResult } from "../types";
 import { createImageUrl } from "../utils/imageUrl";
 import { Link, useLocation } from "react-router-dom";
 import { createReleaseYear } from "../utils/releaseYear";
-import { tmdbApiClient } from "../utils/tmdbApiClient";
 import { useQuery } from "../hooks/useQuery";
 import { getMovieResults } from "../utils/movieResults";
 
