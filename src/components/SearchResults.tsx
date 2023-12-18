@@ -60,8 +60,6 @@ const SearchResults: React.FC = () => {
     numberOfResults: personResults.numberOfPeople
   }
 
-  console.log('data', peopleDataToPass)
-
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     history.push(`/search?query=${searchBarValue}`);
     setPage(1);
@@ -82,18 +80,20 @@ const SearchResults: React.FC = () => {
       <h1>Search results for '{queryParameter}'</h1>
       <h2> Top movie results</h2>
       <p>{movieResults.numberOfMovies} results</p>
-      <div className="GridWrapper">
-        {movieResults.movies.slice(0, 6).map((result) => (
+      <div className='GridWrapper'>
+        {movieResults.movies.slice(0,6).map((result) => (
           <div className="PosterCard" key={result.id}>
             <Link className="PosterText" to={`/movies/${result.id}`}>
               {result.poster_path ? (
                 <img
-                  className="Poster"
-                  src={createImageUrl(result.poster_path, { width: 300 })}
-                  alt="Poster of movie"
+                className="Poster"
+                src={createImageUrl(result.poster_path, { 
+                  width: 300
+                })}
+                alt="Poster of movie"
                 />
-              ) : (
-                <div className="NoPosterCard aspect-ratio-box">
+                ) : (
+                  <div className="NoPosterCard aspect-ratio-box">
                   No poster available
                 </div>
               )}
@@ -102,13 +102,21 @@ const SearchResults: React.FC = () => {
             </Link>
           </div>
         ))}
-        <Link to={{ pathname: `/search/movies?query=${queryParameter}`, state: movieDataToPass }}>See all</Link>
-        <h2>Top people results</h2>
+      </div>
+      <Link
+        className='PrimaryButton SeeAllButton'
+        to={{ pathname: `/search/movies?query=${queryParameter}`, state: movieDataToPass }}>
+        See all
+      </Link>
+      <h2>Top people results</h2>
+      <p>{personResults.numberOfPeople} results</p>
+      <div className='GridWrapper'>
         {personResults.people.slice(0, 6).map((result) => (
           <div className='PosterCard' key={result.id}>
             <Link className='PosterText' to={`/actors/${result.id}`}>
               {result.profile_path ? (
                 <img
+                  className='Poster'
                   src={createImageUrl(result.profile_path, {
                     width: 300
                   })}
@@ -119,12 +127,16 @@ const SearchResults: React.FC = () => {
                   No poster available
                 </div>
               )}
-              <div>{result.name}</div>
+              <h2>{result.name}</h2>
             </Link>
           </div>
         ))}
-        <Link to={{ pathname: `/search/people?query=${queryParameter}`, state: peopleDataToPass }}>See all</Link>
       </div>
+      <Link 
+        className='PrimaryButton SeeAllButton'
+        to={{ pathname: `/search/people?query=${queryParameter}`, state: peopleDataToPass }}>
+        See all
+      </Link>
     </div>
   );
 };

@@ -186,6 +186,10 @@
   border-radius: 6px;
 }
 
+.SeeAllButton {
+  margin-bottom: 12px;
+}
+
 .PosterCard {
   margin: 12px 0px;
   background-color: white;
