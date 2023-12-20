@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { PersonDetails, PersonResult } from "../types";
 import { createImageUrl } from "../utils/imageUrl";
 import { Link, useLocation } from "react-router-dom";
-import { useQuery } from "../hooks/useQuery";
 import { getPeopleResults } from "../utils/peopleResults";
 
 const PeopleSearchResults: React.FC = () => {

@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Movie, MovieResult } from "../types";
 import { useEffect, useState } from "react";
-import { useQuery } from "../hooks/useQuery";
 import { getMovieResults } from "../utils/movieResults";
 import { createImageUrl } from "../utils/imageUrl";
 import { createReleaseYear } from "../utils/releaseYear";
