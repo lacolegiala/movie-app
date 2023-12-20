@@ -11,7 +11,7 @@ const PeopleSearchResults: React.FC = () => {
     people: PersonDetails[];
     numberOfPeople: number;
   }>({ people: [], numberOfPeople: 0 });
-  const queryParameter = useQuery().get('query');
+  const queryParameter = state.queryParameter
 
   const [page, setPage] = useState(1);
 

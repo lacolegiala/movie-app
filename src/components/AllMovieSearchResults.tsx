@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { Movie, MovieResult } from "../types";
-import { createImageUrl } from "../utils/imageUrl";
 import { Link, useLocation } from "react-router-dom";
-import { createReleaseYear } from "../utils/releaseYear";
+import { Movie, MovieResult } from "../types";
+import { useEffect, useState } from "react";
 import { useQuery } from "../hooks/useQuery";
 import { getMovieResults } from "../utils/movieResults";
+import { createImageUrl } from "../utils/imageUrl";
+import { createReleaseYear } from "../utils/releaseYear";
 
 const MovieSearchResults: React.FC = () => {
   const { state } = useLocation<MovieResult>()
   const [movieResults, setMovieResults] = useState<{
     movies: Movie[];
     numberOfMovies: number;
-  }>({ movies: [], numberOfMovies: 0 });
-  const queryParameter = useQuery().get('query');
+  }>({ movies: state.movies, numberOfMovies: state.numberOfResults });
+  const queryParameter = state.queryParameter
 
   const [page, setPage] = useState(1);
 
@@ -26,9 +26,6 @@ const MovieSearchResults: React.FC = () => {
               movies: movieResults.movies.concat(movieResultInfo.results),
               numberOfMovies: movieResultInfo.totalResults
             });
-          }
-          else {
-            setMovieResults({movies: state.movies, numberOfMovies: state.numberOfResults})
           }
         }
       } catch {

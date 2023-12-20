@@ -52,12 +52,14 @@ const SearchResults: React.FC = () => {
 
   const movieDataToPass = {
     movies: movieResults.movies,
-    numberOfResults: movieResults.numberOfMovies
+    numberOfResults: movieResults.numberOfMovies,
+    queryParameter: queryParameter
   }
 
   const peopleDataToPass = {
     people: personResults.people,
-    numberOfResults: personResults.numberOfPeople
+    numberOfResults: personResults.numberOfPeople,
+    queryParameter: queryParameter
   }
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
@@ -105,7 +107,7 @@ const SearchResults: React.FC = () => {
       </div>
       <Link
         className='PrimaryButton SeeAllButton'
-        to={{ pathname: `/search/movies?query=${queryParameter}`, state: movieDataToPass }}>
+        to={{ pathname: `/search/movies`, state: movieDataToPass }}>
         See all
       </Link>
       <h2>Top people results</h2>
@@ -134,7 +136,7 @@ const SearchResults: React.FC = () => {
       </div>
       <Link 
         className='PrimaryButton SeeAllButton'
-        to={{ pathname: `/search/people?query=${queryParameter}`, state: peopleDataToPass }}>
+        to={{ pathname: `/search/people`, state: peopleDataToPass }}>
         See all
       </Link>
     </div>

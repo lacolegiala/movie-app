@@ -182,10 +182,12 @@ export type MovieCredits = {
 
 export type MovieResult = {
   movies: Movie[],
-  numberOfResults: number
+  numberOfResults: number,
+  queryParameter: string
 }
 
 export type PersonResult = {
   people: PersonDetails[],
-  numberOfResults: number
+  numberOfResults: number,
+  queryParameter: string
 }
