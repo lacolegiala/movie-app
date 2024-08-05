@@ -9,7 +9,7 @@ const PeopleSearchResults: React.FC = () => {
   const [personResults, setPersonResults] = useState<{
     people: PersonDetails[];
     numberOfPeople: number;
-  }>({ people: [], numberOfPeople: 0 });
+  }>({ people: state.people, numberOfPeople: state.numberOfResults });
   const queryParameter = state.queryParameter
 
   const [page, setPage] = useState(1);
@@ -64,16 +64,16 @@ const PeopleSearchResults: React.FC = () => {
         ))}
         </div>
         <div className="ButtonContainer">
-        {state.people.length < personResults.numberOfPeople ? (
-          <button
-            className="SecondaryButton LoadButton"
-            onClick={() => setPage(page + 1)}
-          >
-            Load more
-          </button>
-        ) : (
-          <div className="BottomText">No more results to show</div>
-        )}
+          {personResults.people.length < personResults.numberOfPeople ? (
+            <button
+              className="SecondaryButton LoadButton"
+              onClick={() => setPage(page + 1)}
+            >
+              Load more
+            </button>
+          ) : (
+            <div className="BottomText">No more results to show</div>
+          )}
       </div>
     </div>
   )
