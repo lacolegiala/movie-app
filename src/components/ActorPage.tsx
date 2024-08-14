@@ -146,21 +146,24 @@ const ActorPage = () => {
                 actorPageState.personData.biography
               ) : (
                 <>
-                  {!showMore
+                  {showMore
                     ? actorPageState.personData.biography
+                    : actorPageState.personData.biography
                         .slice(0, 640)
-                        .concat('...')
-                    : actorPageState.personData.biography}
-                  <button
-                    className="ShowMore"
-                    onClick={() => setShowMore(!showMore)}
-                  >
-                    {!showMore ? 'Show more' : 'Show less'}
-                  </button>
+                        .concat('...')}
+                  {!showMore && (
+                    <button
+                      className="ShowMore"
+                      onClick={() => setShowMore(true)}
+                    >
+                      Show more
+                    </button>
+                  )}
                 </>
               )}
             </div>
           </div>
+
           <h2>Movies</h2>
           <select
             value={sortMoviesBy}
