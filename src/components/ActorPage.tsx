@@ -26,6 +26,7 @@ const ActorPage = () => {
   const [actorPageState, setActorPageState] = useState<Case>({
     type: 'loading',
   });
+  const [showMore, setShowMore] = useState<boolean>(false)
   const queryParameter = useQuery().get('sortmoviesby');
   const [sortMoviesBy, setSortMoviesBy] = useState<string>(
     queryParameter ?? 'newest'
@@ -139,7 +140,8 @@ const ActorPage = () => {
             </div>
           )}
           <h2>Biography</h2>
-          <div className="ActorInfo">{actorPageState.personData.biography}</div>
+          <div className="ActorInfo">{!showMore ? actorPageState.personData.biography.slice(0, 700).concat('...') : actorPageState.personData.biography}</div>
+          <button onClick={() => setShowMore(!showMore)}>{!showMore ? 'Show more' : 'Show less'}</button>
           <h2>Movies</h2>
           <select
             value={sortMoviesBy}
