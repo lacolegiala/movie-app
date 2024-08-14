@@ -15,6 +15,14 @@
   font-weight: bold;
 }
 
+.ShowMore {
+  background-color: white;
+  border-color: white;
+  border-style: hidden;
+  color: #295DCD;
+  font-weight: 500;
+}
+
 .AddListButton {
   padding: 10px 14px;
   margin-bottom: 8px;
@@ -242,7 +250,7 @@
 }
 
 .ActorInfo {
-  margin-bottom: 30px;
+  margin-bottom: 6px;
 }
 
 .MovieInfoContainer {

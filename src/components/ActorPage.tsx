@@ -139,9 +139,23 @@ const ActorPage = () => {
               <div>{formatDate(actorPageState.personData.deathday)}</div>
             </div>
           )}
-          <h2>Biography</h2>
-          <div className="ActorInfo">{!showMore ? actorPageState.personData.biography.slice(0, 700).concat('...') : actorPageState.personData.biography}</div>
-          <button onClick={() => setShowMore(!showMore)}>{!showMore ? 'Show more' : 'Show less'}</button>
+          <div>
+            <h2>Biography</h2>
+            <div className="ActorInfo">
+              {actorPageState.personData.biography.length <= 640 ? (
+                actorPageState.personData.biography
+              ) : (
+                <>
+                  {!showMore
+                    ? actorPageState.personData.biography.slice(0, 640).concat('...')
+                    : actorPageState.personData.biography}
+                  <button className="ShowMore" onClick={() => setShowMore(!showMore)}>
+                    {!showMore ? 'Show more' : 'Show less'}
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
           <h2>Movies</h2>
           <select
             value={sortMoviesBy}
