@@ -124,7 +124,7 @@ const ActorPage = () => {
               src={createImageUrl(actorPageState.personData.profile_path, {
                 width: 300,
               })}
-              alt="Actorr"
+              alt="Actor"
             />
           )}
           {actorPageState.personData.birthday && (
