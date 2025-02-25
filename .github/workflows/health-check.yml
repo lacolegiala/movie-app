@@ -1,0 +1,18 @@
+name: Health check
+
+on: 
+  schedule: 
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  health_check:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Check the deployed service URL
+      uses: jtalk/url-health-check-action@v4
+      with:
+        url: 'https://api.themoviedb.org/3/movie/popular?api_key=d5e44dd33260c00852e5fd0e20c58722'
+   
