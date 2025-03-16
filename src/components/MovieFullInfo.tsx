@@ -24,7 +24,7 @@ type ErrorData = {
 type Case = Success | Loading | ErrorData;
 
 const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
-  const [appCase, setAppCase] = useState<Case>({ type: 'loading' });
+  const [status, setStatus] = useState<Case>({ type: 'loading' });
   const [lists, setLists] = useState<List[]>([]);
 
   const { id } = useParams<{ id: string }>();
@@ -34,7 +34,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
       const movieInfo = await tmdbApiClient.get(
         `movie/${id}?&language=en-US&append_to_response=credits,videos`
       );
-      setAppCase({ type: 'success', data: movieInfo.data });
+      setStatus({ type: 'success', data: movieInfo.data });
       if (window.localStorage.getItem('movie_app/sessionId')) {
         const accountResponse = await tmdbApiClient.get('account');
         const listResponse = await tmdbApiClient.get<{ results: List[] }>(
@@ -52,7 +52,7 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
         setLists(listsMovieIsNotAddedTo);
       }
     } catch (error) {
-      setAppCase({ type: 'error' });
+      setStatus({ type: 'error' });
       console.error(error);
     }
   }, [id]);
@@ -74,16 +74,16 @@ const MovieFullInfo: React.FC<MovieInfoProps> = (props: MovieInfoProps) => {
 
   return (
     <div>
-      {appCase.type === 'success' && (
+      {status.type === 'success' && (
         <MovieFullInfoSuccess
-          movieData={appCase.data}
+          movieData={status.data}
           sessionId={props.sessionId}
           lists={lists}
           addToList={addToList}
         />
       )}
-      {appCase.type === 'loading' && <h1 className="Container">Loading</h1>}
-      {appCase.type === 'error' && (
+      {status.type === 'loading' && <h1 className="Container">Loading</h1>}
+      {status.type === 'error' && (
         <div className="Container">
           <h1>
             Something went wrong. Refresh page or check that the id is correct.
